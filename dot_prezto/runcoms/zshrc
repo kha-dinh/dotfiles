@@ -27,10 +27,31 @@ export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 
+
+_zsh_autosuggest_strategy_histdb_top_here() {
+    local query="select commands.argv from
+history left join commands on history.command_id = commands.rowid
+left join places on history.place_id = places.rowid
+where places.dir LIKE '$(sql_escape $PWD)%'
+and commands.argv LIKE '$(sql_escape $1)%'
+group by commands.argv order by count(*) desc limit 1"
+    suggestion=$(_histdb_query "$query")
+}
+
+ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
+
+
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/modules/zsh-histdb" ]]; then
+    source "${ZDOTDIR:-$HOME}/.zprezto/modules/zsh-histdb/histdb-interactive.zsh"
+fi
+
+bindkey '^r' _histdb-isearch
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-
+histdb-sync &
 # if [[ $- == *i* ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
 #     # tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux -d && tmux attach-session -t ssh_tmux
 # else
