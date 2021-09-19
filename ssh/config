@@ -1,0 +1,10 @@
+Host *
+	IdentityFile ~/.ssh/id_rsa
+	ForwardX11 yes
+	
+Host sslab
+	HostName ssslab.skku.edu
+	Port 3221
+	User khadinh
+
+	
