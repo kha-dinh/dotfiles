@@ -17,11 +17,13 @@
       path: dot_config/*
     ~/.doom.d:
       path: dot_doom_d/*
+    ~/.emacs.d:
+      path: doom-emacs/*
     ~/.doom.d:
       if: '[ $PLATFORM = termux ]'
       path: dot_doom_d_termux/*
-    ~/.histdb/zsh-history.db:
-      dot_histdb/zsh-history.db
+    ~/.histdb/zsh-history.db: dot_histdb/zsh-history.db
+    ~/.ssh/config: ssh/config
     ~/.zprezto: dot_prezto
     ~/.zlogin: dot_prezto/runcoms/zlogin
     ~/.zlogout: dot_prezto/runcoms/zlogout
