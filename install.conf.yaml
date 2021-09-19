@@ -16,7 +16,7 @@
     ~/.config:
       path: dot_config/*
     ~/.doom.d:
-      path: dot_doom_d
+      path: dot_doom_d/*
     ~/.emacs.d:
       path: doom-emacs
     ~/.doom.d:
