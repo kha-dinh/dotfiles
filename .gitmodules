@@ -49,3 +49,6 @@
 [submodule "nvim/packer.nvim"]
 	path = nvim/packer.nvim
 	url = https://github.com/wbthomason/packer.nvim
+[submodule "histdb"]
+	path = histdb
+	url = git@github.com:kha-dinh/histdb.git
