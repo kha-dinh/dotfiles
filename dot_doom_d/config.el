@@ -1,10 +1,4 @@
-#+title: My Doom Emacs config
-#+begin_src emacs-lisp :tangle yes
 ;;; config.el -*- lexical-binding: t; -*-
-#+end_src
-* Better defaults
-This is stolen from...
-#+begin_src emacs-lisp :tangle yes
 
 (setq-default delete-by-moving-to-trash t                      ; Delete files to trash
               window-combination-resize t                      ; take new window space from all other windows (not just current)
@@ -28,23 +22,9 @@ This is stolen from...
     (display-battery-mode 1)                        ; On laptops it's nice to know how much power you have
   (setq password-cache-expiry nil))               ; I can trust my desktops ... can't I? (no battery = desktop)
 
-
-
-
-#+end_src
-* Global variables
-#+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Dinh Duy Kha"
       user-mail-address "dalo2903@gmail.com")
-#+end_src
-* User Interface
-** Packages
-#+begin_src emacs-lisp :tangle packages.el
-(package! nyan-mode)
-(package! shfmt)
-#+end_src
-** Configs
-#+begin_src emacs-lisp :tangle yes
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -68,19 +48,12 @@ This is stolen from...
   (setq centaur-tabs-height 36)
 
   )
-#+end_src
-*** Ranger
-#+begin_src emacs-lisp :tangle yes
+
 (use-package! ranger
   :config (setq ranger-override-dired 'ranger))
-#+end_src
-* Programming Configs
-** Variables
-#+begin_src emacs-lisp :tangle yes
+
 (defvar my-completion-delay 0)
-#+end_src
-** LSP
-#+begin_src emacs-lisp :tangle yes
+
 (use-package! lsp-mode
   ;; :hook (lsp-mode . lsp-ui-mode)
   :config
@@ -98,15 +71,7 @@ This is stolen from...
                                   "--header-insertion-decorators=0"))
   (after! lsp-clangd (set-lsp-priority! 'clangd 2))
   )
-#+end_src
-** Code Completion
-*** Packages
 
-#+begin_src emacs-lisp :tangle packages.el
-(package! company-tabnine)
-#+end_src
-*** Company
-#+begin_src emacs-lisp :tangle yes
 (after! company
   :config
   (setq
@@ -122,13 +87,7 @@ This is stolen from...
    )
   ;; (add-hook 'evil-normal-state-entry-hook #'company-abort)
   )
-#+end_src
-* Language Settings
-** Packages
-#+begin_src emacs-lisp :tangle packages.el
-#+end_src
-** C/C++
-#+begin_src emacs-lisp :tangle yes
+
 (map! :leader
       :prefix "f"
       :desc "Find other file" "o" 'ff-find-other-file
@@ -136,30 +95,7 @@ This is stolen from...
 
 ;; (setq +format-with-lsp nil)
 ;; (setq c-default-style "user")
-#+end_src
-** Python 
 
-* Org Mode Configs
-** Extra packages
-#+begin_src emacs-lisp :tangle packages.el
-(package! doct)
-(package! org-pretty-tags)
-;; (package! org-roam-server)
-(package! gnuplot-mode)
-(package! gnuplot)
-;; (package!  ivy-bibtex)
-(package! org-roam-bibtex)
-(package! org-ref)
-(package! org-pomodoro)
-(package! org-tree-slide)
-;; (package! org-download)
-#+end_src
-
-#+RESULTS:
-| org-tree-slide | :modules | (nil) |
-
-** Configs
-#+BEGIN_SRC emacs-lisp :tangle yes
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Dropbox/org/")
@@ -312,21 +248,9 @@ same directory as the org-buffer and insert a link to this file."
 (add-to-list 'image-file-name-extensions "pdf")
 (setq imagemagick-types-inhibit (remove 'PDF imagemagick-types-inhibit))
 (setq org-image-actual-width 600)
-#+END_SRC
 
-** Templates
-#+begin_src emacs-lisp :tangle yes
-#+end_src
-* Latex Configs
-** Packages
-#+begin_src emacs-lisp :tangle packages.el
-(package! lsp-latex)
-(unpin! pdf-tools)
-;; (package! pdf-tools :pin nil)
-#+end_src
 
-** Configs
-#+begin_src emacs-lisp :tangle yes
+
 (use-package! lsp-latex
   :config
   (server-start)
@@ -353,20 +277,7 @@ same directory as the org-buffer and insert a link to this file."
 ;;         )
 ;;   )
 ;; (add-hook! LaTeX-mode lsp)
-#+end_src
 
-* Code Editing
-#+begin_src emacs-lisp :tangle packages.el
-(package! comment-dwim-2)
-(package! iedit)
-#+end_src
-* Key bindings
-**  General movements
-
-#+begin_src emacs-lisp :tangle packages.el
-(package! zygospore)
-#+end_src
-#+begin_src emacs-lisp :tangle yes
 (global-set-key (kbd "M-;") 'comment-dwim-2)
 (map! :leader
       :desc "Toggle delete other windows" "1" 'zygospore-toggle-delete-other-windows
@@ -378,9 +289,7 @@ same directory as the org-buffer and insert a link to this file."
       :desc "Next buffer" "]" 'next-buffer
       )
 (global-set-key (kbd "C-s") 'save-buffer)
-#+end_src
-** Dired
-#+begin_src emacs-lisp :tangle yes
+
 (defhydra hydra-dired (:hint nil :color pink)
   "
 _+_ mkdir          _v_iew           _m_ark             _(_ details        _i_nsert-subdir    wdired
@@ -436,14 +345,7 @@ T - tag prefix
  :map dired-mode-map
  ("." 'hydra-dired/body)
  )
-#+end_src
-* Misc
-** Packages
-#+begin_src emacs-lisp :tangle packages.el
-(package! evil-tutor)
-#+end_src
-** Log files revert
-#+begin_src emacs-lisp :tangle yes
+
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-tail-mode))
 (add-to-list 'auto-mode-alist '("\\.terminal\\'" . auto-revert-tail-mode))
 
@@ -460,17 +362,10 @@ T - tag prefix
     (show-smartparens-mode 0)))
 
 (add-hook 'auto-revert-tail-mode-hook 'etc-log-tail-handler)
-#+end_src
 
-** New frame behavior
-# Disable opening new workspace
-#+begin_src emacs-lisp :tangle yes
 (after! persp-mode
   (setq persp-emacsclient-init-frame-behaviour-override "main"))
-#+end_src
 
-** Yank image into clipboard
-#+begin_src emacs-lisp :tangle yes
 (defun x11-yank-image-at-point-as-image ()
   "Yank the image at point to the X11 clipboard as image/png."
   (interactive)
@@ -493,4 +388,3 @@ T - tag prefix
                 (t
                  (message "The image seems to be malformed."))))
       (message "Point is not at an image."))))
-#+end_src

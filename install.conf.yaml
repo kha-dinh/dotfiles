@@ -15,13 +15,15 @@
 - link:
     ~/.config:
       path: dot_config/*
-    ~/.doom.d:
-      path: dot_doom_d/*
     ~/.emacs.d:
       path: doom-emacs
-    ~/.doom.d:
+    ~/.doom.d: dot_doom_d
+    ~/.doom.d/init.el:
       if: '[ $PLATFORM = termux ]'
-      path: dot_doom_d_termux/*
+      path: dot_doom_d_termux/init.el
+    ~/.doom.d/config.org:
+      if: '[ $PLATFORM = termux ]'
+      path: dot_doom_d_termux/config.org
     ~/.histdb: histdb
     ~/.ssh/config: ssh/config
     ~/.zprezto: dot_prezto
