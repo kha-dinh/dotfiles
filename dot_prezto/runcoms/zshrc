@@ -51,7 +51,6 @@ bindkey '^r' _histdb-isearch
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-histdb-sync &
 # if [[ $- == *i* ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
 #     # tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux -d && tmux attach-session -t ssh_tmux
 # else
