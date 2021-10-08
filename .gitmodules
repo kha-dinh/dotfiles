@@ -52,6 +52,6 @@
 [submodule "histdb"]
 	path = histdb
 	url = git@github.com:kha-dinh/histdb.git
-[submodule "doom-emacs"]
-	path = doom-emacs
-	url = https://github.com/hlissner/doom-emacs
+[submodule "dotbot-git"]
+	path = dotbot-git
+	url = https://github.com/DrDynamic/dotbot-git.git
