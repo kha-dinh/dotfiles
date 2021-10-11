@@ -49,9 +49,6 @@
 [submodule "nvim/packer.nvim"]
 	path = nvim/packer.nvim
 	url = https://github.com/wbthomason/packer.nvim
-[submodule "histdb"]
-	path = histdb
-	url = git@github.com:kha-dinh/histdb.git
-[submodule "doom-emacs"]
-	path = doom-emacs
-	url = https://github.com/hlissner/doom-emacs
+[submodule "dotbot-plugins/dotbot-git"]
+	path = dotbot-plugins/dotbot-git
+	url = https://github.com/DrDynamic/dotbot-git.git
