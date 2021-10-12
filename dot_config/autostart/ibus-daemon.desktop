@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=ibus
-Comment=ibus startup
-Exec=/usr/bin/ibus-daemon
-StartupNotify=false
-Terminal=true
