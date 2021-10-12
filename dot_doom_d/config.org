@@ -168,38 +168,39 @@ This is stolen from...
 ;; (setq org-ref-completion-library 'org-ref-ivy-cite)
 ;; https://rgoswami.me/posts/org-note-workflow/
 ;; (add-hook! org-roam-mode org-roam-bibtex-mode)
-(use-package! org-ref
-  :after org
-  :config
-  (setq
-   org-ref-completion-library 'org-ref-ivy-cite
-   org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex
-   org-ref-default-bibliography '("~/Dropbox/org/bibliography/bibliography.bib")
-   org-ref-bibliography-notes "~/Dropbox/org/bibliography/notes"
-   org-ref-notes-directory "~/Dropbox/org/bibliography/notes"
-   ;; org-ref-notes-function 'orb-edit-notes
-   org-ref-note-title-format
-   (concat
-    "* TODO %y - %t\n"
-    ":PROPERTIES:\n"
-    ":Custom_ID: %k\n"
-    ":NOTER_DOCUMENT: %F\n"
-    ":ROAM_KEY: %k\n"
-    ":AUTHOR: %9a\n"
-    ":JOURNAL: %j\n"
-    ":YEAR: %y\n"
-    ":VOLUME: %v\n"
-    ":PAGES: %p\n"
-    ":DOI: %D\n"
-    ":URL: %U\n"
-    ":END:\n\n"
-    )
-   )
-  )
+;; (use-package! org-ref
+;;   :after org
+;;   :config
+;;   (setq
+;;    org-ref-completion-library 'org-ref-ivy-cite
+;;    org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex
+;;    org-ref-default-bibliography '("~/Dropbox/org/bibliography/bibliography.bib")
+;;    org-ref-bibliography-notes "~/Dropbox/or
+;; g/bibliography/notes"
+;;    org-ref-notes-directory "~/Dropbox/org/bibliography/notes"
+;;    ;; org-ref-notes-function 'orb-edit-notes
+;;    org-ref-note-title-format
+;;    (concat
+;;     "* TODO %y - %t\n"
+;;     ":PROPERTIES:\n"
+;;     ":Custom_ID: %k\n"
+;;     ":NOTER_DOCUMENT: %F\n"
+;;     ":ROAM_KEY: %k\n"
+;;     ":AUTHOR: %9a\n"
+;;     ":JOURNAL: %j\n"
+;;     ":YEAR: %y\n"
+;;     ":VOLUME: %v\n"
+;;     ":PAGES: %p\n"
+;;     ":DOI: %D\n"
+;;     ":URL: %U\n"
+;;     ":END:\n\n"
+;;     )
+;;    )
+;;   )
 
 
 (setq deft-recursive t)
-(add-hook! org-mode +org-pretty-mode)
+;; (add-hook! org-mode +org-pretty-mode)
 
 (after! org-ref
   (setq bibtex-completion-bibliography '("~/Dropbox/org/bibliography/bibliography.bib")
