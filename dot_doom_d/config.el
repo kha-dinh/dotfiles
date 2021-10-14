@@ -90,11 +90,14 @@
 
 (map! :leader
       :prefix "f"
-      :desc "Find other file" "o" 'ff-find-other-file
+      :desc "find other file" "o" 'ff-find-other-file
       )
 
 ;; (setq +format-with-lsp nil)
 ;; (setq c-default-style "user")
+
+(require 'llvm-mode)
+(require 'tablegen-mode)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!

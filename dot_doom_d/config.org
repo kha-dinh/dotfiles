@@ -131,13 +131,22 @@ This is stolen from...
 #+begin_src emacs-lisp :tangle yes
 (map! :leader
       :prefix "f"
-      :desc "Find other file" "o" 'ff-find-other-file
+      :desc "find other file" "o" 'ff-find-other-file
       )
 
 ;; (setq +format-with-lsp nil)
 ;; (setq c-default-style "user")
 #+end_src
 ** Python 
+
+** LLVM
+#+begin_src emacs-lisp :tangle packages.el
+	(add-load-path! "lisp/llvm")
+#+end_src
+#+begin_src emacs-lisp :tangle yes
+	(require 'llvm-mode)
+	(require 'tablegen-mode)
+#+end_src
 
 * Org Mode Configs
 ** Extra packages

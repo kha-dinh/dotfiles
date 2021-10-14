@@ -5,6 +5,8 @@
 
 
 
+(add-load-path! "lisp/llvm")
+
 (package! doct)
 (package! org-pretty-tags)
 ;; (package! org-roam-server)

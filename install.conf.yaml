@@ -23,8 +23,7 @@
     ~/.doom.d/config.org:
       if: "[ $PLATFORM = termux ]"
       path: dot_doom_d_termux/config.org
-
-    ~/.emacs-packages:
+    ~/.doom.d/lisp:
       path: emacs-packages/**
     ~/.ssh/config: ssh/config
     ~/.zprezto: dot_prezto
