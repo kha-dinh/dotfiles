@@ -15,14 +15,17 @@
 - link:
     ~/.config:
       path: dot_config/**
-      exclude: [ dot_config/nvim/plugins ]
+      exclude: [dot_config/nvim/plugins]
     ~/.doom.d: dot_doom_d
     ~/.doom.d/init.el:
-      if: '[ $PLATFORM = termux ]'
+      if: "[ $PLATFORM = termux ]"
       path: dot_doom_d_termux/init.el
     ~/.doom.d/config.org:
-      if: '[ $PLATFORM = termux ]'
+      if: "[ $PLATFORM = termux ]"
       path: dot_doom_d_termux/config.org
+
+    ~/.emacs-packages:
+      path: emacs-packages/**
     ~/.ssh/config: ssh/config
     ~/.zprezto: dot_prezto
     ~/.zlogin: dot_prezto/runcoms/zlogin
@@ -36,12 +39,12 @@
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim: nvim/packer.nvim
 
 - git:
-   '~/.histdb':
-    url: 'git@github.com:kha-dinh/histdb.git'  
-    description: 'history db'
-   '~/.emacs.d':
-    url: 'git@github.com:hlissner/doom-emacs.git'  
-    description: 'doom-emacs'
+    "~/.histdb":
+      url: "git@github.com:kha-dinh/histdb.git"
+      description: "history db"
+    "~/.emacs.d":
+      url: "git@github.com:hlissner/doom-emacs.git"
+      description: "doom-emacs"
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

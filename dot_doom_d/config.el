@@ -76,14 +76,14 @@
   :config
   (setq
    company-idle-delay my-completion-delay
+   company-show-numbers t
    company-minimum-prefix-length 1)
   (add-to-list 'company-backends #'company-tabnine)
 
   (map!
    :map company-active-map
    ("TAB" 'company-complete-selection)
-   ("<return>" nil)
-   ("RET" nil)
+   ("RET" 'company-complete-selection)
    )
   ;; (add-hook 'evil-normal-state-entry-hook #'company-abort)
   )

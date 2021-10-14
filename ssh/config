@@ -5,6 +5,7 @@ Host *
 Host sslab
 	HostName ssslab.skku.edu
 	Port 3221
+	ForwardX11 no
 	User khadinh
 
 Host ssservice-admin
