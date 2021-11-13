@@ -53,6 +53,10 @@ alias pacq="${_pacman_frontend} --sync --info"
 # Displays information about a package from the local database.
 alias pacQ="${_pacman_frontend} --query --info"
 
+
+# Display install package and size
+alias pacL="${_pacman_frontend} -Qi | awk '/^Name/{name=\$3} /^Installed Size/{print \$4\$5, name}' | sort -h"
+
 # Searches for packages in the repositories.
 alias pacs="${_pacman_frontend} --sync --search"
 

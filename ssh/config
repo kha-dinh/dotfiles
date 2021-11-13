@@ -10,12 +10,13 @@ Host sslab
 
 Host ssservice-admin
 	Hostname sslab.skku.edu
-	Port 2222
+	Port 3321
 	User ssservice-admin
 	
 Host ssone
 	Hostname ssone.skku.edu
 	Port 1221
+	User khadinh
 
 
 Host ctf-server

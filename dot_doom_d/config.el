@@ -41,6 +41,7 @@
   (nyan-start-animation))
 (global-visual-line-mode)
 (setq display-line-numbers-type 'relative)
+
 (after! centaur-tabs
   (setq centaur-tabs-set-modified-marker t)
   (setq centaur-tabs-style "wave")
@@ -96,17 +97,24 @@
 ;; (setq +format-with-lsp nil)
 ;; (setq c-default-style "user")
 
-(require 'llvm-mode)
-(require 'tablegen-mode)
+	(require 'llvm-mode)
+	(require 'tablegen-mode)
 
-;; If you use `org' and don't want your org files in the default location below,
+;; c;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Dropbox/org/")
 (setq org-roam-directory "~/Dropbox/org/roam/")
 (setq deft-directory "~/Dropbox/org/")
-;; (setq org-ref-completion-library 'org-ref-ivy-cite)
+(use-package! org
+  :hook (org-mode . +org-pretty-mode)
+  :init
+  (setq org-directory "~/Dropbox/org/")
+  ;; (setq org-agenda-files "~/Dropbox/org/" )
+  )
+(setq org-ref-completion-library 'org-ref-ivy-cite)
+
 ;; https://rgoswami.me/posts/org-note-workflow/
-;; (add-hook! org-roam-mode org-roam-bibtex-mode)
+;;(add-hook! org-roam-mode org-roam-bibtex-mode)
+;;(add-hook! org-roam-mode org-roam-bibtex-mode)
 ;; (use-package! org-ref
 ;;   :after org
 ;;   :config
@@ -140,28 +148,54 @@
 
 (setq deft-recursive t)
 ;; (add-hook! org-mode +org-pretty-mode)
+(setq reftex-default-bibliography "~/Dropbox/org/bibliography/bibliography.bib")
+(after! bibtex
+  (setq bibtex-autokey-year-length 4
+        bibtex-autokey-name-year-separator "-"
+        bibtex-autokey-year-title-separator "-"
+        bibtex-autokey-titleword-separator "-"
+        bibtex-autokey-titlewords 2
+        bibtex-autokey-titlewords-stretch 1
+        bibtex-autokey-titleword-length 5
+        org-ref-bibtex-hydra-key-binding (kbd "H-b"))
+  )
 
-(after! org-ref
-  (setq bibtex-completion-bibliography '("~/Dropbox/org/bibliography/bibliography.bib")
-        bibtex-completion-notes-path "~/Dropbox/org/bibliography/notes/"
-        bibtex-completion-pdf-field "file"
-        bibtex-completion-notes-template-multiple-files
-        (concat
-         "#+TITLE: ${title}\n"
-         "#+ROAM_KEY: ${=key=}\n"
-         "* TODO Notes\n"
-         ":PROPERTIES:\n"
-         ":Custom_ID: ${=key=}\n"
-         ":NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
-         ":AUTHOR: ${author-abbrev}\n"
-         ":JOURNAL: ${journaltitle}\n"
-         ":DATE: ${date}\n"
-         ":YEAR: ${year}\n"
-         ":DOI: ${doi}\n"
-         ":URL: ${url}\n"
-         ":END:\n\n"
-         )
-        )
+(after! org-ref-ivy
+  (setq org-ref-insert-link-function 'org-ref-insert-link-hydra/body
+        org-ref-insert-cite-function 'org-ref-cite-insert-ivy
+        org-ref-insert-label-function 'org-ref-insert-label-link
+        org-ref-insert-ref-function 'org-ref-insert-ref-link
+        org-ref-cite-onclick-function (lambda (_) (org-ref-citation-hydra/body)))
+  )
+(use-package! ivy-bibtex
+  :init
+  (setq
+   bibtex-completion-bibliography '("~/Dropbox/org/bibliography/bibliography.bib")
+   bibtex-completion-notes-path "~/Dropbox/org/bibliography/notes/"
+   bibtex-completion-pdf-field "file"
+   bibtex-completion-display-formats
+   '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+     (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+     (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+     (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+     (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+   bibtex-completion-notes-template-multiple-files
+   (concat
+    "#+TITLE: ${title}\n"
+    "#+ROAM_KEY: ${=key=}\n"
+    "* TODO Notes\n"
+    ":PROPERTIES:\n"
+    ":Custom_ID: ${=key=}\n"
+    ":NOTER_DOCUMENT: %(orb-process-file-field \"${=key=}\")\n"
+    ":AUTHOR: ${author-abbrev}\n"
+    ":JOURNAL: ${journaltitle}\n"
+    ":DATE: ${date}\n"
+    ":YEAR: ${year}\n"
+    ":DOI: ${doi}\n"
+    ":URL: ${url}\n"
+    ":END:\n\n"
+    )
+   )
   )
 ;; (use-package! org-roam-bibtex
 ;;   :after (org-roam)
@@ -253,20 +287,11 @@ same directory as the org-buffer and insert a link to this file."
 (setq imagemagick-types-inhibit (remove 'PDF imagemagick-types-inhibit))
 (setq org-image-actual-width 600)
 
-
-
-(use-package! lsp-latex
-  :config
-  (server-start)
-  (setq
-   lsp-latex-forward-search-executable "emacsclient"
-   lsp-latex-texlab-executable "~/.cargo/bin/texlab"
-   lsp-latex-forward-search-args
-   '("--eval"
-     "(lsp-latex-forward-search-with-pdf-tools \"%f\" \"%p\" \"%l\")")
-   ))
-(setq reftex-default-bibliography "~/Dropbox/org/bibliography/bibliography.bib")
-(setq +latex-viewers '(zathura pdf-tools okular))
+;; (setq lsp-latex-forward-search-args
+;; '("--eval"
+;;   "(lsp-latex-forward-search-with-pdf-tools \"%f\" \"%p\" \"%l\")")
+;; )
+(setq +latex-viewers '(okular pdf-tools))
 (setq-default TeX-engine 'xetex)
 (setq-default TeX-PDF-mode t)
 ;; (add-hook! LaTeX-mode
@@ -352,6 +377,7 @@ T - tag prefix
 
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-tail-mode))
 (add-to-list 'auto-mode-alist '("\\.terminal\\'" . auto-revert-tail-mode))
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . auto-revert-tail-mode))
 
 (defun etc-log-tail-handler ()
   (end-of-buffer)
@@ -392,3 +418,8 @@ T - tag prefix
                 (t
                  (message "The image seems to be malformed."))))
       (message "Point is not at an image."))))
+
+(use-package! lsp-grammarly
+  :hook (text-mode . (lambda ()
+                       (add-to-list 'lsp-language-id-configuration '(org-mode . "plaintext"))
+                       (lsp))))  ; or lsp-deferred
