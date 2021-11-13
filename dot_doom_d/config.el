@@ -102,12 +102,13 @@
 
 ;; c;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-roam-directory "~/Dropbox/org/roam/")
-(setq deft-directory "~/Dropbox/org/")
+;; TODO: Clean up
+(setq org-roam-directory "~/org/roam/")
+(setq deft-directory "~/org/")
 (use-package! org
   :hook (org-mode . +org-pretty-mode)
   :init
-  (setq org-directory "~/Dropbox/org/")
+  (setq org-directory "~/org/")
   ;; (setq org-agenda-files "~/Dropbox/org/" )
   )
 (setq org-ref-completion-library 'org-ref-ivy-cite)
@@ -148,7 +149,7 @@
 
 (setq deft-recursive t)
 ;; (add-hook! org-mode +org-pretty-mode)
-(setq reftex-default-bibliography "~/Dropbox/org/bibliography/bibliography.bib")
+(setq reftex-default-bibliography "~/org/bibliography/bibliography.bib")
 (after! bibtex
   (setq bibtex-autokey-year-length 4
         bibtex-autokey-name-year-separator "-"
@@ -170,8 +171,8 @@
 (use-package! ivy-bibtex
   :init
   (setq
-   bibtex-completion-bibliography '("~/Dropbox/org/bibliography/bibliography.bib")
-   bibtex-completion-notes-path "~/Dropbox/org/bibliography/notes/"
+   bibtex-completion-bibliography '("~/org/bibliography/bibliography.bib")
+   bibtex-completion-notes-path "~/org/bibliography/notes/"
    bibtex-completion-pdf-field "file"
    bibtex-completion-display-formats
    '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
@@ -224,7 +225,7 @@
    org-noter-hide-other nil
    org-noter-separate-notes-from-heading t
    ;; Everything is relative to the main notes file
-   org-noter-notes-search-path (list "~/Dropbox/org/bibliography/notes/")
+   org-noter-notes-search-path (list "~/org/bibliography/notes/")
    )
   (map!
    :map org-noter-doc-mode-map
