@@ -2,6 +2,11 @@ Host *
 	IdentityFile ~/.ssh/id_rsa
 	ForwardX11 yes
 	
+Host upmemcloud*
+   User dalo2903
+   Hostname %h.cloud.upmem.com
+   IdentityFile ~/.ssh/upmemcloud_dalo2903
+
 Host sslab
 	HostName ssslab.skku.edu
 	Port 3221

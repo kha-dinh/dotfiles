@@ -40,10 +40,11 @@
   (nyan-mode)
   (nyan-start-animation))
 (global-visual-line-mode)
+(setq-default visual-fill-column-center-text t)
 (setq display-line-numbers-type 'relative)
 
 (after! centaur-tabs
-  (setq centaur-tabs-set-modified-marker t)
+  ;; (setq centaur-tabs-set-modified-marker t)
   (setq centaur-tabs-style "wave")
   (setq centaur-tabs-set-icons t)
   (setq centaur-tabs-height 36)
@@ -80,11 +81,13 @@
    company-show-numbers t
    company-minimum-prefix-length 1)
   (add-to-list 'company-backends #'company-tabnine)
+  (add-to-list 'company-backends #'company-capf)
 
   (map!
    :map company-active-map
-   ("TAB" 'company-complete-selection)
+   ("<tab>" 'company-complete-selection)
    ("RET" 'company-complete-selection)
+
    )
   ;; (add-hook 'evil-normal-state-entry-hook #'company-abort)
   )
@@ -113,40 +116,31 @@
   )
 (setq org-ref-completion-library 'org-ref-ivy-cite)
 
-;; https://rgoswami.me/posts/org-note-workflow/
-;;(add-hook! org-roam-mode org-roam-bibtex-mode)
-;;(add-hook! org-roam-mode org-roam-bibtex-mode)
-;; (use-package! org-ref
-;;   :after org
-;;   :config
-;;   (setq
-;;    org-ref-completion-library 'org-ref-ivy-cite
-;;    org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex
-;;    org-ref-default-bibliography '("~/Dropbox/org/bibliography/bibliography.bib")
-;;    org-ref-bibliography-notes "~/Dropbox/or
-;; g/bibliography/notes"
-;;    org-ref-notes-directory "~/Dropbox/org/bibliography/notes"
-;;    ;; org-ref-notes-function 'orb-edit-notes
-;;    org-ref-note-title-format
-;;    (concat
-;;     "* TODO %y - %t\n"
-;;     ":PROPERTIES:\n"
-;;     ":Custom_ID: %k\n"
-;;     ":NOTER_DOCUMENT: %F\n"
-;;     ":ROAM_KEY: %k\n"
-;;     ":AUTHOR: %9a\n"
-;;     ":JOURNAL: %j\n"
-;;     ":YEAR: %y\n"
-;;     ":VOLUME: %v\n"
-;;     ":PAGES: %p\n"
-;;     ":DOI: %D\n"
-;;     ":URL: %U\n"
-;;     ":END:\n\n"
-;;     )
-;;    )
-;;   )
+(use-package! websocket
+  :after org-roam)
+(after! org-roam
+  (defun my/org-id-update-org-roam-files ()
+    "Update Org-ID locations for all Org-roam files."
+    (interactive)
+    (org-id-update-id-locations (org-roam-list-files)))
 
-
+  (defun my/org-id-update-id-current-file ()
+    "Scan the current buffer for Org-ID locations and update them."
+    (interactive)
+    (org-id-update-id-locations (list (buffer-file-name (current-buffer))))))
+;;
+(use-package! org-roam-ui
+  :after org-roam ;; or :after org
+  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+  ;;         a hookable mode anymore, you're advised to pick something yourself
+  ;;         if you don't care about startup time, use
+  ;;  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
+;;
 (setq deft-recursive t)
 ;; (add-hook! org-mode +org-pretty-mode)
 (setq reftex-default-bibliography "~/org/bibliography/bibliography.bib")
@@ -260,11 +254,6 @@
                  :prepend t
                  :kill-buffer t))
   )
-;; (use-package! org-roam-server
-;;   :config
-;;   (setq org-roam-server-host "localhost"
-;;         org-roam-server-port 8080
-;;         org-roam-server-authenticate nil))
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((gnuplot . t)))

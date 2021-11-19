@@ -15,6 +15,9 @@
 ;; (package!  ivy-bibtex)
 (package! org-roam-bibtex)
 (package! org-ref)
+
+(unpin! org-roam)
+(package! org-roam-ui)
 ;; (package! org-pomodoro)
 ;; (package! org-tree-slide)
 ;; (package! org-download)
@@ -27,3 +30,5 @@
 (package! lsp-grammarly)
 ;; Required by lsp-grammarly
 (package! keytar)
+(package! unfill)
+(package! virtual-auto-fill)
