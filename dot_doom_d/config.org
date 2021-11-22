@@ -170,6 +170,7 @@ This is stolen from...
 (package! org-ref)
 
 (unpin! org-roam)
+(unpin! org-mode)
 (package! org-roam-ui)
 ;; (package! org-pomodoro)
 ;; (package! org-tree-slide)
@@ -524,4 +525,9 @@ Copied from somewhere
                        (add-to-list 'lsp-language-id-configuration '(org-mode . "plaintext"))
                        (lsp))))  ; or lsp-deferred
 
+#+end_src
+
+* Publishing
+** Packages
+#+begin_src emacs-lisp :tangle packages.el
 #+end_src
