@@ -7,10 +7,24 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+lvim.plugins = {
+  {"folke/tokyonight.nvim"},
+  {"ThePrimeagen/harpoon"},
+  {"ggandor/lightspeed.nvim"},
+  {"lukas-reineke/indent-blankline.nvim"}
+  -- {"numToStr/Comment.nvim"}
+}
+
+require("indent_blankline").setup{
+  filetype_exclue = {"dashboard"}
+}
+vim.g["wrap"] = 1
+require("lightspeed").setup {}
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
+
 lvim.colorscheme = "tokyonight"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -30,9 +44,14 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 -- Remap enter to tab
-local temp = lvim.builtin.cmp.mapping["<CR>"]
-lvim.builtin.cmp.mapping["<Tab>"] = temp
+lvim.builtin.cmp.mapping["<Tab>"] = lvim.builtin.cmp.mapping["<CR>"]
 
+local _, cmp = pcall(require, "cmp")
+cmp.setup {
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
+  }
+}
 
  -- local _, cmp = pcall(require, 'cmp')
 -- cmp.setup {
@@ -87,7 +106,9 @@ lvim.builtin.which_key.mappings["m"] = {
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Telescope",
   b = {"<cmd>Telescope buffers<cr>", "Telescope buffers"},
-  f = {"<cmd>Telescope find_files<cr>", "Telescope find files"}
+  f = {"<cmd>Telescope find_files<cr>", "Telescope find files"},
+  p = {"<cmd>Telescope projects<cr>", "Telescope find projects"},
+  r = {"<cmd>Telescope oldfiles<cr>", "Telescope find recents"}
 }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -194,12 +215,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 -- Additional Plugins
-lvim.plugins = {
-  {"EdenEast/nightfox.nvim"},
-  {"folke/tokyonight.nvim"},
-  {"ThePrimeagen/harpoon"},
-  -- {"numToStr/Comment.nvim"}
-}
 -- lvim.plugins = {
 --     {"folke/tokyonight.nvim"},
 --     {
