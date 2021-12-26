@@ -15,7 +15,7 @@
 - link:
     ~/.config:
       path: dot_config/**
-      exclude: [dot_config/nvim/plugins]
+      # exclude: [dot_config/lvim/plugins]
     ~/.doom.d: dot_doom_d
     ~/.doom.d/init.el:
       if: "[ $PLATFORM = termux ]"
@@ -35,7 +35,7 @@
     ~/.zshrc: dot_prezto/runcoms/zshrc
     ~/.p10k.zsh: dot_prezto/runcoms/p10k.zsh
     ~/.vimrc: dot_prezto/runcoms/vimrc
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim: nvim/packer.nvim
+    # ~/.local/share/nvim/site/pack/packer/start/packer.nvim: nvim/packer.nvim
 
 - git:
     "~/.histdb":
