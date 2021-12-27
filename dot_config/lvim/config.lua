@@ -11,13 +11,50 @@ lvim.plugins = {
   {"folke/tokyonight.nvim"},
   {"ThePrimeagen/harpoon"},
   {"ggandor/lightspeed.nvim"},
-  {"lukas-reineke/indent-blankline.nvim"}
-  -- {"numToStr/Comment.nvim"}
+  {
+    'wfxr/minimap.vim',
+    run = "cargo install --locked code-minimap",
+    -- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
+    config = function ()
+      vim.cmd ("let g:minimap_width = 10")
+      vim.cmd ("let g:minimap_auto_start = 1")
+      vim.cmd ("let g:minimap_auto_start_win_enter = 1")
+    end,
+  },
+  {
+    "tzachar/cmp-tabnine",
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
+    setup = function()
+      vim.g.indentLine_enabled = 1
+      vim.g.indent_blankline_char = "▏"
+      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
+      vim.g.indent_blankline_buftype_exclude = {"terminal"}
+      vim.g.indent_blankline_show_trailing_blankline_indent = false
+      vim.g.indent_blankline_show_first_indent_level = false
+    end
+  },
+
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "BufRead",
+    config = function()
+      require "lsp_signature".setup()
+    end
+  },
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+
+
 }
 
-require("indent_blankline").setup{
-  filetype_exclue = {"dashboard"}
-}
 vim.g["wrap"] = 1
 require("lightspeed").setup {}
 
@@ -32,17 +69,6 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
--- inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
--- inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
--- lvim.keys.insert_mode["<tab>"] = "pumvisible()?"
-
-
--- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = false
--- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
-
 -- Remap enter to tab
 lvim.builtin.cmp.mapping["<Tab>"] = lvim.builtin.cmp.mapping["<CR>"]
 
@@ -52,16 +78,6 @@ cmp.setup {
     completeopt = 'menu,menuone,noinsert'
   }
 }
-
- -- local _, cmp = pcall(require, 'cmp')
--- cmp.setup {
---   mapping = {
---     ['<Tab>'] = cmp.mapping.complete()
---   }
--- }
-
--- lvim.builtin.cmp.mapping['<Tab>'] = cmp.complete()
-
 
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
@@ -101,7 +117,6 @@ lvim.builtin.which_key.mappings["m"] = {
   ["3"] = {"<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to file 3"},
   ["4"] = {"<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Navigate to file 4"}
 }
-
 
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Telescope",
