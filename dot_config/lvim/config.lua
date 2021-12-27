@@ -55,7 +55,11 @@ lvim.plugins = {
 
 }
 
-vim.g["wrap"] = 1
+vim.cmd(":set wrap")
+vim.cmd(":set number relativenumber")
+
+vim.g["neovide_transparency"]=0.9
+
 require("lightspeed").setup {}
 
 -- general
@@ -63,6 +67,10 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 
 lvim.colorscheme = "tokyonight"
+
+lvim.builtin.bufferline.tabpages=true
+
+
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
