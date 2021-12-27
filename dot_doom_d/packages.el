@@ -5,7 +5,7 @@
 
 
 
-	(add-load-path! "lisp/llvm")
+(add-load-path! "lisp/llvm")
 
 (package! doct)
 ;; (package! org-pretty-tags)
@@ -17,6 +17,7 @@
 (package! org-ref)
 
 (unpin! org-roam)
+(unpin! org-mode)
 (package! org-roam-ui)
 ;; (package! org-pomodoro)
 ;; (package! org-tree-slide)
@@ -32,3 +33,5 @@
 (package! keytar)
 (package! unfill)
 (package! virtual-auto-fill)
+
+

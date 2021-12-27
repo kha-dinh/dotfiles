@@ -5,7 +5,7 @@ update_info=okular.upd:annotation-toolbar,okular.upd:builtin-annotations
 ShellOpenFileInTabs=true
 
 [Main View]
-SplitterSizes=600,1511
+SplitterSizes=450,1705
 
 [PageView]
 MouseMode=TextSelect
