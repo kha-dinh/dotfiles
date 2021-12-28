@@ -13,8 +13,7 @@ lvim.plugins = {
   {"ggandor/lightspeed.nvim"},
   {
     'wfxr/minimap.vim',
-    run = "cargo install --locked code-minimap",
-    -- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
+    -- run = "cargo install --locked code-minimap",
     config = function ()
       vim.cmd ("let g:minimap_width = 10")
       vim.cmd ("let g:minimap_auto_start = 1")
