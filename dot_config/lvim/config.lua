@@ -14,12 +14,28 @@ lvim.plugins = {
   {
     'wfxr/minimap.vim',
     -- run = "cargo install --locked code-minimap",
-    config = function ()
-      vim.cmd ("let g:minimap_width = 10")
-      vim.cmd ("let g:minimap_auto_start = 1")
-      vim.cmd ("let g:minimap_auto_start_win_enter = 1")
+    setup = function ()
+      vim.g.minimap_width = 10
+      vim.g.minimap_auto_start = 1
+      vim.g.minimap_auto_start_win_enter = 1
+      vim.g.minimap_block_filetypes= {"dashboard"}
+      -- vim.g.minimap_close_filetypes= {"dashboard"}
+      -- table.insert(vim.g.minimap_block_filetypes, "dashboard")
+      -- table.insert(vim.g.minimap_close_filetypes, "dashboard")
+      -- vim.cmd ("let g:minimap_width = 10")
+      -- vim.cmd ("let g:minimap_auto_start = 1")
+      -- vim.cmd ("let g:minimap_auto_start_win_enter = 1")
       -- vim.cmd ("let g:minimap_block_filetypes = ['dashboard']")
-      vim.cmd ("let g:minimap_close_filetypes = ['dashboard']")
+      -- vim.cmd ("let g:minimap_close_filetypes = ['dashboard']")
+    end,
+  },
+  {
+    'lervag/vimtex',
+    config = function ()
+      vim.cmd("syntax enable")
+      vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
+      vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
+      vim.cmd("let g:vimtex_view_general_options_latexmk = '--unique'")
     end,
   },
   {
@@ -51,7 +67,7 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
-  },
+  }
 
 
 }
