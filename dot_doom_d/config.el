@@ -100,8 +100,8 @@
 ;; (setq +format-with-lsp nil)
 ;; (setq c-default-style "user")
 
-	(require 'llvm-mode)
-	(require 'tablegen-mode)
+(require 'llvm-mode)
+(require 'tablegen-mode)
 
 ;; c;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!

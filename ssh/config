@@ -1,6 +1,6 @@
 Host *
 	IdentityFile ~/.ssh/id_rsa
-	ForwardX11 yes
+	ForwardX11 no
 	
 Host upmemcloud*
    User dalo2903
