@@ -44,6 +44,7 @@ This is stolen from...
 #+begin_src emacs-lisp :tangle packages.el
 (package! nyan-mode)
 (package! shfmt)
+(package! code-review)
 #+end_src
 ** Configs
 #+begin_src emacs-lisp :tangle yes
@@ -168,7 +169,8 @@ This is stolen from...
 ;; (package!  ivy-bibtex)
 (package! org-roam-bibtex)
 (package! org-ref)
-
+(package! ox-neuron
+  :recipe (:host github :repo "vedang/ox-neuron"))
 (unpin! org-roam)
 (unpin! org-mode)
 (package! org-roam-ui)
@@ -182,6 +184,7 @@ This is stolen from...
 ;; c;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 ;; TODO: Clean up
+(setq org-neuron-base-dir "~/brain-dump/")
 (setq org-roam-directory "~/org/roam/")
 (setq deft-directory "~/org/")
 (use-package! org
