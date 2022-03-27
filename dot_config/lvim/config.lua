@@ -10,40 +10,28 @@ an executable
 lvim.plugins = {
   {"folke/tokyonight.nvim"},
   {"ThePrimeagen/harpoon"},
+  {"preservim/vim-pencil"},
   {"ggandor/lightspeed.nvim"},
-  {
-    'wfxr/minimap.vim',
-    -- run = "cargo install --locked code-minimap",
-    setup = function ()
-      vim.g.minimap_width = 10
-      vim.g.minimap_auto_start = 1
-      vim.g.minimap_auto_start_win_enter = 1
-      vim.g.minimap_block_filetypes= {"dashboard"}
-      -- vim.g.minimap_close_filetypes= {"dashboard"}
-      -- table.insert(vim.g.minimap_block_filetypes, "dashboard")
-      -- table.insert(vim.g.minimap_close_filetypes, "dashboard")
-      -- vim.cmd ("let g:minimap_width = 10")
-      -- vim.cmd ("let g:minimap_auto_start = 1")
-      -- vim.cmd ("let g:minimap_auto_start_win_enter = 1")
-      -- vim.cmd ("let g:minimap_block_filetypes = ['dashboard']")
-      -- vim.cmd ("let g:minimap_close_filetypes = ['dashboard']")
-    end,
-  },
-  {
+  {"kdheepak/lazygit.nvim"},
+
+    {
     'lervag/vimtex',
     config = function ()
       vim.cmd("syntax enable")
-      vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
-      vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
-      vim.cmd("let g:vimtex_view_general_options_latexmk = '--unique'")
+      -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
+      vim.cmd("let g:vimtex_view_method= 'zathura'")
+      -- vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
+      -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
+      -- vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
+      -- vim.cmd("let g:vimtex_view_general_options_latexmk = '--unique'")
     end,
   },
-  {
-    "tzachar/cmp-tabnine",
-    run = "./install.sh",
-    requires = "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-  },
+  -- {
+  --   "tzachar/cmp-tabnine",
+  --   run = "./install.sh",
+  --   requires = "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter",
+  -- },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
@@ -56,7 +44,6 @@ lvim.plugins = {
       vim.g.indent_blankline_show_first_indent_level = false
     end
   },
-
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
@@ -68,8 +55,6 @@ lvim.plugins = {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   }
-
-
 }
 
 vim.cmd(":set wrap")
@@ -78,7 +63,7 @@ vim.cmd(":set number relativenumber")
 vim.g["neovide_transparency"]=0.9
 
 require("lightspeed").setup {}
-
+-- require("lspconfig").ccls.setup {}
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -107,6 +92,7 @@ cmp.setup {
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
+
 local _, actions = pcall(require, "telescope.actions")
 lvim.builtin.telescope.defaults.mappings = {
   -- for input mode
@@ -123,6 +109,15 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
+
+lvim.builtin.which_key.mappings["v"] = {
+  name = "+VimTex",
+  v = {"<cmd>VimtexView<cr>", "View"},
+  c = {"<cmd>VimtexCompile<cr>", "Compile"},
+  C = {"<cmd>VimtexClean<cr>", "Clean"}
+}
+
+
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["t"] = {
   name = "+tabs",
@@ -130,7 +125,10 @@ lvim.builtin.which_key.mappings["t"] = {
   l = {"<cmd>tabs<cr>", "show tab pages"}
 }
 
+
+
 require("telescope").load_extension('harpoon')
+
 lvim.builtin.which_key.mappings["m"] = {
   name = "+Harpoon",
   f = {"<cmd>lua require('harpoon.mark').add_file()<cr>", "Mark the file"},
@@ -142,6 +140,7 @@ lvim.builtin.which_key.mappings["m"] = {
   ["3"] = {"<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to file 3"},
   ["4"] = {"<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Navigate to file 4"}
 }
+
 
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Telescope",
@@ -165,9 +164,11 @@ lvim.builtin.which_key.mappings["T"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.project.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
+require('telescope').load_extension('projects')
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -178,92 +179,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "python",
   "typescript",
   "css",
-  "rust",
-  "java",
   "yaml",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
-
--- generic LSP settings
-
--- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
-
--- ---@usage Select which servers should be configured manually. Requires `:LvimCacheRest` to take effect.
--- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
--- vim.list_extend(lvim.lsp.override, { "pyright" })
-
--- ---@usage setup a server -- see: https://www.lunarvim.org/languages/#overriding-the-default-configuration
--- local opts = {} -- check the lspconfig documentation for a list of all possible options
--- require("lvim.lsp.manager").setup("pylsp", opts)
-
--- you can set a custom on_attach function that will be used for all the language servers
--- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
--- you can overwrite the null_ls setup table (useful for setting the root_dir function)
--- lvim.lsp.null_ls.setup.root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules")
--- or if you need something more advanced
--- lvim.lsp.null_ls.setup.root_dir = function(fname)
---   if vim.bo.filetype == "javascript" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "node_modules")(fname)
---       or require("lspconfig/util").path.dirname(fname)
---   elseif vim.bo.filetype == "php" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "composer.json")(fname) or vim.fn.getcwd()
---   else
---     return require("lspconfig/util").root_pattern("Makefile", ".git")(fname) or require("lspconfig/util").path.dirname(fname)
---   end
--- end
-
-
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { exe = "black", filetypes = { "python" } },
---   { exe = "isort", filetypes = { "python" } },
---   {q
---     exe = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
-
--- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { exe = "flake8", filetypes = { "python" } },
---   {
---     exe = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     args = { "--severity", "warning" },
---   },
---   {
---     exe = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
--- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
-
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }

@@ -167,6 +167,7 @@ This is stolen from...
 ;; (package! gnuplot-mode)
 ;; (package! gnuplot)
 ;; (package!  ivy-bibtex)
+(package! org-mind-map)
 (package! org-roam-bibtex)
 (package! org-ref)
 (package! ox-neuron

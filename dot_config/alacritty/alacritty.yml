@@ -102,7 +102,8 @@ font:
     family: monospace
 
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1.0
+window.opacity: 0.8
+
 
 
 cursor:

@@ -46,6 +46,7 @@ path=(
     /usr/local/{bin,sbin}
     $HOME/.local/bin
     $HOME/.emacs.d/bin
+    $HOME/go/bin
     $path
 )
 
