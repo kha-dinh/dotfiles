@@ -68,6 +68,8 @@ lvim.builtin.which_key.mappings["t"] = {
   l = {"<cmd>tabs<cr>", "show tab pages"}
 }
 
+lvim.builtin.which_key.mappings["b"]["b"] = {"<C-^>", "Previous Buffer"}
+
 lvim.builtin.which_key.mappings["l"]["h"] = {"<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header"}
 
 lvim.builtin.which_key.mappings["T"] = {
