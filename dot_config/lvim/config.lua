@@ -15,7 +15,7 @@ vim.g["neovide_transparency"]=1
 -- require("lspconfig").ccls.setup {}
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 
 
 lvim.builtin.bufferline.tabpages=true
@@ -29,17 +29,14 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- Remap enter to tab
 -- lvim.builtin.cmp.mapping["<Tab>"] = lvim.builtin.cmp.mapping["<CR>"]
-
 lvim.builtin.comment.mappings.extra = true
+
+
 
 local _, cmp = pcall(require, "cmp")
 cmp.setup {
-  completion = {
-    completeopt = 'menu,menuone,noinsert',
-    mapping = {
-      ['<tab>'] = cmp.mapping.confirm({ select = true }),
-    }
-  }
+  completion = { completeopt = 'menu,menuone,noinsert' },
+  mapping = { ['<TAB>'] = cmp.mapping.confirm({ select = true }) }
 }
 
 -- local _, lightspeed = pcall(require, "lightspeed")
@@ -206,5 +203,5 @@ vim.g["gruvbox_contrast_dark"] = "soft"
 vim.g["gruvbox_improved_strings"] = 0
 vim.g["gruvbox_improved_warnings"] = 1
 
-
+vim.opt.guifont = { "Source Code Pro", "h12" }
 
