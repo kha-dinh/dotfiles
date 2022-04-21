@@ -17,7 +17,7 @@ fi
 # Editors
 #
 export ALTERNATE_EDITOR=""
-export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+export EDITOR="lvim"                  # $EDITOR opens in terminal
 export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
 export PAGER='less'
 

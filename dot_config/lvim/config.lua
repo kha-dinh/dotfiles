@@ -10,15 +10,20 @@ an executable
 vim.cmd(":set wrap")
 vim.cmd(":set number relativenumber")
 
-vim.g["neovide_transparency"]=1
+vim.g["neovide_transparency"] = 1
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
+-- local opts = {}
+-- require("lvim.lsp.manager").setup("clangd", opts)
 
 -- require("lspconfig").ccls.setup {}
+-- local _, lspconfig = pcall(require, "lspconfig ")
+
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
 
+lvim.builtin.bufferline.tabpages = true
 
-lvim.builtin.bufferline.tabpages=true
 
 
 
@@ -33,11 +38,12 @@ lvim.builtin.comment.mappings.extra = true
 
 
 
-local _, cmp = pcall(require, "cmp")
-cmp.setup {
-  completion = { completeopt = 'menu,menuone,noinsert' },
-  mapping = { ['<TAB>'] = cmp.mapping.confirm({ select = true }) }
-}
+-- local cmp = require "cmp"
+-- cmp.setup({
+--   completion = { completeopt = 'menu,menuone,noinsert' },
+--   mapping = { ['<TAB>'] = cmp.mapping.confirm({ select = true }) }
+-- }
+-- )
 
 -- local _, lightspeed = pcall(require, "lightspeed")
 -- lightspeed.setup {}
@@ -64,28 +70,28 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["t"] = {
   name = "+tabs",
-  n = {"<cmd>tabnext<cr>", "next tab"},
-  l = {"<cmd>tabs<cr>", "show tab pages"}
+  n = { "<cmd>tabnext<cr>", "next tab" },
+  l = { "<cmd>tabs<cr>", "show tab pages" }
 }
 
-lvim.builtin.which_key.mappings["b"]["b"] = {"<C-^>", "Previous Buffer"}
+lvim.builtin.which_key.mappings["b"]["b"] = { "<C-^>", "Previous Buffer" }
 
-lvim.builtin.which_key.mappings["l"]["h"] = {"<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header"}
+lvim.builtin.which_key.mappings["l"]["h"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header" }
 
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Telescope",
-  b = {"<cmd>Telescope buffers<cr>", "Telescope buffers"},
-  f = {"<cmd>Telescope find_files<cr>", "Telescope find files"},
-  p = {"<cmd>Telescope projects<cr>", "Telescope find projects"},
-  r = {"<cmd>Telescope oldfiles<cr>", "Telescope find recents"},
-  g = {"<cmd>Telescope live_grep<cr>", "Telescope live_grep"},
+  b = { "<cmd>Telescope buffers<cr>", "Telescope buffers" },
+  f = { "<cmd>Telescope find_files<cr>", "Telescope find files" },
+  p = { "<cmd>Telescope projects<cr>", "Telescope find projects" },
+  r = { "<cmd>Telescope oldfiles<cr>", "Telescope find recents" },
+  g = { "<cmd>Telescope live_grep<cr>", "Telescope live_grep" },
 }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
-lvim.builtin.which_key.mappings["/"] =  {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy find current buffer"}
+lvim.builtin.which_key.mappings["/"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy find current buffer" }
 
 -- lvim.builtin.which_key.mappings["_"] =  {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy find current buffer"}
--- lvim.keys.normal_mode["<leader>"] = 
+-- lvim.keys.normal_mode["<leader>"] =
 
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
@@ -129,43 +135,43 @@ lvim.plugins = {
   { "ellisonleao/gruvbox.nvim" },
   {
     "ThePrimeagen/harpoon",
-    config = function ()
+    config = function()
       require("telescope").load_extension('harpoon')
       lvim.builtin.which_key.mappings["m"] = {
         name = "+Harpoon",
-        f = {"<cmd>lua require('harpoon.mark').add_file()<cr>", "Mark the file"},
-        n = {"<cmd>lua require('harpoon.ui').nav_next()<cr>", "Move to next mark"},
-        p = {"<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Move to previous mark"},
-        t = {"<cmd>Telescope harpoon marks<cr>", "Show marks"},
-        ["1"] = {"<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Navigate to file 1"},
-        ["2"] = {"<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Navigate to file 2"},
-        ["3"] = {"<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to file 3"},
-        ["4"] = {"<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Navigate to file 4"}
+        f = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Mark the file" },
+        n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "Move to next mark" },
+        p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "Move to previous mark" },
+        t = { "<cmd>Telescope harpoon marks<cr>", "Show marks" },
+        ["1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "Navigate to file 1" },
+        ["2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "Navigate to file 2" },
+        ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to file 3" },
+        ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Navigate to file 4" }
       }
     end,
   },
-  {"preservim/vim-pencil"},
-  {"ggandor/lightspeed.nvim"},
-  {"kdheepak/lazygit.nvim"},
-  {"rhysd/vim-llvm"},
+  { "preservim/vim-pencil" },
+  { "ggandor/lightspeed.nvim" },
+  { "kdheepak/lazygit.nvim" },
+  { "rhysd/vim-llvm" },
   {
-  'lervag/vimtex',
-  config = function ()
-    vim.cmd("syntax enable")
-    -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
-    vim.cmd("let g:vimtex_view_method= 'zathura'")
+    'lervag/vimtex',
+    config = function()
+      vim.cmd("syntax enable")
+      -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
+      vim.cmd("let g:vimtex_view_method= 'zathura'")
 
-    lvim.builtin.which_key.mappings["v"] = {
-      name = "+VimTex",
-      v = {"<cmd>VimtexView<cr>", "View"},
-      c = {"<cmd>VimtexCompile<cr>", "Compile"},
-      C = {"<cmd>VimtexClean<cr>", "Clean"}
-    }
-    -- vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
-    -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
-    -- vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
-    -- vim.cmd("let g:vimtex_view_general_options_latexmk = '--unique'")
-  end,
+      lvim.builtin.which_key.mappings["v"] = {
+        name = "+VimTex",
+        v = { "<cmd>VimtexView<cr>", "View" },
+        c = { "<cmd>VimtexCompile<cr>", "Compile" },
+        C = { "<cmd>VimtexClean<cr>", "Clean" }
+      }
+      -- vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
+      -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
+      -- vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
+      -- vim.cmd("let g:vimtex_view_general_options_latexmk = '--unique'")
+    end,
   },
   -- {
   --   "tzachar/cmp-tabnine",
@@ -179,8 +185,8 @@ lvim.plugins = {
     setup = function()
       vim.g.indentLine_enabled = 1
       vim.g.indent_blankline_char = "▏"
-      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
-      vim.g.indent_blankline_buftype_exclude = {"terminal"}
+      vim.g.indent_blankline_filetype_exclude = { "help", "terminal", "dashboard" }
+      vim.g.indent_blankline_buftype_exclude = { "terminal" }
       vim.g.indent_blankline_show_trailing_blankline_indent = false
       vim.g.indent_blankline_show_first_indent_level = false
     end
@@ -206,4 +212,3 @@ vim.g["gruvbox_improved_strings"] = 0
 vim.g["gruvbox_improved_warnings"] = 1
 
 vim.opt.guifont = { "Source Code Pro", "h12" }
-
