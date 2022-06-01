@@ -10,20 +10,14 @@ an executable
 vim.cmd(":set wrap")
 vim.cmd(":set number relativenumber")
 
+vim.api.nvim_set_keymap("", "<leader>y", '"+y', { silent = true })
+
 vim.g["neovide_transparency"] = 1
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
--- local opts = {}
--- require("lvim.lsp.manager").setup("clangd", opts)
-
--- require("lspconfig").ccls.setup {}
--- local _, lspconfig = pcall(require, "lspconfig ")
-
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
 
 lvim.builtin.bufferline.tabpages = true
-
 
 
 
@@ -38,13 +32,8 @@ lvim.builtin.comment.mappings.extra = true
 
 
 
--- local cmp = require "cmp"
--- cmp.setup({
---   completion = { completeopt = 'menu,menuone,noinsert' },
---   mapping = { ['<TAB>'] = cmp.mapping.confirm({ select = true }) }
--- }
--- )
-
+local cmp = require "cmp"
+lvim.builtin.cmp.mapping['<TAB>'] = cmp.mapping.confirm({ select = true })
 -- local _, lightspeed = pcall(require, "lightspeed")
 -- lightspeed.setup {}
 
@@ -76,7 +65,6 @@ lvim.builtin.which_key.mappings["t"] = {
 
 lvim.builtin.which_key.mappings["b"]["b"] = { "<C-^>", "Previous Buffer" }
 
-lvim.builtin.which_key.mappings["l"]["h"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch Source/Header" }
 
 lvim.builtin.which_key.mappings["T"] = {
   name = "+Telescope",
@@ -107,10 +95,12 @@ lvim.builtin.which_key.mappings["t"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.terminal.direction = "tab"
 lvim.builtin.project.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = true
+lvim.builtin.nvimtree.setup.filters.exclude = { ".o"}
 
 require('telescope').load_extension('projects')
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -212,3 +202,9 @@ vim.g["gruvbox_improved_strings"] = 0
 vim.g["gruvbox_improved_warnings"] = 1
 
 vim.opt.guifont = { "Source Code Pro", "h12" }
+
+
+-- some settings can only passed as commandline flags `clangd --help`
+
+-- require("lvim.lsp.manager").setup("clangd", opts)
+
