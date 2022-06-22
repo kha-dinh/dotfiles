@@ -4,9 +4,7 @@
       create: true
       force: true
       glob: true
-
 - clean: ["~`"]
-
 - clean:
     ~/.config:
       recursive: true
@@ -15,7 +13,6 @@
 - link:
     ~/.config:
       path: dot_config/**
-      # exclude: [dot_config/lvim/plugins]
     ~/.doom.d: dot_doom_d
     ~/.doom.d/init.el:
       if: "[ $PLATFORM = termux ]"
@@ -36,17 +33,12 @@
     ~/.p10k.zsh: dot_prezto/runcoms/p10k.zsh
     ~/.vimrc: dot_prezto/runcoms/vimrc
     ~/.tmux.conf : dot_prezto/runcoms/tmux.conf
-    # ~/.local/share/nvim/site/pack/packer/start/packer.nvim: nvim/packer.nvim
-
 - git:
-    # "~/.histdb":
-    #   url: "git@github.com:kha-dinh/histdb.git"
-    #   description: "history db"
-    # "~/.emacs.d":
-    #   url: "git@github.com:hlissner/doom-emacs.git"
-    #   description: "doom-emacs"
-  "~/.tmux/plugin/tpm":
-    url: "git@github.com:tmux-plugins/tpm.git"
+    "~/.histdb":
+      url: "git@github.com:kha-dinh/histdb.git"
+      description: "history db"
+    "~/.tmux/plugin/tpm":
+      url: "git@github.com:tmux-plugins/tpm.git"
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

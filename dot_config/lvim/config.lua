@@ -99,7 +99,6 @@ lvim.builtin.terminal.direction = "tab"
 lvim.builtin.project.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = true
 lvim.builtin.nvimtree.setup.filters.exclude = { ".o"}
 
 require('telescope').load_extension('projects')

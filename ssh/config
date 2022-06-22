@@ -1,10 +1,15 @@
+Host 115.145.154.178
+	HostName 115.145.154.178
+	User khadd
+	ForwardX11 yes
+
 Host *
 	IdentityFile ~/.ssh/id_rsa
 	ForwardX11 no
 	
 Host upmemcloud*
    User dalo2903
-   Hostname %h.cloud.upmem.com
+   HostName %h.cloud.upmem.com
    IdentityFile ~/.ssh/upmemcloud_dalo2903
 
 Host sslab
@@ -14,17 +19,17 @@ Host sslab
 	User khadinh
 
 Host ssservice-admin
-	Hostname sslab.skku.edu
+	HostName sslab.skku.edu
 	Port 3321
 	User ssservice-admin
 	
 Host ssone
-	Hostname ssone.skku.edu
+	HostName ssone.skku.edu
 	Port 1221
 	User khadinh
 
 
 Host ctf-server
-	Hostname ssone.skku.edu
+	HostName ssone.skku.edu
 	Port 2221
 	User ctf-admin
