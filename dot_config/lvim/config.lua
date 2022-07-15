@@ -120,8 +120,15 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 
 lvim.plugins = {
-  { "folke/tokyonight.nvim" },
-  { "ellisonleao/gruvbox.nvim" },
+  -- { "folke/tokyonight.nvim" },
+  { "ellisonleao/gruvbox.nvim",
+    config = function()
+      require("gruvbox").setup({
+        contrast="soft"
+
+      })
+    end
+  },
   {
     "ThePrimeagen/harpoon",
     config = function()
@@ -140,6 +147,7 @@ lvim.plugins = {
     end,
   },
   { "preservim/vim-pencil" },
+  { "SirVer/ultisnips" },
   { "ggandor/lightspeed.nvim" },
   { "kdheepak/lazygit.nvim" },
   { "rhysd/vim-llvm" },
@@ -156,18 +164,8 @@ lvim.plugins = {
         c = { "<cmd>VimtexCompile<cr>", "Compile" },
         C = { "<cmd>VimtexClean<cr>", "Clean" }
       }
-      -- vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
-      -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
-      -- vim.cmd("let g:vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'")
-      -- vim.cmd("let g:vimtex_view_general_options_latexmk = '--unique'")
     end,
   },
-  -- {
-  --   "tzachar/cmp-tabnine",
-  --   run = "./install.sh",
-  --   requires = "hrsh7th/nvim-cmp",
-  --   event = "InsertEnter",
-  -- },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
@@ -196,14 +194,20 @@ lvim.plugins = {
 
 -- lvim.colorscheme = "tokyonight"
 lvim.colorscheme = "gruvbox"
-vim.g["gruvbox_contrast_dark"] = "soft"
-vim.g["gruvbox_improved_strings"] = 0
-vim.g["gruvbox_improved_warnings"] = 1
+-- vim.g["gruvbox_contrast_dark"] = "soft"
+-- vim.g["gruvbox_improved_strings"] = 0
+-- vim.g["gruvbox_improved_warnings"] = 1
 
 vim.opt.guifont = { "Source Code Pro", "h12" }
+
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
 
 
 -- some settings can only passed as commandline flags `clangd --help`
 
--- require("lvim.lsp.manager").setup("clangd", opts)
 
+require("lvim.lsp.manager").setup("ltex", {})
