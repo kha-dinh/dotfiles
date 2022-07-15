@@ -1,12 +1,4 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+local telescope = require "telescope"
 vim.cmd(":set wrap")
 vim.cmd(":set number relativenumber")
 
@@ -19,21 +11,16 @@ lvim.format_on_save = false
 
 lvim.builtin.bufferline.tabpages = true
 
-
-
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- Remap enter to tab
--- lvim.builtin.cmp.mapping["<Tab>"] = lvim.builtin.cmp.mapping["<CR>"]
 lvim.builtin.comment.mappings.extra = true
 
-
-
-local cmp = require "cmp"
-lvim.builtin.cmp.mapping['<TAB>'] = cmp.mapping.confirm({ select = true })
+-- local cmp = require "cmp"
+-- lvim.builtin.cmp.mapping['<TAB>'] = cmp.mapping.confirm({ select = true })
 -- local _, lightspeed = pcall(require, "lightspeed")
 -- lightspeed.setup {}
 
@@ -121,14 +108,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 lvim.plugins = {
   -- { "folke/tokyonight.nvim" },
-  { "ellisonleao/gruvbox.nvim",
-    config = function()
-      require("gruvbox").setup({
-        contrast="soft"
-
-      })
-    end
-  },
+  { "ellisonleao/gruvbox.nvim" },
   {
     "ThePrimeagen/harpoon",
     config = function()
@@ -147,7 +127,6 @@ lvim.plugins = {
     end,
   },
   { "preservim/vim-pencil" },
-  { "SirVer/ultisnips" },
   { "ggandor/lightspeed.nvim" },
   { "kdheepak/lazygit.nvim" },
   { "rhysd/vim-llvm" },
@@ -179,11 +158,7 @@ lvim.plugins = {
     end
   },
   {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function()
-      require "lsp_signature".setup()
-    end
+    "ray-x/lsp_signature.nvim"
   },
   {
     "folke/trouble.nvim",
@@ -191,13 +166,17 @@ lvim.plugins = {
   }
 
 }
+require "lsp_signature".setup({
+  bind = true,
+  handler_opts = {border="rounded"}
+})
+
+require("gruvbox").setup({
+  contrast="soft",
+})
 
 -- lvim.colorscheme = "tokyonight"
 lvim.colorscheme = "gruvbox"
--- vim.g["gruvbox_contrast_dark"] = "soft"
--- vim.g["gruvbox_improved_strings"] = 0
--- vim.g["gruvbox_improved_warnings"] = 1
-
 vim.opt.guifont = { "Source Code Pro", "h12" }
 
 vim.o.autoread = true
