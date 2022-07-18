@@ -1,4 +1,3 @@
-local telescope = require "telescope"
 vim.cmd(":set wrap")
 vim.cmd(":set number relativenumber")
 
