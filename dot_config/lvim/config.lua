@@ -67,6 +67,7 @@ lvim.builtin.which_key.mappings["/"] = { "<cmd>Telescope current_buffer_fuzzy_fi
 -- lvim.builtin.which_key.mappings["_"] =  {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy find current buffer"}
 -- lvim.keys.normal_mode["<leader>"] =
 
+lvim.builtin.which_key.mappings["l"]["h"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch source header"}
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -127,6 +128,7 @@ lvim.plugins = {
   },
   { "preservim/vim-pencil" },
   { "ggandor/lightspeed.nvim" },
+  { 'github/copilot.vim' },
   { "kdheepak/lazygit.nvim" },
   { "rhysd/vim-llvm" },
   {

@@ -9,9 +9,7 @@ set clipboard+=unnamedplus
 "
 
 map <Space> <leader>
-
 nnoremap <leader>pf :Telescope find_files<CR>
-
 
 lua require('plugins')
 lua require('init')
