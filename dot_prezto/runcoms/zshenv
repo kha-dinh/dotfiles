@@ -13,3 +13,21 @@ fi
 if [[ -s "${ZDOTDIR:-$HOME}/.platformrc" ]]; then
   source "${ZDOTDIR:-$HOME}/.platformrc"
 fi
+# . "$HOME/.cargo/env"
+
+# Rust toolchain
+case ":${PATH}:" in
+    *:"$HOME/.cargo/bin":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed rustc needs to be overridden
+        export PATH="$HOME/.cargo/bin:$PATH"
+        ;;
+esac
+
+PATH="/home/khadd/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/khadd/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/khadd/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/khadd/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/khadd/perl5"; export PERL_MM_OPT;
+

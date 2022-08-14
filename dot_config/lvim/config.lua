@@ -91,6 +91,7 @@ lvim.builtin.nvimtree.setup.filters.exclude = { ".o"}
 require('telescope').load_extension('projects')
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
+  "rust",
   "bash",
   "c",
   "javascript",
@@ -188,6 +189,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 
 
 -- some settings can only passed as commandline flags `clangd --help`
-
-
 require("lvim.lsp.manager").setup("ltex", {})
+require("lvim.lsp.manager").setup("rust_analyzer", {})
+

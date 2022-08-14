@@ -21,7 +21,7 @@ inactive_bg=$background
 inactive_underline=
 
 # separator="·"
-show="window_class" # options: window_title, window_class, window_classname
+show="window_classname" # options: window_title, window_class, window_classname
 forbidden_classes="Polybar Conky Gmrun"
 # empty_desktop_message="Desktop"
 
@@ -70,10 +70,10 @@ close() {
 	wmctrl -ic "$1"
 }
 
-slop_resize() {
-	wmctrl -ia "$1"
-	wmctrl -ir "$1" -e "$(slop -f 0,%x,%y,%w,%h)"
-}
+# slop_resize() {
+# 	wmctrl -ia "$1"
+# 	wmctrl -ir "$1" -e "$(slop -f 0,%x,%y,%w,%h)"
+# }
 
 # increment_size() {
 # 	while IFS="[ .]" read -r wid ws wx wy ww wh _; do
@@ -152,7 +152,13 @@ get_active_workspace() {
 		done
 }
 
-declare -A icons=(["firefox"]="" ["alacritty"]="")
+declare -A icons=(["firefox"]="" \
+  ["alacritty"]="" \
+  ["nvim"]="" \
+  ["obsidian"]="🔮"\
+  ["zotero"]="Z"\
+  ["sioyek"]=""\
+)
 generate_window_list() {
 	active_workspace=$(get_active_workspace)
 	active_wid=$(get_active_wid)
@@ -181,30 +187,46 @@ generate_window_list() {
 		fi
 		
 		# Show the user-selected window property
-		case "$show" in
-			"window_class") w_name="$cls" ;;
-			"window_classname") w_name="$cname" ;;
-			"window_title") w_name="$title" ;;
-		esac
+
+
+
+		# case "$show" in
+		# 	"window_class") w_name="$cls" ;;
+		# 	"window_classname") w_name="$cname" ;;
+		# 	"window_title") w_name="$title" ;;
+		# esac
+
+  	# w_name="$cls"
+  	# c_name="$cname"
 		
 		# Use user-selected character case
-
     # name_lower=$(echo "$w_name" | tr '[:upper:]' '[:lower:]')
 
 		case "$char_case" in
-			"lower") w_name=$(
-				echo "$w_name" | tr '[:upper:]' '[:lower:]'
-				) ;;
-			"upper") w_name=$(
-				echo "$w_name" | tr '[:lower:]' '[:upper:]'
-				) ;;
+			"lower")
+        w_title=$( echo "$title" | tr '[:upper:]' '[:lower:]')
+        w_name=$( echo "$cls" | tr '[:upper:]' '[:lower:]')
+        c_name=$( echo "$cname" | tr '[:upper:]' '[:lower:]') ;;
+			"upper")
+        w_title=$( echo "$title" | tr '[:lower:]' '[:upper:]') 
+        w_name=$( echo "$cls" | tr '[:lower:]' '[:upper:]') 
+        c_name=$( echo "$cname" | tr '[:lower:]' '[:upper:]') ;;
 		esac
     # Append icon to the start
-    # icon_name=$(echo "$w_name" | tr '[:lower:]')
-		# icon_name=echo "$w_name" | tr '[:upper:]' '[:lower:]'
-    if [[ -n "${icons[$w_name]}" ]] 
-    then 
-      w_name="${icons[$w_name]} $w_name"
+    # Look for availble icon in order of importance, if have one then take the icon + name that have icon
+    if [[ -n "${icons[$w_title]}" ]] # Have an icon for title
+    then
+        w_name="${icons[$w_title]} $w_title"
+    else
+      if [[ -n "${icons[$c_name]}" ]] # Have an icon for classname
+      then
+          w_name="${icons[$c_name]} $c_name"
+      else
+        if [[ -n "${icons[$w_name]}" ]] # Have an icon for class
+        then 
+          w_name="${icons[$w_name]} $w_name"
+        fi
+      fi
     fi
 
 		# Truncate displayed name to user-selected limit
@@ -231,14 +253,14 @@ generate_window_list() {
 		fi
 
 		# Add on-click action Polybar formatting
-		# printf "%s" "%{A1:$on_click raise_or_minimize $wid:}"
+		printf "%s" "%{A1:$on_click raise_or_minimize $wid:}"
 		# printf "%s" "%{A2:$on_click close $wid:}"
 		# printf "%s" "%{A3:$on_click slop_resize $wid:}"
 		# printf "%s" "%{A4:$on_click increment_size $wid:}"
 		# printf "%s" "%{A5:$on_click decrement_size $wid:}"
 		# Print the final window name
 		printf "%s" "$w_name"
-		# printf "%s" "%{A}%{A}%{A}%{A}%{A}"
+		printf "%s" "%{A}%{A}%{A}%{A}%{A}"
 
 		window_count=$(( window_count + 1 ))
 	done <<-EOF
