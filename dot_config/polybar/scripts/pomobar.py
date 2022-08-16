@@ -86,13 +86,12 @@ class Break:
     def start(self):
         while self.duration >= 0:
             # writeOutput(self.ICON + str(self.duration))
-            icon = "" 
-            if duration % 3 == 0:
-                icon = ''
-            elif duration % 3 == 1:
-                icon = ''
-            elif duration % 3 == 2:
-                icon = ''
+            # if self.duration % 3 == 0:
+            #     # self.icon = ''
+            # elif self.duration % 3 == 1:
+            #     icon = ''
+            # elif self.duration % 3 == 2:
+            #     icon = ''
 
             writeOutput(self.ICON + str(datetime.timedelta(seconds=self.duration)))
             recharge_polybar()

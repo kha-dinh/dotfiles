@@ -44,8 +44,8 @@ exec --no-startup-id nm-applet
 
 # Monitor output
 # 3 monitor
-exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 2160x981 --rotate normal --output DP-1 --off --output HDMI-0 --off --output DP-2 --mode 3840x2160 --pos 0x0 --rotate right --output DP-3 --off --output DP-4 --mode 3840x2160 --pos 6000x0 --rotate left --output DP-5 --off
-# exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x840 --rotate normal --output DP-1 --off --output HDMI-0 --off --output DP-2    --output DP-3 --off --output DP-4 --mode 3840x2160 --pos 3840x0 --rotate left --output DP-5 --off
+# Use arandr output
+exec --no-startup-id $HOME/.screenlayout/layout.sh
 
 
 # exec --no-startup-id python ~/.config/i3/scripts/auto_rename_workspaces.py --norenumber_workspaces
@@ -90,7 +90,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 # Stay on this ws pls
-focus_wrapping workspace  
+# focus_wrapping workspace  
 bindsym $mod+w focus next 
 bindsym $mod+s focus prev
 
@@ -153,12 +153,12 @@ set $ws8 "8:VIII"
 set $ws9 "9:IX"
 set $ws10 "10:X"
 
-workspace $ws1 output DP-0
-workspace $ws2 output DP-0
-workspace $ws3 output DP-0
-workspace $ws4 output DP-0
-workspace $ws5 output DP-0
-workspace $ws6 output DP-0
+workspace $ws1 output DP-2
+workspace $ws2 output DP-2
+workspace $ws3 output DP-2
+workspace $ws4 output DP-2
+workspace $ws5 output DP-2
+workspace $ws6 output DP-4
 workspace $ws7 output DP-4
 workspace $ws8 output DP-4
 workspace $ws9 output DP-4
