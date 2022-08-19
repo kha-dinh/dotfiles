@@ -5,6 +5,31 @@ schemes:
   # Tokyo Night theme, based on both:
   #   https://github.com/ghifarit53/tokyonight-vim
   #   https://github.com/enkia/tokyo-night-vscode-theme
+  gruvbox: &gruvbox
+    primary:
+      background: '0x282828'
+      foreground: '0xdfbf8e'
+
+    normal:
+      black:   '0x665c54'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xe78a4e'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xdfbf8e'
+
+    bright:
+      black:   '0x928374'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xe3a84e'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xdfbf8e'
+
   tokyo-night: &tokyo-night
     # Default colors
     primary:
@@ -87,7 +112,7 @@ schemes:
       cyan:    '0x3FDCEE'
       white:   '0xBEBEC1'
 
-colors: *tokyo-night-storm
+colors: *gruvbox
 # Font configuration
 font:
   # Normal (roman) font face
