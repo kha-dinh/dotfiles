@@ -129,7 +129,7 @@ lvim.plugins = {
   },
   { "preservim/vim-pencil" },
   { "ggandor/lightspeed.nvim" },
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
   { "kdheepak/lazygit.nvim" },
   { "rhysd/vim-llvm" },
   {
