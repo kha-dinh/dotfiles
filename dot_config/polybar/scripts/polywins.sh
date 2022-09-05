@@ -3,11 +3,11 @@
 
 # SETTINGS {{{ ---
 
-background="#282A2E"
-background_alt="#373B41"
+background="#232634"
+background_alt="#303446"
 foreground="#C5C8C6"
 # primary="#F0C674"
-primary="#d79921"
+primary="#f4b8e4"
 secondary="#8ABEB7"
 alert="#A54242"
 disabled="#707880"

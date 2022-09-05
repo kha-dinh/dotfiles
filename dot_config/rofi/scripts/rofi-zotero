@@ -106,4 +106,4 @@ else:
       file_to_open = pick_file(os.listdir(storage_dir))
       if file_to_open:
           file_to_open_path = os.path.join(storage_dir, file_to_open)
-          subprocess.Popen(["zathura", file_to_open_path])
+          subprocess.Popen(["sioyek", file_to_open_path])

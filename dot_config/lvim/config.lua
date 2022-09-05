@@ -130,6 +130,7 @@ lvim.plugins = {
   { "preservim/vim-pencil" },
   { "ggandor/lightspeed.nvim" },
   -- { 'github/copilot.vim' },
+  {"catppuccin/nvim"},
   { "kdheepak/lazygit.nvim" },
   { "rhysd/vim-llvm" },
   {
@@ -173,12 +174,16 @@ require "lsp_signature".setup({
   handler_opts = {border="rounded"}
 })
 
-require("gruvbox").setup({
-  contrast="soft",
-})
+-- require("gruvbox").setup({
+--   contrast="soft",
+-- })
 
--- lvim.colorscheme = "tokyonight"
-lvim.colorscheme = "gruvbox"
+require("catppuccin").setup()
+
+vim.g.catppuccin_flavour = "macchiato"
+
+lvim.colorscheme = "catppuccin"
+-- lvim.colorscheme = "gruvbox"
 vim.opt.guifont = { "Source Code Pro", "h12" }
 
 vim.o.autoread = true

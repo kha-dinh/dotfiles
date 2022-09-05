@@ -72,7 +72,8 @@ class Pomodoro:
             GlobalPomodoroCounter.increment_global_pomodoro_counter()
             writeOutput(ICON_TOTAL + GlobalPomodoroCounter.get_pomodoros_done())
             recharge_polybar()
-            os.system("notify-send --urgency=normal Pomodoro finished")
+            # os.system("notify-send --urgency=normal Pomodoro finished")
+            os.system("zenity --info --text=\"Pomodoro finished\"")
 
 
 class Break:
@@ -101,7 +102,8 @@ class Break:
         if self.duration <= 0:
             writeOutput(ICON_TOTAL + GlobalPomodoroCounter.get_pomodoros_done())
             recharge_polybar()
-            os.system("notify-send --urgency=low Break finished")
+            # os.system("notify-send --urgency=low Break finished")
+            os.system("zenity --info --text=\"Break finished\"")
 
 
 class GlobalPomodoroCounter:
