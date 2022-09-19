@@ -67,7 +67,7 @@ lvim.builtin.which_key.mappings["/"] = { "<cmd>Telescope current_buffer_fuzzy_fi
 -- lvim.builtin.which_key.mappings["_"] =  {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy find current buffer"}
 -- lvim.keys.normal_mode["<leader>"] =
 
-lvim.builtin.which_key.mappings["l"]["h"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch source header"}
+lvim.builtin.which_key.mappings["l"]["h"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch source header" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -80,13 +80,17 @@ lvim.builtin.which_key.mappings["t"] = {
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+
+lvim.log.level = "warn"
+lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.notify.active = true
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "tab"
 lvim.builtin.project.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.filters.exclude = { ".o"}
+lvim.builtin.nvimtree.setup.filters.exclude = { ".o" }
 
 require('telescope').load_extension('projects')
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -130,7 +134,7 @@ lvim.plugins = {
   { "preservim/vim-pencil" },
   { "ggandor/lightspeed.nvim" },
   -- { 'github/copilot.vim' },
-  {"catppuccin/nvim"},
+  { "catppuccin/nvim" },
   { "kdheepak/lazygit.nvim" },
   { "rhysd/vim-llvm" },
   {
@@ -171,7 +175,7 @@ lvim.plugins = {
 }
 require "lsp_signature".setup({
   bind = true,
-  handler_opts = {border="rounded"}
+  handler_opts = { border = "rounded" }
 })
 
 -- require("gruvbox").setup({
@@ -196,4 +200,3 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 -- some settings can only passed as commandline flags `clangd --help`
 require("lvim.lsp.manager").setup("ltex", {})
 require("lvim.lsp.manager").setup("rust_analyzer", {})
-

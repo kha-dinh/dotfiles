@@ -1,4 +1,4 @@
-Host 115.145.154.178
+Host mac-mini
 	HostName 115.145.154.178
 	User khadd
 	ForwardX11 yes
@@ -33,3 +33,4 @@ Host ctf-server
 	HostName ssone.skku.edu
 	Port 2221
 	User ctf-admin
+
