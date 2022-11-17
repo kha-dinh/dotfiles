@@ -40,23 +40,17 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "bash",
   "c",
-  "javascript",
   "json",
   "lua",
   "python",
-  "typescript",
-  "css",
   "yaml",
 }
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 
 lvim.plugins = {
-  -- { "folke/tokyonight.nvim" },
-  { "ellisonleao/gruvbox.nvim" },
   { "ThePrimeagen/harpoon", },
   { "preservim/vim-pencil" },
   { "ggandor/lightspeed.nvim" },
-  -- { 'github/copilot.vim' },
   { "catppuccin/nvim" },
   { "kdheepak/lazygit.nvim" },
   { "rhysd/vim-llvm" },
@@ -84,10 +78,20 @@ lvim.plugins = {
     "ray-x/lsp_signature.nvim"
   },
   {
+    'kosayoda/nvim-lightbulb',
+    requires = 'antoinemadec/FixCursorHold.nvim',
+  },
+  {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+  },
+  {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
+  },
+  {
+    "LudoPinelli/comment-box.nvim"
   }
-
 }
 require "lsp_signature".setup({
   bind = true,
@@ -101,7 +105,6 @@ require "lsp_signature".setup({
 require("catppuccin").setup()
 vim.g.catppuccin_flavour = "macchiato"
 lvim.colorscheme = "catppuccin"
--- lvim.colorscheme = "gruvbox"
 
 
 -- require("lvim.lsp.manager").setup("ltex", {})
