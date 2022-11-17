@@ -1,8 +1,3 @@
-
-
-
-
-
 vim.opt.guifont = { "source code pro", "h12" }
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
@@ -25,13 +20,15 @@ lvim.builtin.notify.active = true
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "tab"
+lvim.builtin.terminal.open_mapping = "<C-t>"
+
 lvim.builtin.project.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.filters.exclude = { ".o" }
+
+
 lvim.builtin.treesitter.highlight.enabled = true
-
-
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
@@ -186,4 +183,3 @@ lvim.builtin.which_key.mappings["v"] = {
   c = { "<cmd>VimtexCompile<cr>", "Compile" },
   C = { "<cmd>VimtexClean<cr>", "Clean" }
 }
-
