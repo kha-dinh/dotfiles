@@ -14,14 +14,13 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.builtin.comment.mappings.extra = true
 lvim.builtin.bufferline.tabpages = true
-lvim.builtin.notify.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
+lvim.builtin.luasnip.sources.friendly_snippets = true
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "tab"
 lvim.builtin.terminal.open_mapping = "<C-t>"
-
+lvim.builtin.dap.active = true
 lvim.builtin.project.active = true
 lvim.builtin.nvimtree.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
@@ -40,6 +39,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "bash",
   "c",
+  "cpp",
   "json",
   "lua",
   "python",
@@ -63,19 +63,13 @@ lvim.plugins = {
     end,
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
-    setup = function()
-      vim.g.indentLine_enabled = 1
-      vim.g.indent_blankline_char = "▏"
-      vim.g.indent_blankline_filetype_exclude = { "help", "terminal", "dashboard" }
-      vim.g.indent_blankline_buftype_exclude = { "terminal" }
-      vim.g.indent_blankline_show_trailing_blankline_indent = false
-      vim.g.indent_blankline_show_first_indent_level = false
-    end
+    "ray-x/lsp_signature.nvim"
   },
   {
-    "ray-x/lsp_signature.nvim"
+    "simrat39/rust-tools.nvim",
+    config = function()
+    end
+    -- ft = { "rust", "rs" },
   },
   {
     'kosayoda/nvim-lightbulb',
@@ -97,6 +91,71 @@ require "lsp_signature".setup({
   bind = true,
   handler_opts = { border = "rounded" }
 })
+
+
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
+local status_ok, rust_tools = pcall(require, "rust-tools")
+if not status_ok then
+  return
+end
+local opts = {
+  tools = {
+    executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
+    reload_workspace_from_cargo_toml = true,
+    inlay_hints = {
+      auto = true,
+      only_current_line = false,
+      show_parameter_hints = false,
+      parameter_hints_prefix = "<-",
+      other_hints_prefix = "=>",
+      max_len_align = false,
+      max_len_align_padding = 1,
+      right_align = false,
+      right_align_padding = 7,
+      highlight = "Comment",
+    },
+    hover_actions = {
+      --border = {
+      --        { "╭", "FloatBorder" },
+      --        { "─", "FloatBorder" },
+      --        { "╮", "FloatBorder" },
+      --        { "│", "FloatBorder" },
+      --        { "╯", "FloatBorder" },
+      --        { "─", "FloatBorder" },
+      --        { "╰", "FloatBorder" },
+      --        { "│", "FloatBorder" },
+      --},
+      auto_focus = true,
+    },
+  },
+  server = {
+    on_attach = require("lvim.lsp").common_on_attach,
+    on_init = require("lvim.lsp").common_on_init,
+    -- settings = {
+    --   ["rust-analyzer"] = {
+    --     checkOnSave = {
+    --       command = "clippy"
+    --     }
+    --   }
+    -- },
+  },
+}
+
+-- local path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/")
+--     or vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.7.4/"
+-- local codelldb_path = path .. "adapter/codelldb"
+-- local liblldb_path = path .. "lldb/lib/liblldb.so"
+
+-- if vim.fn.has "mac" == 1 then
+--   liblldb_path = path .. "lldb/lib/liblldb.dylib"
+-- end
+
+-- if vim.fn.filereadable(codelldb_path) and vim.fn.filereadable(liblldb_path) then
+--   opts.dap = {
+--     adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+--   }
+-- end
+rust_tools.setup(opts)
 
 -- require("gruvbox").setup({
 --   contrast="soft",
