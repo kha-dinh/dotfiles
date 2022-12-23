@@ -139,6 +139,8 @@ lvim.plugins = {
       vim.cmd("syntax enable")
       -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
       vim.cmd("let g:vimtex_view_method= 'zathura'")
+      vim.cmd("let g:vimtex_compiler_method= 'latexmk'")
+
 
       lvim.builtin.which_key.mappings["v"] = {
         name = "+VimTex",
@@ -166,7 +168,8 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
-  }
+  },
+  { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
 }
 require "lsp_signature".setup({
@@ -177,6 +180,7 @@ require "lsp_signature".setup({
 -- require("gruvbox").setup({
 --   contrast="soft",
 -- })
+
 
 require("catppuccin").setup()
 
