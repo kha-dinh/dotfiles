@@ -8,20 +8,9 @@
 - clean:
     ~/.config:
       recursive: true
-    ~/.doom.d:
-      recursive: true
 - link:
     ~/.config:
       path: dot_config/**
-    ~/.doom.d: dot_doom_d
-    ~/.doom.d/init.el:
-      if: "[ $PLATFORM = termux ]"
-      path: dot_doom_d_termux/init.el
-    ~/.doom.d/config.org:
-      if: "[ $PLATFORM = termux ]"
-      path: dot_doom_d_termux/config.org
-    ~/.doom.d/lisp:
-      path: emacs-packages/**
     ~/.ssh/config: ssh/config
     ~/.zprezto: dot_prezto
     ~/.zlogin: dot_prezto/runcoms/zlogin
@@ -30,15 +19,7 @@
     ~/.zprofile: dot_prezto/runcoms/zprofile
     ~/.zshenv: dot_prezto/runcoms/zshenv
     ~/.zshrc: dot_prezto/runcoms/zshrc
-    ~/.p10k.zsh: dot_prezto/runcoms/p10k.zsh
-    ~/.vimrc: dot_prezto/runcoms/vimrc
     ~/.tmux.conf : dot_prezto/runcoms/tmux.conf
-- git:
-    "~/.histdb":
-      url: "git@github.com:kha-dinh/histdb.git"
-      description: "history db"
-    "~/.tmux/plugin/tpm":
-      url: "git@github.com:tmux-plugins/tpm.git"
-
+    ~/.tmux/plugins/tpm : modules/tpm
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

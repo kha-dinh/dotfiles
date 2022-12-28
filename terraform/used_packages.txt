@@ -1,0 +1,6 @@
+tmux
+python3
+neovim
+git
+curl
+unzip

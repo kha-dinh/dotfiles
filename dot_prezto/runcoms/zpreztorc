@@ -23,7 +23,7 @@ zstyle ':prezto:*:*' color 'yes'
 
 # Set the Zsh modules to load (man zshmodules).
 # zstyle ':prezto:load' zmodule 'attr' 'stat'
-zstyle ':prezto:load' zmodule 'zprof'
+# zstyle ':prezto:load' zmodule 'zprof'
 
 # Set the Zsh functions to load (man zshcontrib).
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
@@ -34,13 +34,11 @@ zstyle ':prezto:load' zmodule 'zprof'
 zstyle ':prezto:load' pmodule \
     'pacman' \
     'environment' \
-    'terminal' \
     'archive' \
     'contrib-prompt' \
     'directory' \
     'docker' \
     'editor' \
-    'emacs' \
     'git' \
     'history' \
     'utility' \
@@ -50,7 +48,6 @@ zstyle ':prezto:load' pmodule \
     'fasd' \
     'syntax-highlighting' \
     'history-substring-search' \
-    'zsh-histdb' \
     'prompt'
 
 # Set the query found color.
@@ -69,7 +66,7 @@ zstyle ':prezto:module:autosuggestions:color' found 'cyan'
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:editor' key-bindings 'vi'
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'yes'
