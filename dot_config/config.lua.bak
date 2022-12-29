@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap("", "<leader>y", '"+y', { silent = true })
 vim.g["neovide_transparency"] = 1
 
 -- general
+lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.builtin.comment.mappings.extra = true
 lvim.builtin.bufferline.tabpages = true
@@ -29,8 +30,6 @@ lvim.builtin.nvimtree.setup.filters.exclude = { ".o" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust-analyzer", "rust_analyzer" })
-
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -40,7 +39,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "bash",
   "c",
-  "cpp",
   "json",
   "lua",
   "python",
@@ -68,11 +66,10 @@ lvim.plugins = {
   },
   {
     "simrat39/rust-tools.nvim",
-    -- ft = { "rust", "rs" }, -- IMPORTANT: re-enabling this seems to break inlay-hints
-    -- config = function()
-    -- end,
+    config = function()
+    end
+    -- ft = { "rust", "rs" },
   },
-
   {
     'kosayoda/nvim-lightbulb',
     requires = 'antoinemadec/FixCursorHold.nvim',
@@ -95,19 +92,19 @@ require "lsp_signature".setup({
 })
 
 
-lvim.builtin.which_key.mappings["ds"] = {
-  "<cmd>lua if vim.bo.filetype == 'rust' then vim.cmd[[RustDebuggables]] else require'dap'.continue() end<CR>",
-  "Start",
-}
-
-local opts          = {
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
+local status_ok, rust_tools = pcall(require, "rust-tools")
+if not status_ok then
+  return
+end
+local opts = {
   tools = {
     executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
     reload_workspace_from_cargo_toml = true,
     inlay_hints = {
       auto = true,
       only_current_line = false,
-      show_parameter_hints = true,
+      show_parameter_hints = false,
       parameter_hints_prefix = "<-",
       other_hints_prefix = "=>",
       max_len_align = false,
@@ -117,61 +114,47 @@ local opts          = {
       highlight = "Comment",
     },
     hover_actions = {
-      border = {
-        { "╭", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╮", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "╯", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╰", "FloatBorder" },
-        { "│", "FloatBorder" },
-      },
+      --border = {
+      --        { "╭", "FloatBorder" },
+      --        { "─", "FloatBorder" },
+      --        { "╮", "FloatBorder" },
+      --        { "│", "FloatBorder" },
+      --        { "╯", "FloatBorder" },
+      --        { "─", "FloatBorder" },
+      --        { "╰", "FloatBorder" },
+      --        { "│", "FloatBorder" },
+      --},
       auto_focus = true,
     },
   },
   server = {
+    on_attach = require("lvim.lsp").common_on_attach,
     on_init = require("lvim.lsp").common_on_init,
-    on_attach = function(client, bufnr)
-      require("lvim.lsp").common_on_attach(client, bufnr)
-      local rt = require "rust-tools"
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<leader>lA", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-    settings = {
-      ["rust-analyzer"] = {
-        rustc = {
-          source = "/home/khadinh/rust/Cargo.toml"
-        },
-        checkOnSave = {
-          command = "clippy",
-        },
-      }
-
-    }
+    -- settings = {
+    --   ["rust-analyzer"] = {
+    --     checkOnSave = {
+    --       command = "clippy"
+    --     }
+    --   }
+    -- },
   },
 }
-local path          = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/") or ""
-local codelldb_path = path .. "adapter/codelldb"
-local liblldb_path  = path .. "lldb/lib/liblldb.so"
 
-if vim.fn.filereadable(codelldb_path) and vim.fn.filereadable(liblldb_path) then
-  opts.dap = {
-    adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-  }
-else
-  local msg = "Either codelldb or liblldb is not readable."
-      .. "\n codelldb: "
-      .. codelldb_path
-      .. "\n liblldb: "
-      .. liblldb_path
-  vim.notify(msg, vim.log.levels.ERROR)
-end
+-- local path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/")
+--     or vim.fn.expand "~/" .. ".vscode/extensions/vadimcn.vscode-lldb-1.7.4/"
+-- local codelldb_path = path .. "adapter/codelldb"
+-- local liblldb_path = path .. "lldb/lib/liblldb.so"
 
+-- if vim.fn.has "mac" == 1 then
+--   liblldb_path = path .. "lldb/lib/liblldb.dylib"
+-- end
 
-require("rust-tools").setup(opts)
+-- if vim.fn.filereadable(codelldb_path) and vim.fn.filereadable(liblldb_path) then
+--   opts.dap = {
+--     adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+--   }
+-- end
+rust_tools.setup(opts)
 
 -- require("gruvbox").setup({
 --   contrast="soft",
@@ -221,17 +204,17 @@ lvim.builtin.which_key.mappings["/"] = { "<cmd>Telescope current_buffer_fuzzy_fi
 
 
 -- which-key setup
--- lvim.builtin.which_key.mappings["e"] = {
---   name = "+NvimTree",
---   t = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
---   f = { "<cmd>NvimTreeFocus<cr>", "Focus" }
--- }
+lvim.builtin.which_key.mappings["e"] = {
+  name = "+NvimTree",
+  t = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
+  f = { "<cmd>NvimTreeFocus<cr>", "Focus" }
+}
 
--- lvim.builtin.which_key.mappings["E"] = {
---   name = "+NvimTree",
---   t = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
---   f = { "<cmd>NvimTreeFocus<cr>", "Focus" }
--- }
+lvim.builtin.which_key.mappings["E"] = {
+  name = "+NvimTree",
+  t = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
+  f = { "<cmd>NvimTreeFocus<cr>", "Focus" }
+}
 
 lvim.builtin.which_key.mappings["l"]["h"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch source header" }
 lvim.builtin.which_key.mappings["t"] = {
