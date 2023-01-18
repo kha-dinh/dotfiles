@@ -1,5 +1,5 @@
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust-analyzer"})
-
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust-analyzer" })
+-- More config in ftplugin
 
 local opts          = {
   tools = {

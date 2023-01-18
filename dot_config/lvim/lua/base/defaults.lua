@@ -1,5 +1,6 @@
 vim.o.autoread = true -- auto reload files
 
+lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.comment.mappings.extra = true
 lvim.builtin.bufferline.tabpages = true
 lvim.builtin.luasnip.sources.friendly_snippets = true

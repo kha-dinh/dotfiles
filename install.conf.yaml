@@ -11,6 +11,10 @@
 - link:
     ~/.config:
       path: dot_config/**
+
+    ~/.local/share/lunarvim/site/after/ftplugin:
+      path: dot_local/lvim/ftplugin/*
+
     ~/.ssh/config: ssh/config
     ~/.zprezto: dot_prezto
     ~/.zlogin: dot_prezto/runcoms/zlogin
@@ -21,5 +25,6 @@
     ~/.zshrc: dot_prezto/runcoms/zshrc
     ~/.tmux.conf : dot_prezto/runcoms/tmux.conf
     ~/.tmux/plugins/tpm : modules/tpm
+    ~/.local/plugins/tpm : modules/tpm
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
