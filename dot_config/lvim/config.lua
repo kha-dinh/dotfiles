@@ -143,7 +143,7 @@ local opts          = {
     settings = {
       ["rust-analyzer"] = {
         rustc = {
-          source = "/home/khadinh/rust/Cargo.toml"
+          source = "discover"
         },
         checkOnSave = {
           command = "clippy",
