@@ -112,13 +112,24 @@ lvim.plugins = {
   { "kdheepak/lazygit.nvim" },
   { "rhysd/vim-llvm" },
   {
-    'lervag/vimtex',
+    'f3fora/nvim-texlabconfig',
     config = function()
-      vim.cmd("syntax enable")
-      -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
-      vim.cmd("let g:vimtex_view_method= 'zathura'")
+      local config = {}
+      require('texlabconfig').setup(config)
     end,
+    -- ft = { 'tex', 'bib' }, -- for lazy loading
+    build = 'go build -o  ~/.local/bin'
+    -- run = 'go build -o ~/.bin/' if e.g. ~/.bin/ is in $PATH
   },
+  -- {
+  --   'lervag/vimtex',
+  --   lazy = false
+  --   -- config = function()
+  --   --   vim.cmd("syntax enable")
+  --   --   -- vim.cmd("let g:vimtex_view_general_viewer = 'okular'")
+  --   --   vim.cmd("let g:vimtex_view_method= 'zathura'")
+  --   -- end,
+  -- },
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
