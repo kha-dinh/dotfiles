@@ -1,3 +1,4 @@
 set synctex true
-set synctex-editor-command "lvim -g %{input}:%{line}"
+set synctex-editor-command "lvim --headless -c 'VimtexInverseSearch %{line} %{input}'"
+
 
