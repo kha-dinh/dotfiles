@@ -36,7 +36,7 @@ local _, map = pcall(require, "mini.map")
 -- https://www.lunarvim.org/docs/plugins/extra-plugins
 lvim.autocommands = {
   {
-    { "BufEnter", "Filetype" },
+    { "BufEnter", "Filetype", "VimResized" },
     {
       desc = "Open mini.map and exclude some filetypes",
       pattern = { "*" },
@@ -50,13 +50,19 @@ lvim.autocommands = {
           "netrw",
         }
 
+        local winwidth = vim.fn.winwidth(0)
         if vim.tbl_contains(exclude_ft, vim.o.filetype) then
           vim.b.minimap_disable = true
           map.close()
         elseif vim.o.buftype == "" then
-          map.open()
+          if winwidth > 100 then
+            map.open()
+          else
+            map.close()
+          end
         end
       end,
     },
   },
+
 }
