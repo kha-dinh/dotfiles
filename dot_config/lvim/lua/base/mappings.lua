@@ -3,8 +3,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>" -- save with C-s
 
 
 
-lvim.keys.normal_mode["<C-n>"] = "<cmd>BufSurfForward<cr>" 
-lvim.keys.normal_mode["<C-p>"] = "<cmd>BufSurfBack<cr>" 
+lvim.keys.normal_mode["<C-n>"] = "<cmd>BufSurfForward<cr>"
+lvim.keys.normal_mode["<C-p>"] = "<cmd>BufSurfBack<cr>"
+
+lvim.keys.normal_mode["<C-e>"] = "<cmd>NvimTreeFocus<cr>"
 
 
 lvim.builtin.terminal.open_mapping = "<C-t>"
@@ -61,11 +63,3 @@ lvim.builtin.which_key.mappings["m"] = {
   ["3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "Navigate to file 3" },
   ["4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "Navigate to file 4" }
 }
-
-
-
-
-
-
-
-
