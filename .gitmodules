@@ -43,9 +43,6 @@
 [submodule "dot_prezto/contrib"]
 	path = dot_prezto/contrib
 	url = https://github.com/belak/prezto-contrib
-[submodule "dot_prezto/modules/zsh-histdb"]
-	path = dot_prezto/modules/zsh-histdb
-	url = https://github.com/larkery/zsh-histdb
 [submodule "nvim/packer.nvim"]
 	path = nvim/packer.nvim
 	url = https://github.com/wbthomason/packer.nvim
