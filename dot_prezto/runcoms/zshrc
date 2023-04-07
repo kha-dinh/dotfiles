@@ -19,7 +19,8 @@ git config --global credential.helper store
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
-
+# export FZF_PREVIEW_ADVANCED=true
+export ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 # if [[ $- == *i* ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
 #     # tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux -d && tmux attach-session -t ssh_tmux

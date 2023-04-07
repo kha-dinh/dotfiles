@@ -48,7 +48,17 @@ zstyle ':prezto:load' pmodule \
     'fasd' \
     'syntax-highlighting' \
     'history-substring-search' \
+    'fzf-zsh-plugin'\
+    'fzf-tab'\
+    'history-sync'\
+    'zsh-histdb'\
     'prompt'
+
+
+# Use keybindings
+zstyle ':prezto:module:fzf' key-bindings 'yes'
+# Use completion
+zstyle ':prezto:module:fzf' completion 'yes'
 
 # Set the query found color.
 zstyle ':prezto:module:autosuggestions:color' found 'cyan'
