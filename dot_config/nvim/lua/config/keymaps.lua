@@ -132,7 +132,6 @@ map("t", "<esc><esc>", "<c-\\><c-n>", {desc = "Enter Normal Mode"})
 map("n", "<C-t>", "<cmd>ToggleTerm<cr>")
 map("t", "<C-t>", "<cmd>ToggleTerm<cr>")
 
-
 -- windows
 -- map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
 -- map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
@@ -151,3 +150,4 @@ map("t", "<C-t>", "<cmd>ToggleTerm<cr>")
 
 -- telescope
 map("n", "<leader>t", "<cmd>Telescope<cr>", { desc = "Open Telescope" })
+map("n", "<Leader>fh", "<cmd>ClangdSwitchSourceHeader<cr>")

@@ -15,3 +15,15 @@
 --     -- command = "setlocal wrap",
 --   end
 -- })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
+
+local opts = {
+  cmd = { '/usr/bin/clangd' },
+  filetypes = { 'c', 'h', 'hpp', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+}
+
+local opts = {}
+-- require("lvim.lsp.manager").setup("clangd", opts)
+require("lspconfig")["clangd"].setup(opts)
+
+lvim.builtin.which_key.mappings["l"]["h"] = { "<cmd>ClangdSwitchSourceHeader<cr>", "Switch source header" }

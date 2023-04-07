@@ -11,7 +11,7 @@ formatters.setup {
   { name = "black" },
 }
 require('languages.rust')
-require('languages.tex')
+-- require('languages.tex')
 require('languages.cxx')
 
 lvim.lsp.templates_dir = join_paths(get_runtime_dir(), "after", "ftplugin")

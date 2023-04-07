@@ -32,3 +32,5 @@ export XMODIFIERS=@im=ibus
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 
+
+eval "$(atuin init zsh)"
