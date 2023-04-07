@@ -95,6 +95,20 @@ end
 
 -- map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 -- map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
+--
+map(
+  "n",
+  "<leader>xn",
+  "<cmd>lua require('trouble').next({skip_groups = true, jump = true})<cr>",
+  { desc = "Go to next Diagnostics" }
+)
+map(
+  "n",
+  "<leader>xp",
+  "<cmd>lua require('trouble').previous({ skip_groups = true, jump = true })<cr>",
+  { desc = "Go to previous Diagnostics" }
+)
+
 
 -- if not Util.has("trouble.nvim") then
 --   map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
@@ -128,10 +142,7 @@ end
 -- map("n", "<leader>ft", function() Util.float_term(nil, { cwd = Util.get_root() }) end, { desc = "Terminal (root dir)" })
 -- map("n", "<leader>fT", function() Util.float_term() end, { desc = "Terminal (cwd)" })
 -- map("t", "<esc><esc>", "<c-\\><c-n>", {desc = "Enter Normal Mode"})
-map("t", "<esc><esc>", "<c-\\><c-n>", {desc = "Enter Normal Mode"})
-map("n", "<C-t>", "<cmd>ToggleTerm<cr>")
-map("t", "<C-t>", "<cmd>ToggleTerm<cr>")
-
+--
 -- windows
 -- map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })
 -- map("n", "<leader>wd", "<C-W>c", { desc = "Delete window" })
@@ -150,4 +161,3 @@ map("t", "<C-t>", "<cmd>ToggleTerm<cr>")
 
 -- telescope
 map("n", "<leader>t", "<cmd>Telescope<cr>", { desc = "Open Telescope" })
-map("n", "<Leader>fh", "<cmd>ClangdSwitchSourceHeader<cr>")

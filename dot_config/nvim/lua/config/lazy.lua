@@ -45,4 +45,4 @@ require("lazy").setup({
   },
 })
 
-require("lspconfig").clangd.setup({})
+-- require("lspconfig").clangd.setup({})
