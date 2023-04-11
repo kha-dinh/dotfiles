@@ -49,7 +49,6 @@ zstyle ':prezto:load' pmodule \
     'syntax-highlighting' \
     'history-substring-search' \
     'fzf-zsh-plugin'\
-    'fzf-tab'\
     'history-sync'\
     'zsh-histdb'\
     'prompt'
