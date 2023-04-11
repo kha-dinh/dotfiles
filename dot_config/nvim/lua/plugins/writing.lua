@@ -34,4 +34,33 @@ return {
       },
     },
   },
+  -- {
+  --   "brymer-meneses/grammar-guard.nvim",
+  --   dependencies = {
+  --     "neovim/nvim-lspconfig",
+  --   },
+  --   config = function()
+  --     require("grammar-guard").init()
+  --     require("lspconfig").grammar_guard.setup({
+  --       cmd = { "ltex-ls" },
+  --       settings = {
+  --         ltex = {
+  --           enabled = { "latex", "tex", "bib", "markdown" },
+  --           language = "en",
+  --           diagnosticSeverity = "information",
+  --           sentenceCacheSize = 4000,
+  --           completionEnabled = true,
+  --           additionalRules = {
+  --             enablePickyRules = false,
+  --             motherTongue = "en",
+  --           },
+  --           checkFrequency = "save",
+  --           dictionary = {},
+  --           disabledRules = {},
+  --           hiddenFalsePositives = {},
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 }

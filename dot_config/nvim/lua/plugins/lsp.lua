@@ -37,6 +37,34 @@ return {
           end,
         },
         rust_analyzer = {},
+        -- ltex = {
+        -- settings = {
+        --   ltex = {
+        --     enabled = { "latex", "tex", "bib", "markdown" },
+        --     language = "en",
+        --     diagnosticSeverity = "information",
+        --     sentenceCacheSize = 4000,
+        --     completionEnabled = true,
+        --     additionalRules = {
+        --       enablePickyRules = true,
+        --       motherTongue = "en",
+        --     },
+        --     checkFrequency = "save",
+        --     dictionary = {},
+        --     disabledRules = {
+        --       en = {
+        --         "APOS_SPACE_CONTRACTION",
+        --         "UPPERCASE_SENTENCE_START",
+        --         "COMMA_PARENTHESIS_WHITESPACE",
+        --       },
+        --     },
+        --     hiddenFalsePositives = {},
+        --   },
+        -- },
+        -- },
+        grammarly = {
+          filetypes = { "tex", "markdown" },
+        },
         texlab = {
           on_attach = function(_, _)
             vim.keymap.set("n", "<Leader>vf", "<cmd>TexlabForward<cr>")
@@ -90,13 +118,10 @@ return {
           rt.setup(opts)
           return true
         end,
-        grammarly = function(_, opts)
+        ltex = function(_, opts)
           -- table.insert(opts.filetypes, pos, value)
           -- print(vim.inspect(opts))
-          opts.filetypes = {
-            "tex",
-            "markdown",
-          }
+          return true
         end,
       },
     },
