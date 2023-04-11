@@ -109,7 +109,6 @@ map(
   { desc = "Go to previous Diagnostics" }
 )
 
-
 -- if not Util.has("trouble.nvim") then
 --   map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 --   map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
@@ -160,4 +159,3 @@ map(
 -- map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- telescope
-map("n", "<leader>t", "<cmd>Telescope<cr>", { desc = "Open Telescope" })

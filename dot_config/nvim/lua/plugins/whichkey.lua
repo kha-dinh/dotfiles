@@ -27,6 +27,7 @@ return {
         ["<leader>u"] = { name = "+ui" },
         ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
+        ["<leader>t"] = { name = "+telescope" },
       }
 
       if Util.has("noice.nvim") then

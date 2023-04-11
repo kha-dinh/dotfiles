@@ -10,9 +10,20 @@ return {
     },
   },
   {
+    "kosayoda/nvim-lightbulb",
+    dependencies = "antoinemadec/FixCursorHold.nvim",
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "simrat39/rust-tools.nvim",
+      {
+        "f3fora/nvim-texlabconfig",
+        run = "go build",
+        config = function()
+          require("texlabconfig").setup()
+        end,
+      },
     },
     autoformat = false,
     ---@class PluginLspOpts
@@ -26,6 +37,38 @@ return {
           end,
         },
         rust_analyzer = {},
+        texlab = {
+          on_attach = function(_, _)
+            vim.keymap.set("n", "<Leader>vf", "<cmd>TexlabForward<cr>")
+            vim.keymap.set("n", "<Leader>vb", "<cmd>TexlabBuild<cr>")
+          end,
+          settings = {
+            texlab = {
+              forwardSearch = {
+                executable = "sioyek",
+                args = {
+                  "--reuse-window",
+                  "--inverse-search",
+                  [[nvim-texlabconfig -file %1 -line %2]],
+                  "--forward-search-file",
+                  "%f",
+                  "--forward-search-line",
+                  "%l",
+                  "%p",
+                },
+              },
+              build = {
+                onSave = true,
+                -- Added -bibtex, --shell-escape
+                args = { "-pdf", "-bibtex", "--shell-escape", "-interaction=nonstopmode", "-synctex=1", "%f" },
+              },
+              chktex = {
+                onOpenAndSave = true,
+                onEdit = false,
+              },
+            },
+          },
+        },
       },
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
@@ -47,11 +90,15 @@ return {
           rt.setup(opts)
           return true
         end,
+        grammarly = function(_, opts)
+          -- table.insert(opts.filetypes, pos, value)
+          -- print(vim.inspect(opts))
+          opts.filetypes = {
+            "tex",
+            "markdown",
+          }
+        end,
       },
     },
-  },
-  {
-    "kosayoda/nvim-lightbulb",
-    dependencies = "antoinemadec/FixCursorHold.nvim",
   },
 }
