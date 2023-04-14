@@ -2,46 +2,83 @@ return {
   "echasnovski/mini.animate",
   event = "VeryLazy",
   opts = function(opts)
-    -- don't use animate when scrolling with the mouse
-    -- local mouse_scrolled = false
-    -- for _, scroll in ipairs({ "Up", "Down" }) do
-    --   local key = "<ScrollWheel" .. scroll .. ">"
-    --   vim.keymap.set({ "", "i" }, key, function()
-    --     mouse_scrolled = true
-    --     return key
-    --   end, { expr = true })
-    -- end
-    --
-    -- return {
-    --   resize = {
-    --     timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
-    --   },
-    --   scroll = {
-    --     timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
-    --     subscroll = animate.gen_subscroll.equal({
-    --       predicate = function(total_scroll)
-    --         if mouse_scrolled then
-    --           mouse_scrolled = false
-    --           return false
-    --         end
-    --         return total_scroll > 1
-    --       end,
-    --     }),
-    --   },
-    -- }
+    -- Increase the animation speed
     local animate = require("mini.animate")
     opts.resize.timing = animate.gen_timing.linear({ duration = 50, unit = "total" })
     opts.scroll.timing = animate.gen_timing.linear({ duration = 50, unit = "total" })
   end,
-  -- config = function(_, opts)
-  --   require("mini.animate").setup(opts)
-  -- end,
-
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
       table.insert(opts.sections.lualine_x, { "filetype" })
+    end,
+  },
+  {
+    "b0o/incline.nvim",
+    event = "BufReadPre",
+    config = function()
+      local colors = require("catppuccin.palettes.mocha")
+      require("incline").setup({
+        highlight = {
+          groups = {
+            InclineNormal = { guibg = "#FC56B1", guifg = colors.base },
+            InclineNormalNC = { guifg = "#FC56B1", guibg = colors.base },
+          },
+        },
+        window = { margin = { vertical = 0, horizontal = 1 } },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+          return { { icon, guifg = color }, { " " }, { filename } }
+        end,
+      })
+    end,
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({
+        "*",
+      })
+    end,
+  },
+  {
+    "anuvyklack/windows.nvim",
+    event = "WinNew",
+    dependencies = {
+      { "anuvyklack/middleclass" },
+      { "anuvyklack/animation.nvim", enabled = false },
+    },
+    keys = { { "<leader>Z", "<cmd>WindowsMaximize<cr>", desc = "Zoom" } },
+    config = function()
+      vim.o.winwidth = 5
+      vim.o.equalalways = false
+      require("windows").setup({
+        animation = { enable = false, duration = 50 },
+      })
+    end,
+  },
+
+  -- scrollbar
+  {
+    "petertriho/nvim-scrollbar",
+    event = "BufReadPost",
+    config = function()
+      local scrollbar = require("scrollbar")
+      local colors = require("catppuccin.palettes.mocha")
+      scrollbar.setup({
+        handle = { color = colors.overlay0 },
+        excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify" },
+        marks = {
+          Search = { color = colors.blue },
+          Error = { color = colors.red },
+          Warn = { color = colors.yellow },
+          Info = { color = colors.sky },
+          Hint = { color = colors.teal },
+          Misc = { color = colors.mauve },
+        },
+      })
     end,
   },
 }

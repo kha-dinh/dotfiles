@@ -66,7 +66,7 @@ floating_modifier $mod
 bindsym $mod+t exec alacritty
 bindsym $mod+b exec firefox
 # This ensure that environment variables (e.g., $PATH) are set by the shell
-bindsym $mod+e exec alacritty --class="nvim" -e $SHELL -lc lvim 
+bindsym $mod+e exec alacritty --class="nvim" -e $SHELL -lc nvim 
 bindsym $mod+p exec alacritty --class="rustero" -e $SHELL -lc rustero 
 bindsym $mod+o exec obsidian
 bindsym $mod+c exec spectacle -b -r -c
