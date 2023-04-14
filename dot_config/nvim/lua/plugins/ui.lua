@@ -36,6 +36,14 @@ return {
     end,
   },
   {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({
+        "*",
+      })
+    end,
+  },
+  {
     "anuvyklack/windows.nvim",
     event = "WinNew",
     dependencies = {
@@ -58,18 +66,18 @@ return {
     event = "BufReadPost",
     config = function()
       local scrollbar = require("scrollbar")
-      -- local colors = require("catppuccin.palettes.frappe")
+      local colors = require("catppuccin.palettes.mocha")
       scrollbar.setup({
-        -- handle = { color = colors.bg_highlight },
+        handle = { color = colors.overlay0 },
         excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify" },
-        -- marks = {
-        --   Search = { color = colors.orange },
-        --   Error = { color = colors.error },
-        --   Warn = { color = colors.warning },
-        --   Info = { color = colors.info },
-        --   Hint = { color = colors.hint },
-        --   Misc = { color = colors.purple },
-        -- },
+        marks = {
+          Search = { color = colors.blue },
+          Error = { color = colors.red },
+          Warn = { color = colors.yellow },
+          Info = { color = colors.sky },
+          Hint = { color = colors.teal },
+          Misc = { color = colors.mauve },
+        },
       })
     end,
   },
