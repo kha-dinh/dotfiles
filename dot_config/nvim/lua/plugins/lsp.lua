@@ -36,7 +36,15 @@ return {
             vim.keymap.set("n", "<Leader>fh", "<cmd>ClangdSwitchSourceHeader<cr>")
           end,
         },
-        rust_analyzer = {},
+        rust_analyzer = {
+          settings = {
+            rust_analyzer = {
+              editor = {
+                quickSuggestionDelay = 200,
+              },
+            },
+          },
+        },
         -- ltex = {
         -- settings = {
         --   ltex = {
