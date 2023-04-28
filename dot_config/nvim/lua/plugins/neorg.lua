@@ -4,8 +4,11 @@ return {
   opts = {
     load = {
       ["core.defaults"] = {}, -- Loads default behaviour
-      ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-      ["core.norg.dirman"] = { -- Manages Neorg workspaces
+      ["core.concealer"] = {}, -- Adds pretty icons to your documents
+      ["core.export"] = {}, --
+      ["core.export.markdown"] = {}, --
+      ["core.summary"] = {}, --
+      ["core.dirman"] = { -- Manages Neorg workspaces
         config = {
           workspaces = {
             notes = "~/notes",

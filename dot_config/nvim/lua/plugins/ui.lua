@@ -15,6 +15,12 @@ return {
     end,
   },
   {
+    "s1n7ax/nvim-window-picker",
+    config = function()
+      require("window-picker").setup()
+    end,
+  },
+  {
     "b0o/incline.nvim",
     event = "BufReadPre",
     config = function()
