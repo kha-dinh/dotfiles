@@ -1,28 +1,38 @@
 return {
   -- add symbols-outline
   {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    opts = {
-      -- add your options that should be passed to the setup() function here
-      position = "right",
-    },
-  },
-  {
-    "kosayoda/nvim-lightbulb",
-    dependencies = "antoinemadec/FixCursorHold.nvim",
-  },
-  {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "simrat39/rust-tools.nvim",
+      {
+        "kosayoda/nvim-lightbulb",
+        dependencies = "antoinemadec/FixCursorHold.nvim",
+      },
+      {
+        "simrat39/symbols-outline.nvim",
+        cmd = "SymbolsOutline",
+        keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+        opts = {
+          -- add your options that should be passed to the setup() function here
+          position = "right",
+        },
+      },
+      {
+        "simrat39/rust-tools.nvim",
+      },
       {
         "f3fora/nvim-texlabconfig",
-        run = "go build",
+        build = "go build",
         config = function()
           require("texlabconfig").setup()
         end,
+      },
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        opts = { lsp = { auto_attach = true } },
       },
     },
     autoformat = false,
@@ -71,7 +81,7 @@ return {
         -- },
         -- },
         grammarly = {
-          filetypes = { "tex", "markdown" },
+          filetypes = { "tex" },
         },
         texlab = {
           on_attach = function(_, _)

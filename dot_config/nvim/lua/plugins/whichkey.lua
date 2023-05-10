@@ -10,9 +10,7 @@ return {
       local keymaps = {
         ["<leader>t"] = { name = "+telescope" },
       }
-      if Util.has("overseer") then
-        keymaps["<leader>o"] = { name = "+overseer" }
-      end
+
       wk.register(keymaps)
     end,
   },

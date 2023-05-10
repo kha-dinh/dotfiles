@@ -4,7 +4,13 @@
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
-
+---- Disable autoformat for all files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
 --
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
@@ -36,3 +42,11 @@ vim.api.nvim_create_autocmd("FileType", {
     --   ]])
   end,
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = augroup("bib"),
+--   pattern = { "pandoc", "markdown" },
+--   callback = function()
+--     vim.b["pandoc_biblio_bibs"] = require("mkdnflow.bib").bib_paths.root
+--   end,
+-- })

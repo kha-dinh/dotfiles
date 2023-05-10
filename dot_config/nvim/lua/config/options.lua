@@ -3,4 +3,12 @@
 -- Add any additional options here
 --
 local opt = vim.opt
-opt.wrap = true
+vim.cmd([[
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+]])
+
+-- opt.wrap = true
+-- vim.b.autoformat = false
+-- vim.b.noswapfile = true

@@ -1,11 +1,12 @@
+
+Host *
+	IdentityFile ~/.ssh/id_rsa
+
 Host mac-mini
 	HostName 115.145.154.178
 	User khadd
 	ForwardX11 yes
-
-Host *
-	IdentityFile ~/.ssh/id_rsa
-	ForwardX11 no
+	ForwardX11Trusted yes
 	
 Host upmemcloud*
    User dalo2903
