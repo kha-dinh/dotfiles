@@ -48,6 +48,7 @@ path=(
     $HOME/.emacs.d/bin
     $HOME/go/bin
     $path
+    /opt/homebrew/bin
 )
 
 #
