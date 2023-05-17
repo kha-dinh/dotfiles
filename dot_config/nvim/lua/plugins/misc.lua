@@ -1,4 +1,7 @@
 return {
+  {
+    "tpope/vim-eunuch", -- UNIX file utilities like Remove, Delete
+  },
   -- {
   --   "giusgad/pets.nvim",
   --   dependencies = {

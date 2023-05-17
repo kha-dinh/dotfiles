@@ -96,18 +96,12 @@ end
 -- map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 -- map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 --
-map(
-  "n",
-  "<leader>xn",
-  "<cmd>lua require('trouble').next({skip_groups = true, jump = true})<cr>",
-  { desc = "Go to next Diagnostics" }
-)
-map(
-  "n",
-  "<leader>xp",
-  "<cmd>lua require('trouble').previous({ skip_groups = true, jump = true })<cr>",
-  { desc = "Go to previous Diagnostics" }
-)
+map("n", "<leader>xn", function()
+  vim.diagnostic.goto_next()
+end, { desc = "Go to next diagnostics" })
+map("n", "<leader>xn", function()
+  vim.diagnostic.goto_prev()
+end, { desc = "Go to previous diagnostics" })
 
 -- if not Util.has("trouble.nvim") then
 --   map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })

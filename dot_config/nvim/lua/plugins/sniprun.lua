@@ -5,6 +5,7 @@ return {
     config = function()
       local opts = {
         live_mode_toggle = "enable",
+        binary_path = "/usr/bin/sniprun",
       }
       require("sniprun").setup(opts)
     end,

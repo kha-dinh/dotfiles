@@ -2,6 +2,10 @@ return {
   {
     "dhruvasagar/vim-table-mode",
   },
+
+  {
+    "preservim/vim-pencil",
+  },
   {
     "vim-pandoc/vim-pandoc",
     dependencies = {
@@ -21,7 +25,7 @@ return {
   {
 
     dir = "~/projects/cmp-pandoc.nvim",
-    dev = true,
+    -- dev = true,
     dependencies = {
       "kha-dinh/cmp-pandoc.nvim",
     },

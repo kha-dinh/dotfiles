@@ -1,29 +1,5 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "prncss-xyz/neo-tree-zk.nvim",
-      "mickael-menu/zk-nvim",
-    },
-    opts = {
-      sources = {
-        --   -- default sources
-        "filesystem",
-        "buffers",
-        "git_status",
-        "zk",
-      },
-      zk = {
-        follow_current_file = true,
-        window = {
-          mappings = {
-            ["n"] = "change_query",
-          },
-        },
-      },
-    },
-  },
-  {
     "mickael-menu/zk-nvim",
     event = "VeryLazy",
     dependencies = {
@@ -47,18 +23,65 @@ return {
           wk.register(keymaps)
         end,
       },
+      {
+        "nvim-neo-tree/neo-tree.nvim",
+        dependencies = {
+          "prncss-xyz/neo-tree-zk.nvim",
+          "mickael-menu/zk-nvim",
+        },
+        opts = {
+          sources = {
+            --   -- default sources
+            "filesystem",
+            "buffers",
+            "git_status",
+            "zk",
+          },
+          zk = {
+            follow_current_file = true,
+            window = {
+              mappings = {
+                ["n"] = "change_query",
+              },
+            },
+          },
+        },
+      },
     },
     keys = {
-      { "<leader>zn", "<cmd>ZkNew<cr>", mode = "n", desc = "Create New Zk Note" },
+      { "<leader>zn", "<cmd>ZkNew {title=vim.fn.input('Title: ')}<cr>", mode = "n", desc = "Create New Zk Note" },
+      {
+        "<leader>zn",
+        ":'<,'>ZkNewFromTitleSelection<cr>",
+        mode = "v",
+        desc = "Create New Zk from selection",
+      },
       { "<leader>zz", "<cmd>ZkNotes<cr>", mode = "n", desc = "List Zk Notes" },
       { "<leader>zt", "<cmd>ZkTags<cr>", mode = "n", desc = "List Zk Tags" },
-      { "<leader>zfn", ':ZkNew {dir="fleeting"} <cr>', mode = "n", desc = "New fleeting notes" },
+      {
+        "<leader>zfn",
+        ':ZkNew {dir="fleeting", title=vim.fn.input("Title: ")} <cr>',
+        mode = "n",
+        desc = "New fleeting notes",
+      },
       { "<leader>zfl", ':ZkNotes {hrefs={"fleeting"}} <cr>', mode = "n", desc = "List fleeting notes" },
-      { "<leader>zdn", ':ZkNew {dir="daily"} <cr>', mode = "n", desc = "New daily notes" },
+      {
+        "<leader>zdn",
+        ':ZkNew {dir="daily"} <cr>',
+        mode = "n",
+        desc = "New daily notes",
+      },
       { "<leader>zdl", ':ZkNotes {hrefs={"daily"}} <cr>', mode = "n", desc = "List daily notes" },
-      { "<leader>zln", ':ZkNew {dir="literature"} <cr>', mode = "n", desc = "New literature notes" },
+      { "<leader>zi", ":ZkIndex <cr>", mode = "n", desc = "Reindex Zk notes" },
+      {
+        "<leader>zln",
+        ':ZkNew {dir="literature", title=vim.fn.input("Title: ")} <cr>',
+        mode = "n",
+        desc = "New literature notes",
+      },
       { "<leader>zll", ':ZkNotes {hrefs={"literature"}} <cr>', mode = "n", desc = "List literature notes" },
       { "<leader>zb", ":ZkBacklinks <cr>", mode = "n", desc = "Current note's backlinks" },
+      { "<leader>ze", ":Neotree toggle zk <cr>", mode = "n", desc = "Open Zk Neotree" },
     },
     config = function()
       local zk = require("zk")
