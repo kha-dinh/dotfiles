@@ -57,7 +57,7 @@ return {
         desc = "Create New Zk from selection",
       },
       { "<leader>zz", "<cmd>ZkNotes<cr>", mode = "n", desc = "List Zk Notes" },
-      { "<leader>zt", "<cmd>ZkTags<cr>", mode = "n", desc = "List Zk Tags" },
+      { "<leader>zt", "<cmd>ZkTags {sort = {'note-count'}}<cr>", mode = "n", desc = "List Zk Tags" },
       {
         "<leader>zfn",
         ':ZkNew {dir="fleeting", title=vim.fn.input("Title: ")} <cr>',
