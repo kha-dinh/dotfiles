@@ -12,3 +12,5 @@ set undodir=~/.vim/undo//
 -- opt.wrap = true
 -- vim.b.autoformat = false
 -- vim.b.noswapfile = true
+--
+

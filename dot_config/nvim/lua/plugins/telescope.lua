@@ -8,6 +8,11 @@ return {
         desc = "Open Telescope",
       },
       {
+        "g/",
+        "<cmd>Telescope grep_string<cr>",
+        desc = "Open Telescope",
+      },
+      {
         "<leader>tm",
         "<cmd>Telescope man_pages<cr>",
         desc = "Find manual pages",

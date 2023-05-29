@@ -14,20 +14,20 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
-  pattern = { "gitcommit", "markdown", "tex" },
+  pattern = { "gitcommit", "markdown", "tex", "pandoc" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = false
     vim.opt_local.linebreak = true
     --     -- Stolen from https://neovim.io/doc/user/insert.html#compl-thesaurusfunc lol
-    --     vim.cmd([[
-    -- func Thesaur(findstart, base)
-    --   if a:findstart
-    --     return searchpos('\<', 'bnW', line('.'))[1] - 1
-    --   endif
-    --   let res = []
-    --   let h = ''
-    --   for l in systemlist('aiksaurus ' .. shellescape(a:base))
+    vim.cmd([[
+    " markdownWikiLink is a new region
+    syn region markdownWikiLink matchgroup=markdownLinkDelimiter start="\[\[" end="\]\]" contains=markdownUrl keepend oneline concealends
+    " markdownLinkText is copied from runtime files with 'concealends' appended
+    " syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(\%(\_[^][]\|\[\_[^][]*\]\)*]\%( \=[[(]\)\)\@=" end="\]\%( \=[[(]\)\@=" nextgroup=markdownLink,markdownId skipwhite contains=@markdownInline,markdownLineStart concealends
+    " markdownLink is copied from runtime files with 'conceal' appended
+    " syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained conceal
+   ]])
     --     if l[:3] == '=== '
     --       let h = '(' .. substitute(l[4:], ' =*$', ')', '')
     --     elseif l ==# 'Alphabetically similar known words are: '
@@ -42,11 +42,3 @@ vim.api.nvim_create_autocmd("FileType", {
     --   ]])
   end,
 })
-
--- vim.api.nvim_create_autocmd("FileType", {
---   group = augroup("bib"),
---   pattern = { "pandoc", "markdown" },
---   callback = function()
---     vim.b["pandoc_biblio_bibs"] = require("mkdnflow.bib").bib_paths.root
---   end,
--- })

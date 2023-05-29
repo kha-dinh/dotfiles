@@ -24,10 +24,11 @@ return {
   },
   {
 
-    dir = "~/projects/cmp-pandoc.nvim",
+    -- dir = "~/projects/cmp-pandoc.nvim",
     -- dev = true,
+    "kha-dinh/cmp-pandoc.nvim",
     dependencies = {
-      "kha-dinh/cmp-pandoc.nvim",
+      "hrsh7th/nvim-cmp",
     },
     config = function()
       local cmp = require("cmp")
@@ -48,15 +49,24 @@ return {
     rocks = "luautf8", -- Ensures optional luautf8 dependency is installed
     config = function()
       require("mkdnflow").setup({
+        modules = { conceal = true },
         perspective = {
           priority = "root",
           root_tell = "index.md",
+        },
+        bib = { default_path = "~/mynotes/references.bib" },
+        links = {
+          conceal = true,
         },
       })
     end,
   },
   {
     "iamcco/markdown-preview.nvim",
+    event = "BufRead",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
   {
     "preservim/vim-markdown",
@@ -64,7 +74,7 @@ return {
     event = "VeryLazy",
     config = function()
       vim.g.vim_markdown_folding_disabled = 1
-      vim.g.vim_markdown_conceal = 0
+      vim.g.vim_markdown_conceal = 1
       vim.g.tex_conceal = ""
       vim.g.vim_markdown_math = 1
       vim.g.vim_markdown_frontmatter = 1
