@@ -56,7 +56,7 @@ return {
         mode = "v",
         desc = "Create New Zk from selection",
       },
-      { "<leader>zz", "<cmd>ZkNotes<cr>", mode = "n", desc = "List Zk Notes" },
+      { "<leader>zz", "<cmd>ZkNotes {sort={'modified'}}<cr>", mode = "n", desc = "List Zk Notes" },
       { "<leader>zt", "<cmd>ZkTags<cr>", mode = "n", desc = "List Zk Tags" },
       {
         "<leader>zfn",
@@ -80,6 +80,7 @@ return {
         desc = "New literature notes",
       },
       { "<leader>zll", ':ZkNotes {hrefs={"literature"}} <cr>', mode = "n", desc = "List literature notes" },
+      { "<leader>zs", ':ZkNotes {sort = {"word-count"}} <cr>', mode = "n", desc = "Find short notes " },
       { "<leader>zb", ":ZkBacklinks <cr>", mode = "n", desc = "Current note's backlinks" },
       { "<leader>ze", ":Neotree toggle zk <cr>", mode = "n", desc = "Open Zk Neotree" },
     },
