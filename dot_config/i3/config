@@ -47,11 +47,11 @@ exec --no-startup-id nm-applet
 # Use arandr output
 exec --no-startup-id $HOME/.screenlayout/layout.sh
 
-exec --no-startup-id i3-layouts
-
-
+# exec --no-startup-id i3-layouts
 # exec --no-startup-id python ~/.config/i3/scripts/auto_rename_workspaces.py --norenumber_workspaces
 exec --no-startup-id "pkill -9 redshift; redshift -l 37.29111:127.00889 -P"
+
+exec_always --no-startup-id "python ~/.config/i3/scripts/alternating_layouts.py"
 
 # workspace 1 output DP-0
 # workspace 1 output $mainmonitor
