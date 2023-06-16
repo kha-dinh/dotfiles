@@ -103,10 +103,11 @@ return {
                   "%p",
                 },
               },
+              auxDirectory = "build", -- IMPORTANT
               build = {
                 onSave = true,
                 -- Added -bibtex, --shell-escape
-                args = { "-pdf", "-bibtex", "--shell-escape", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                args = { "-pdf", "-bibtex", "--shell-escape", "-interaction=nonstopmode", "-synctex=1", "%f" , "-outdir=build"},
               },
               chktex = {
                 onOpenAndSave = true,
