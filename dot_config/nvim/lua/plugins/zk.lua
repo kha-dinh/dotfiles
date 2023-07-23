@@ -6,7 +6,7 @@ return {
       {
         "goolord/alpha-nvim",
         opts = function(_, dashboard)
-          local button = dashboard.button("z", " " .. " Zk Notes", ":ZkNotes <CR>")
+          local button = dashboard.button("z", " " .. " Zk Notes", "<cmd>ZkNotes {sort={'modified'}}<CR>")
           button.opts.hl = "AlphaButtons"
           button.opts.hl_shortcut = "AlphaShortcut"
           table.insert(dashboard.section.buttons.val, 4, button)
@@ -29,23 +29,23 @@ return {
           "prncss-xyz/neo-tree-zk.nvim",
           "mickael-menu/zk-nvim",
         },
-        opts = {
-          sources = {
-            --   -- default sources
-            "filesystem",
-            "buffers",
-            "git_status",
-            "zk",
-          },
-          zk = {
-            follow_current_file = true,
-            window = {
-              mappings = {
-                ["n"] = "change_query",
-              },
-            },
-          },
-        },
+        -- opts = {
+        --   sources = {
+        --     --   -- default sources
+        --     "filesystem",
+        --     "buffers",
+        --     "git_status",
+        --     "zk",
+        --   },
+        --   zk = {
+        --     follow_current_file = true,
+        --     window = {
+        --       mappings = {
+        --         ["n"] = "change_query",
+        --       },
+        --     },
+        --   },
+        -- },
       },
     },
     keys = {

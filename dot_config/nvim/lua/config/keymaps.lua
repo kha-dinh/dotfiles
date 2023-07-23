@@ -99,9 +99,12 @@ end
 map("n", "<leader>xn", function()
   vim.diagnostic.goto_next()
 end, { desc = "Go to next diagnostics" })
-map("n", "<leader>xn", function()
+map("n", "<leader>xp", function()
   vim.diagnostic.goto_prev()
 end, { desc = "Go to previous diagnostics" })
+map("n", "X", function()
+  vim.diagnostic.open_float({ prefix = "●" })
+end, { desc = "Show line diagnostic" })
 
 -- if not Util.has("trouble.nvim") then
 --   map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })

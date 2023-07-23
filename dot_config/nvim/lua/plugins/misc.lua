@@ -2,6 +2,10 @@ return {
   {
     "tpope/vim-eunuch", -- UNIX file utilities like Remove, Delete
   },
+  {
+    "drmikehenry/vim-headerguard",
+  },
+  { "powerman/vim-plugin-AnsiEsc"},
   -- {
   --   "giusgad/pets.nvim",
   --   dependencies = {

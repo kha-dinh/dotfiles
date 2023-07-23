@@ -1,12 +1,14 @@
 return {
-  "echasnovski/mini.animate",
-  event = "VeryLazy",
-  opts = function(opts)
-    -- Increase the animation speed
-    local animate = require("mini.animate")
-    opts.resize.timing = animate.gen_timing.linear({ duration = 50, unit = "total" })
-    opts.scroll.timing = animate.gen_timing.linear({ duration = 50, unit = "total" })
-  end,
+  {
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      -- Increase the animation speed
+      local animate = require("mini.animate")
+      opts.resize.timing = animate.gen_timing.linear({ duration = 50, unit = "total" })
+      opts.scroll.timing = animate.gen_timing.linear({ duration = 50, unit = "total" })
+    end,
+  },
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",

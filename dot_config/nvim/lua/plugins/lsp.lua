@@ -7,15 +7,15 @@ return {
         "kosayoda/nvim-lightbulb",
         dependencies = "antoinemadec/FixCursorHold.nvim",
       },
-      -- {
-      --   "simrat39/symbols-outline.nvim",
-      --   cmd = "SymbolsOutline",
-      --   keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-      --   opts = {
-      --     -- add your options that should be passed to the setup() function here
-      --     position = "right",
-      --   },
-      -- },
+      {
+        "simrat39/symbols-outline.nvim",
+        cmd = "SymbolsOutline",
+        keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+        opts = {
+          -- add your options that should be passed to the setup() function here
+          position = "right",
+        },
+      },
       {
         "simrat39/rust-tools.nvim",
       },
@@ -41,7 +41,7 @@ return {
       ---@type lspconfig.options
       servers = {
         clangd = {
-          mason = false,
+          mason = true,
           on_attach = function(_, _)
             vim.keymap.set("n", "<Leader>fh", "<cmd>ClangdSwitchSourceHeader<cr>")
           end,
@@ -57,7 +57,7 @@ return {
         },
         -- ltex = {
         -- settings = {
-        --   ltex = {
+        --   ltex = {lsp
         --     enabled = { "latex", "tex", "bib", "markdown" },
         --     language = "en",
         --     diagnosticSeverity = "information",
@@ -81,7 +81,10 @@ return {
         -- },
         -- },
         grammarly = {
-          filetypes = { "tex" },
+          filetypes = { "tex", "pandoc", "markdown" },
+        },
+        vale_ls = {
+          filetypes = { "pandoc", "markdown" },
         },
         texlab = {
           on_attach = function(_, _)
@@ -107,7 +110,15 @@ return {
               build = {
                 onSave = true,
                 -- Added -bibtex, --shell-escape
-                args = { "-pdf", "-bibtex", "--shell-escape", "-interaction=nonstopmode", "-synctex=1", "%f" , "-outdir=build"},
+                args = {
+                  "-pdf",
+                  "-bibtex",
+                  "--shell-escape",
+                  "-interaction=nonstopmode",
+                  "-synctex=1",
+                  "%f",
+                  "-outdir=build",
+                },
               },
               chktex = {
                 onOpenAndSave = true,
