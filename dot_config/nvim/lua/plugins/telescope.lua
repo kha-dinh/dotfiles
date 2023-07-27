@@ -17,6 +17,11 @@ return {
         "<cmd>Telescope man_pages<cr>",
         desc = "Find manual pages",
       },
+      {
+        "<leader><space>",
+        "<cmd>Telescope find_files<cr>",
+        desc = "Find manual pages",
+      },
     },
     opts = function()
       require("telescope").load_extension("projects")

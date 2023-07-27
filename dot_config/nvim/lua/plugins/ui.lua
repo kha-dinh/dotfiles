@@ -12,6 +12,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
+    dependencies = { "echasnovski/mini.nvim" },
     opts = function(_, opts)
       -- local function lspstatus(_, msg, info)
       --   -- local active_clients = vim.lsp.get_client_by_id(info.client_id).name
@@ -23,6 +24,8 @@ return {
       --   return active_clients
       -- end
       table.insert(opts.sections.lualine_x, { "filetype" })
+      table.insert(opts.sections.lualine_c, { require("auto-session.lib").current_session_name })
+
       -- table.insert(opts.sections.lualine_x, { lspstatus })
     end,
   },
