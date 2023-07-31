@@ -4,6 +4,13 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+          require("lsp_lines").setup()
+        end,
+      },
+
+      {
         "kosayoda/nvim-lightbulb",
         dependencies = "antoinemadec/FixCursorHold.nvim",
       },
@@ -16,8 +23,24 @@ return {
           position = "right",
         },
       },
+      { "simrat39/rust-tools.nvim" },
+      { "p00f/clangd_extensions.nvim" },
       {
-        "simrat39/rust-tools.nvim",
+        "ray-x/navigator.lua",
+        dependencies = {
+          { "ray-x/guihua.lua",               run = "cd lua/fzy && make" },
+          { "nvim-lspconfig" },
+          { "nvim-treesitter/nvim-treesitter" },
+        },
+        config = function()
+          require("navigator").setup({
+            mason = true,
+            lsp = {
+              diagnostic = { virtual_text = false },
+              disable_lsp = { "denols", "ccls" },
+            },
+          })
+        end,
       },
       {
         "f3fora/nvim-texlabconfig",
@@ -35,15 +58,14 @@ return {
         opts = { lsp = { auto_attach = true } },
       },
     },
-    autoformat = false,
     ---@class PluginLspOpts
     opts = {
+      autoformat = false,
       ---@type lspconfig.options
       servers = {
         clangd = {
           mason = true,
           on_attach = function(_, _)
-            vim.keymap.set("n", "<Leader>fh", "<cmd>ClangdSwitchSourceHeader<cr>")
           end,
         },
         rust_analyzer = {
@@ -132,8 +154,17 @@ return {
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
         -- Fix clangd offset encoding  https://www.lazyvim.org/configuration/recipes
-        clangd = function(_, opts)
+        clangd = function(client, opts)
           opts.capabilities.offsetEncoding = { "utf-16" }
+          -- opts.on_attach = function(client, bufnr)
+          --   require("navigator.lspclient.mapping").setup({ client = client, bufnr = bufnr }) -- setup navigator keymaps here,
+          --   require("navigator.dochighlight").documentHighlight(bufnr)
+          --   require("navigator.codeAction").code_action_prompt(bufnr)
+          -- end
+
+          vim.keymap.set("n", "<Leader>fh", "<cmd>ClangdSwitchSourceHeader<cr>")
+          require("clangd_extensions").setup(opts)
+          return true
         end,
         rust_analyzer = function(_, opts)
           local rt = require("rust-tools")
