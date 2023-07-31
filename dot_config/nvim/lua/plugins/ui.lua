@@ -29,6 +29,22 @@ return {
       -- table.insert(opts.sections.lualine_x, { lspstatus })
     end,
   },
+  -- {
+  --   "m4xshen/smartcolumn.nvim",
+  --   opts = {},
+  -- },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
+  },
   {
     "s1n7ax/nvim-window-picker",
     config = function()
