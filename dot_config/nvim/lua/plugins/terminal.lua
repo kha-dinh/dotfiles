@@ -1,9 +1,10 @@
 return {
   {
     "akinsho/toggleterm.nvim",
-    config = function()
-      require("toggleterm").setup()
-    end,
+    version = "*",
+    opts = {--[[ things you want to change go here]]
+      direction = "tab",
+    },
 
     keys = {
       { "<esc><esc>", "<c-\\><c-n>", mode = "t", desc = "Enter Normal Mode" },
