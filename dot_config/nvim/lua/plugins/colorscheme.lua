@@ -27,20 +27,22 @@ return {
         flavour = "mocha",
         color_overrides = {
           all = {
-            pink = oxocarbon.base07, -- #define
-            yellow = oxocarbon.base09, -- keywords
+            pink = oxocarbon.base07,     -- #define
+            yellow = oxocarbon.base09,   -- keywords
             lavender = oxocarbon.base10, -- fields
-            sky = oxocarbon.base07, -- operators/TODO
-            blue = oxocarbon.base12, -- function name
+            sky = oxocarbon.base07,      -- operators/TODO
+            blue = oxocarbon.base12,     -- function name
             -- green = oxocarbon.base13, -- strings
-            mauve = oxocarbon.base14, -- macro names, "struct", "include"
-            green = oxocarbon.base15, -- strings
+            mauve = oxocarbon.base14,    -- macro names, "struct", "include"
+            -- green = oxocarbon.base15,    -- strings
+            green = oxocarbon.base13,    -- strings
             -- green = catppuccin.green, -- strings
-            peach = oxocarbon.base15, -- numbers
-            maroon = catppuccin.yellow, -- parameters
+            peach = oxocarbon.base15,    -- numbers
+            maroon = catppuccin.yellow,  -- parameters
             -- green = catppuccin.yellow, -- strings
             -- maroon = oxocarbon.base12, -- parameters
-            base = "#212121",
+            -- base = "#212121",
+            base = oxocarbon.base00,
             -- overlay0 = oxocarbon.base13, -- comment
           },
         },
