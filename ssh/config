@@ -14,18 +14,21 @@ Host upmemcloud*
    IdentityFile ~/.ssh/upmemcloud_dalo2903
 
 Host sslab
-	HostName ssslab.skku.edu
+	# HostName  ssslab.skku.edu
+	HostName  115.145.173.6
 	Port 3221
 	ForwardX11 no
 	User khadinh
 
 Host ssservice-admin
-	HostName sslab.skku.edu
+	HostName  115.145.173.6
+	# HostName sslab.skku.edu
 	Port 3321
 	User ssservice-admin
 	
 Host ssone
-	HostName ssone.skku.edu
+	HostName  115.145.173.6
+	# HostName ssone.skku.edu
 	Port 1221
 	User khadinh
 
