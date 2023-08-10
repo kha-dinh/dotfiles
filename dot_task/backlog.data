@@ -1,0 +1,89 @@
+{"description":"Prepare first draft of the proposal","due":"20230810T150000Z","entry":"20230809T061206Z","modified":"20230809T061206Z","status":"pending","uuid":"59b2883c-cbdc-48d6-bea2-35988115eb69"}
+{"description":"buy shit","entry":"20230809T061226Z","modified":"20230809T061226Z","status":"pending","uuid":"44766115-1130-4a40-8c91-eb0a78406fae"}
+{"description":"Prepare first draft of the proposal","due":"20230810T150000Z","entry":"20230809T061206Z","modified":"20230809T061302Z","project":"Home","status":"pending","uuid":"59b2883c-cbdc-48d6-bea2-35988115eb69"}
+{"description":"project","entry":"20230809T061318Z","modified":"20230809T061318Z","status":"pending","uuid":"d8fec9d2-dc7f-430c-9972-83d13bd23229"}
+{"description":"project","entry":"20230809T061322Z","modified":"20230809T061322Z","status":"pending","uuid":"2bd884bb-980f-4c73-a170-bfcfec7aad27"}
+{"description":"asdf","end":"20230809T062208Z","entry":"20230809T062208Z","modified":"20230809T062208Z","status":"completed","uuid":"d8f831a5-8bca-4914-8884-0274bb6f60bc"}
+{"description":"buy shit","end":"20230809T062212Z","entry":"20230809T061226Z","modified":"20230809T062212Z","status":"deleted","uuid":"44766115-1130-4a40-8c91-eb0a78406fae"}
+{"description":"project","end":"20230809T062214Z","entry":"20230809T061318Z","modified":"20230809T062214Z","status":"deleted","uuid":"d8fec9d2-dc7f-430c-9972-83d13bd23229"}
+{"description":"project","end":"20230809T062220Z","entry":"20230809T061322Z","modified":"20230809T062220Z","status":"deleted","uuid":"2bd884bb-980f-4c73-a170-bfcfec7aad27"}
+{"description":"Prepare first draft of the proposal","due":"20230810T150000Z","end":"20230809T062306Z","entry":"20230809T061206Z","modified":"20230809T062306Z","project":"Home","status":"completed","uuid":"59b2883c-cbdc-48d6-bea2-35988115eb69"}
+{"description":"test due:tomorrow","entry":"20230809T062403Z","modified":"20230809T062403Z","status":"pending","uuid":"8c73028b-948a-45ad-8218-ca63ae904ec3"}
+{"description":"test","due":"20230809T150000Z","entry":"20230809T062510Z","modified":"20230809T062510Z","status":"pending","uuid":"0d3e746a-2224-43eb-b034-8229b74ad73d"}
+{"description":"test","entry":"20230809T062517Z","modified":"20230809T062517Z","status":"pending","uuid":"5ecf7d6f-531c-4104-a857-046c46debeb8"}
+{"description":"test","due":"20230809T150000Z","entry":"20230809T062738Z","modified":"20230809T062738Z","status":"pending","uuid":"9bbe15b5-f7bd-464b-977e-c550dc5fc7d9"}
+{"description":"test","due":"20230809T150000Z","end":"20230809T062744Z","entry":"20230809T062738Z","modified":"20230809T062744Z","status":"deleted","uuid":"9bbe15b5-f7bd-464b-977e-c550dc5fc7d9"}
+{"description":"test due:tomorrow","end":"20230809T062745Z","entry":"20230809T062403Z","modified":"20230809T062745Z","status":"deleted","uuid":"8c73028b-948a-45ad-8218-ca63ae904ec3"}
+{"description":"test","end":"20230809T062745Z","entry":"20230809T062517Z","modified":"20230809T062745Z","status":"deleted","uuid":"5ecf7d6f-531c-4104-a857-046c46debeb8"}
+{"description":"test","due":"20230809T150000Z","end":"20230809T062745Z","entry":"20230809T062510Z","modified":"20230809T062745Z","status":"deleted","uuid":"0d3e746a-2224-43eb-b034-8229b74ad73d"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063243Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063615Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063747Z","start":"20230809T063747Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063752Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063752Z","start":"20230809T063752Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063753Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063754Z","start":"20230809T063754Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063756Z","start":"20230809T063756Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063757Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063759Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063806Z","start":"20230809T063806Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063815Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063817Z","start":"20230809T063817Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063819Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063821Z","start":"20230809T063821Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063824Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063824Z","start":"20230809T063824Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063826Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063845Z","start":"20230809T063845Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063845Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063846Z","start":"20230809T063846Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063847Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063850Z","start":"20230809T063850Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063859Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063913Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","tags":["next"]}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063915Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063917Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","tags":["next"]}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063917Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063918Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","tags":["next"]}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063919Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063919Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","tags":["next"]}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063920Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063921Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","tags":["next"]}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063920Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063919Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","tags":["next"]}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063919Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T064025Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","annotations":[{"entry":"20230809T064025Z","description":"ANO"}]}
+{"description":"sadf","end":"20230809T064106Z","entry":"20230809T063615Z","modified":"20230809T064106Z","status":"completed","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","annotations":[{"entry":"20230809T064025Z","description":"ANO"}]}
+{"description":"test","end":"20230809T064119Z","entry":"20230809T063243Z","modified":"20230809T064119Z","status":"completed","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"Prepare first draft of the proposal","due":"20230810T150000Z","end":"20230809T062306Z","entry":"20230809T061206Z","modified":"20230809T064200Z","project":"Home","status":"deleted","uuid":"59b2883c-cbdc-48d6-bea2-35988115eb69"}
+{"description":"test","end":"20230809T064119Z","entry":"20230809T063243Z","modified":"20230809T064211Z","status":"deleted","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"sadf","end":"20230809T064106Z","entry":"20230809T063615Z","modified":"20230809T064211Z","status":"deleted","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","annotations":[{"entry":"20230809T064025Z","description":"ANO"}]}
+{"description":"asdf","end":"20230809T062208Z","entry":"20230809T062208Z","modified":"20230809T064211Z","status":"deleted","uuid":"d8f831a5-8bca-4914-8884-0274bb6f60bc"}
+{"description":"asdf","end":"20230809T062208Z","entry":"20230809T062208Z","modified":"20230809T062208Z","status":"completed","uuid":"d8f831a5-8bca-4914-8884-0274bb6f60bc"}
+{"description":"sadf","end":"20230809T064106Z","entry":"20230809T063615Z","modified":"20230809T064106Z","status":"completed","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","annotations":[{"entry":"20230809T064025Z","description":"ANO"}]}
+{"description":"test","end":"20230809T064119Z","entry":"20230809T063243Z","modified":"20230809T064119Z","status":"completed","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"Prepare first draft of the proposal","due":"20230810T150000Z","end":"20230809T062306Z","entry":"20230809T061206Z","modified":"20230809T062306Z","project":"Home","status":"completed","uuid":"59b2883c-cbdc-48d6-bea2-35988115eb69"}
+{"description":"test","entry":"20230809T063243Z","modified":"20230809T063826Z","status":"pending","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T064025Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095","annotations":[{"entry":"20230809T064025Z","description":"ANO"}]}
+{"description":"sadf","entry":"20230809T063615Z","modified":"20230809T063919Z","status":"pending","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"test","end":"20230809T064254Z","entry":"20230809T063243Z","modified":"20230809T064254Z","status":"completed","uuid":"9c557464-b99e-4578-8e85-70438d583feb"}
+{"description":"sadf","end":"20230809T064254Z","entry":"20230809T063615Z","modified":"20230809T064254Z","status":"completed","uuid":"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"}
+{"description":"Test testtest","entry":"20230809T064436Z","modified":"20230809T064436Z","status":"pending","uuid":"6cc5581e-63bf-4f14-8690-5e0cbdcd0d68"}
+{"description":"Test","entry":"20230809T064436Z","modified":"20230809T064449Z","status":"pending","uuid":"6cc5581e-63bf-4f14-8690-5e0cbdcd0d68"}
+{"description":"Test friday","entry":"20230809T064436Z","modified":"20230809T064455Z","status":"pending","uuid":"6cc5581e-63bf-4f14-8690-5e0cbdcd0d68"}
+{"description":"Test friday","due":"20230810T150000Z","entry":"20230809T064436Z","modified":"20230809T064508Z","status":"pending","uuid":"6cc5581e-63bf-4f14-8690-5e0cbdcd0d68"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T064526Z","project":"home","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T064646Z","project":"home","start":"20230809T064646Z","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T084436Z","project":"home","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T084436Z","project":"home","start":"20230809T084436Z","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"Test friday","due":"20230810T150000Z","entry":"20230809T064436Z","modified":"20230809T084437Z","start":"20230809T084437Z","status":"pending","uuid":"6cc5581e-63bf-4f14-8690-5e0cbdcd0d68"}
+{"description":"Test friday","due":"20230810T150000Z","entry":"20230809T064436Z","modified":"20230809T084438Z","status":"pending","uuid":"6cc5581e-63bf-4f14-8690-5e0cbdcd0d68"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T084439Z","project":"home","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T084440Z","project":"home","start":"20230809T084440Z","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T084450Z","project":"home","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T084454Z","project":"home","start":"20230809T084454Z","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T084457Z","project":"home","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","entry":"20230809T064526Z","modified":"20230809T084501Z","project":"home","start":"20230809T084501Z","status":"pending","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"xxx","due":"20230809T150000Z","end":"20230809T093334Z","entry":"20230809T064526Z","modified":"20230809T093334Z","project":"home","start":"20230809T084501Z","status":"deleted","uuid":"f0e8e6fa-d938-46aa-b769-88174bc4e392"}
+{"description":"Test friday","due":"20230810T150000Z","end":"20230809T093334Z","entry":"20230809T064436Z","modified":"20230809T093334Z","status":"deleted","uuid":"6cc5581e-63bf-4f14-8690-5e0cbdcd0d68"}
+{"description":"Denmark Visa","entry":"20230809T093736Z","modified":"20230809T093736Z","scheduled":"20230806T150000Z","status":"pending","uuid":"56c71e77-bd6f-4138-be37-e6ed3eb76431"}
