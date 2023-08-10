@@ -9,19 +9,20 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 ]])
 
-
 vim.diagnostic.config({
   virtual_text = {
     -- source = "always",  -- Or "if_many"
-    prefix = '●', -- Could be '■', '▎', 'x'
+    prefix = "●", -- Could be '■', '▎', 'x'
   },
   severity_sort = true,
   float = {
-    source = "always",  -- Or "if_many"
+    source = "always", -- Or "if_many"
   },
 })
 -- opt.wrap = true
 -- vim.b.autoformat = false
 -- vim.b.noswapfile = true
 --
-
+vim.g["pandoc#biblio#use_bibtool"] = 1
+vim.g["pandoc#filetypes#handled"] = { "pandoc", "markdown" }
+vim.g["pandoc#filetypes#pandoc_markdown"] = 0

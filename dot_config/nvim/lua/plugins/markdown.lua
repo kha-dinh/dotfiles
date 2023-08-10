@@ -19,11 +19,11 @@ return {
       -- TODO: automatically find bibfiles in note dir
       -- TODO: this still doesn't work.
       -- vim.g["pandoc#biblio#bibs"] = { "/home/khadd/mynotes/references.bib" }
-      vim.g["pandoc#biblio#use_bibtool"] = 1
+      --
     end,
   },
+  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   {
-
     -- dir = "~/projects/cmp-pandoc.nvim",
     -- dev = true,
     "kha-dinh/cmp-pandoc.nvim",

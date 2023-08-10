@@ -64,4 +64,10 @@ return {
   --     })
   --   end,
   -- },
+  {
+    "ColonQExclamationMark/taskwarrior.nvim",
+    event = "VeryLazy",
+    branch = "1-Issues-initializing",
+    opt = {},
+  },
 }
