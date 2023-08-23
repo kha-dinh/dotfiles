@@ -260,3 +260,195 @@ new [description:"Test friday" due:"1691679600" end:"1691573614" entry:"16915634
 time 1691573856
 new [description:"Denmark Visa" entry:"1691573856" modified:"1691573856" scheduled:"1691334000" status:"pending" uuid:"56c71e77-bd6f-4138-be37-e6ed3eb76431"]
 ---
+time 1691653769
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653769" modified:"1691653769" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757"]
+---
+time 1691653770
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653770" imask:"0" modified:"1691653769" parent:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5276f2d7-a070-43de-8ac3-eec41234fadd"]
+---
+time 1691653770
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653769" modified:"1691653769" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653769" mask:"-" modified:"1691653770" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757"]
+---
+time 1691653809
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653769" mask:"-" modified:"1691653770" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757"]
+new [description:"Write Oblivm" due:"1691679600" end:"1691653804" entry:"1691653769" mask:"-" modified:"1691653809" project:"oblivm" recur:"weekly" rtype:"periodic" status:"deleted" uuid:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757"]
+---
+time 1691653817
+old [description:"Write Oblivm" due:"1691679600" end:"1691653804" entry:"1691653769" mask:"-" modified:"1691653809" project:"oblivm" recur:"weekly" rtype:"periodic" status:"deleted" uuid:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757"]
+new [description:"Write Oblivm" due:"1691679600" end:"1691653804" entry:"1691653769" mask:"X" modified:"1691653817" project:"oblivm" recur:"weekly" rtype:"periodic" status:"deleted" uuid:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757"]
+---
+time 1691653817
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653770" imask:"0" modified:"1691653769" parent:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5276f2d7-a070-43de-8ac3-eec41234fadd"]
+new [description:"Write Oblivm" due:"1691679600" end:"1691653817" entry:"1691653770" imask:"0" modified:"1691653817" parent:"d5bb5d3b-1ddf-4e05-a670-2e4b58f24757" project:"oblivm" recur:"weekly" rtype:"periodic" status:"deleted" uuid:"5276f2d7-a070-43de-8ac3-eec41234fadd"]
+---
+time 1691653875
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" modified:"1691653875" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"749e3822-06da-4f61-a816-394d271d6043"]
+---
+time 1691653875
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653875" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691653875
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" modified:"1691653875" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"749e3822-06da-4f61-a816-394d271d6043"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" mask:"-" modified:"1691653875" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"749e3822-06da-4f61-a816-394d271d6043"]
+---
+time 1691653916
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653875" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653916" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691653916" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691653918
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653916" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691653916" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653918" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691653919
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653918" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653919" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691653919" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691653920
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653919" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691653919" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653920" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691653920
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653920" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653920" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691653920" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691653924
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653920" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691653920" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653924" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691653929
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653924" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653929" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691653929" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691653933
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653929" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691653929" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653933" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691654547
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0" modified:"1691653933" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691654547" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691654547" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691654555
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691654547" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691654547" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691654555" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691654581
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691654555" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691654581" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691654580" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691655115
+new [description:"Final Capacity" due:"1694703600" entry:"1691655115" modified:"1691655115" project:"capacity" status:"pending" uuid:"3304f6ff-9b3f-4657-a9ea-3aad9923381b"]
+---
+time 1691655377
+old [description:"Final Capacity" due:"1694703600" entry:"1691655115" modified:"1691655115" project:"capacity" status:"pending" uuid:"3304f6ff-9b3f-4657-a9ea-3aad9923381b"]
+new [description:"Final Capacity" due:"1693494000" entry:"1691655115" modified:"1691655377" project:"capacity" status:"pending" uuid:"3304f6ff-9b3f-4657-a9ea-3aad9923381b"]
+---
+time 1691658082
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691654581" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691654580" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658082" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658770
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658082" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658770" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658770" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658771
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658770" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658770" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658771" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658773
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658771" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658773" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658773" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658779
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658773" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658773" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658779" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658780
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658779" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658780" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658780" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658780
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658780" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658780" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658780" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658783
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658780" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658783" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658783" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658783
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658783" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658783" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658783" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658784
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658783" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658784" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658784" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658785
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658784" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658784" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658785" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658785
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658785" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658785" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658785" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658786
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658785" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658785" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658786" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658786
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658786" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658786" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658786" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691658792
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658786" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" start:"1691658786" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658792" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691659249
+new [description:"Read a paper" due:"1691852400" entry:"1691659249" modified:"1691659249" project:"research" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c"]
+---
+time 1691659249
+new [description:"Read a paper" due:"1691852400" entry:"1691659249" imask:"0" modified:"1691659249" parent:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c" project:"research" recur:"weekly" rtype:"periodic" status:"pending" uuid:"b9b1c6c5-b768-4ab3-aed8-6c7f5c197092"]
+---
+time 1691659249
+old [description:"Read a paper" due:"1691852400" entry:"1691659249" modified:"1691659249" project:"research" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c"]
+new [description:"Read a paper" due:"1691852400" entry:"1691659249" mask:"-" modified:"1691659249" project:"research" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c"]
+---
+time 1691679601
+new [description:"Write Oblivm" due:"1692284400" entry:"1691679601" imask:"1" modified:"1691653875" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"ab7f7b9c-a126-4a4c-a6c1-02e129a6e7bc"]
+---
+time 1691679601
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" mask:"-" modified:"1691653875" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"749e3822-06da-4f61-a816-394d271d6043"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" mask:"--" modified:"1691679601" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"749e3822-06da-4f61-a816-394d271d6043"]
+---
+time 1691723204
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" mask:"--" modified:"1691679601" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"749e3822-06da-4f61-a816-394d271d6043"]
+new [description:"Write Oblivm" due:"1691679600" entry:"1691653875" mask:"+-" modified:"1691723204" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"749e3822-06da-4f61-a816-394d271d6043"]
+---
+time 1691723204
+old [description:"Write Oblivm" due:"1691679600" entry:"1691653875" imask:"0.000000" modified:"1691658792" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+new [description:"Write Oblivm" due:"1691679600" end:"1691723204" entry:"1691653875" imask:"0.000000" modified:"1691723204" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"completed" uuid:"5f672b8b-72b7-4f89-9fe4-b96ab880be04"]
+---
+time 1691729077
+old [description:"Read a paper" due:"1691852400" entry:"1691659249" mask:"-" modified:"1691659249" project:"research" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c"]
+new [description:"Read a paper" due:"1691852400" entry:"1691659249" mask:"+" modified:"1691729077" project:"research" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c"]
+---
+time 1691729077
+old [description:"Read a paper" due:"1691852400" entry:"1691659249" imask:"0" modified:"1691659249" parent:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c" project:"research" recur:"weekly" rtype:"periodic" status:"pending" uuid:"b9b1c6c5-b768-4ab3-aed8-6c7f5c197092"]
+new [description:"Read a paper" due:"1691852400" end:"1691729077" entry:"1691659249" imask:"0.000000" modified:"1691729077" parent:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c" project:"research" recur:"weekly" rtype:"periodic" status:"completed" uuid:"b9b1c6c5-b768-4ab3-aed8-6c7f5c197092"]
+---
+time 1691729138
+old [description:"asdf" end:"1691562128" entry:"1691562128" modified:"1691562128" status:"completed" uuid:"d8f831a5-8bca-4914-8884-0274bb6f60bc"]
+new [description:"asdf" end:"1691562128" entry:"1691562128" modified:"1691729138" status:"deleted" uuid:"d8f831a5-8bca-4914-8884-0274bb6f60bc"]
+---
+time 1691729145
+old [description:"Prepare first draft of the proposal" due:"1691679600" end:"1691562186" entry:"1691561526" modified:"1691562186" project:"Home" status:"completed" uuid:"59b2883c-cbdc-48d6-bea2-35988115eb69"]
+new [description:"Prepare first draft of the proposal" due:"1691679600" end:"1691562186" entry:"1691561526" modified:"1691729145" project:"Home" status:"deleted" uuid:"59b2883c-cbdc-48d6-bea2-35988115eb69"]
+---
+time 1691729161
+old [description:"test" end:"1691563374" entry:"1691562763" modified:"1691563374" status:"completed" uuid:"9c557464-b99e-4578-8e85-70438d583feb"]
+new [description:"test" end:"1691563374" entry:"1691562763" modified:"1691729161" status:"deleted" uuid:"9c557464-b99e-4578-8e85-70438d583feb"]
+---
+time 1691729162
+old [description:"sadf" end:"1691563374" entry:"1691562975" modified:"1691563374" status:"completed" uuid:"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"]
+new [description:"sadf" end:"1691563374" entry:"1691562975" modified:"1691729162" status:"deleted" uuid:"c4717c6e-abb1-4fa4-a1f1-79d204cc3095"]
+---
