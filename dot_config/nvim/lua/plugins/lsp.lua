@@ -4,10 +4,10 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-          require("lsp_lines").setup()
-        end,
+        -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        -- config = function()
+        --   require("lsp_lines").setup()
+        -- end,
       },
 
       {
@@ -36,7 +36,6 @@ return {
           require("navigator").setup({
             mason = true,
             lsp = {
-              diagnostic = { virtual_text = false },
               disable_lsp = { "denols", "ccls" },
             },
           })
