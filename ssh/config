@@ -1,6 +1,8 @@
 
 Host *
 	IdentityFile ~/.ssh/id_rsa
+	ForwardX11 yes
+	ForwardX11Trusted yes
 
 Host mac-mini
 	HostName 115.145.154.178
@@ -37,4 +39,9 @@ Host ctf-server
 	HostName ssone.skku.edu
 	Port 2221
 	User ctf-admin
+
+Host sev
+  HostName 115.145.154.187 
+  Port 3321  
+  User khadd 
 

@@ -1,1 +1,5 @@
 [description:"Denmark Visa" entry:"1691573856" modified:"1691573856" scheduled:"1691334000" status:"pending" uuid:"56c71e77-bd6f-4138-be37-e6ed3eb76431"]
+[description:"Write Oblivm" due:"1691679600" entry:"1691653875" mask:"+-" modified:"1691723204" project:"oblivm" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"749e3822-06da-4f61-a816-394d271d6043"]
+[description:"Final Capacity" due:"1693494000" entry:"1691655115" modified:"1691655377" project:"capacity" status:"pending" uuid:"3304f6ff-9b3f-4657-a9ea-3aad9923381b"]
+[description:"Read a paper" due:"1691852400" entry:"1691659249" mask:"+" modified:"1691729077" project:"research" recur:"weekly" rtype:"periodic" status:"recurring" uuid:"23ae48fa-a7ea-4f5f-81d1-7f5ddcaa962c"]
+[description:"Write Oblivm" due:"1692284400" entry:"1691679601" imask:"1" modified:"1691653875" parent:"749e3822-06da-4f61-a816-394d271d6043" project:"oblivm" recur:"weekly" rtype:"periodic" status:"pending" uuid:"ab7f7b9c-a126-4a4c-a6c1-02e129a6e7bc"]
