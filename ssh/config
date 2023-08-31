@@ -41,7 +41,7 @@ Host ctf-server
 	User ctf-admin
 
 Host sev
-  HostName 115.145.154.187 
+  HostName 115.145.173.190 
   Port 3321  
   User khadd 
 
