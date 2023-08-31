@@ -60,13 +60,11 @@ return {
     ---@class PluginLspOpts
     opts = {
       autoformat = false,
-      ---@type lspconfig.options
       servers = {
-        clangd = {
-          mason = true,
-          on_attach = function(_, _)
-          end,
-        },
+        -- clangd = {
+        --   mason = true,
+        --   on_attach = function(_, _) end,
+        -- },
         rust_analyzer = {
           settings = {
             rust_analyzer = {
@@ -155,6 +153,7 @@ return {
         -- Fix clangd offset encoding  https://www.lazyvim.org/configuration/recipes
         clangd = function(client, opts)
           opts.capabilities.offsetEncoding = { "utf-16" }
+          opts.autoformat = false
           -- opts.on_attach = function(client, bufnr)
           --   require("navigator.lspclient.mapping").setup({ client = client, bufnr = bufnr }) -- setup navigator keymaps here,
           --   require("navigator.dochighlight").documentHighlight(bufnr)
