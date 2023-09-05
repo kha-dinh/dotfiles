@@ -3,3 +3,5 @@ dot_config/nvim/lazy-lock.json
 dot_config/nvim/lazy-lock.json
 dot_config/fish/fish_variables
 dot_config/fish/functions
+dot_config/fish/completions
+dot_config/fish/conf.d
