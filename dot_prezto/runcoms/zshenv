@@ -46,6 +46,10 @@ case ":${PATH}:" in
         export PATH="/usr/local/bin:$PATH"
         ;;
 esac
+
+# Prepending path in case a system-installed rustc needs to be overridden
+export PATH="/Users/khadd/Library/Python/3.9/bin:$PATH"
+
 if [[ $(uname -r) =~ WSL ]]; then
   export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0 #GWSL
   export PULSE_SERVER=tcp:$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}') #GWSL
