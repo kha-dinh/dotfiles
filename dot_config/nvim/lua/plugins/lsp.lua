@@ -14,33 +14,32 @@ return {
         "kosayoda/nvim-lightbulb",
         dependencies = "antoinemadec/FixCursorHold.nvim",
       },
-      {
-        "simrat39/symbols-outline.nvim",
-        cmd = "SymbolsOutline",
-        keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-        opts = {
-          -- add your options that should be passed to the setup() function here
-          position = "right",
-        },
-      },
-      { "simrat39/rust-tools.nvim" },
-      { "p00f/clangd_extensions.nvim" },
-      {
-        "ray-x/navigator.lua",
-        dependencies = {
-          { "ray-x/guihua.lua",               run = "cd lua/fzy && make" },
-          { "nvim-lspconfig" },
-          { "nvim-treesitter/nvim-treesitter" },
-        },
-        config = function()
-          require("navigator").setup({
-            mason = true,
-            lsp = {
-              disable_lsp = { "denols", "ccls" },
-            },
-          })
-        end,
-      },
+      -- {
+      --   "simrat39/symbols-outline.nvim",
+      --   cmd = "SymbolsOutline",
+      --   keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+      --   opts = {
+      --     -- add your options that should be passed to the setup() function here
+      --     position = "right",
+      --   },
+      -- },
+      -- { "simrat39/rust-tools.nvim" },
+      -- { "p00f/clangd_extensions.nvim" },
+      -- {
+      -- "ray-x/navigator.lua",
+      -- dependencies = {
+      --   { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
+      --   { "nvim-treesitter/nvim-treesitter" },
+      -- },
+      -- config = function()
+      --   require("navigator").setup({
+      --     mason = true,
+      --     lsp = {
+      --       disable_lsp = { "denols", "ccls" },
+      --     },
+      --   })
+      -- end,
+      -- },
       {
         "f3fora/nvim-texlabconfig",
         build = "go build",
@@ -48,16 +47,15 @@ return {
           require("texlabconfig").setup()
         end,
       },
-      {
-        "SmiteshP/nvim-navbuddy",
-        dependencies = {
-          "SmiteshP/nvim-navic",
-          "MunifTanjim/nui.nvim",
-        },
-        opts = { lsp = { auto_attach = true } },
-      },
+      -- {
+      --   "SmiteshP/nvim-navbuddy",
+      --   dependencies = {
+      --     "SmiteshP/nvim-navic",
+      --     "MunifTanjim/nui.nvim",
+      --   },
+      --   opts = { lsp = { auto_attach = true } },
+      -- },
     },
-    ---@class PluginLspOpts
     opts = {
       autoformat = false,
       servers = {
@@ -149,40 +147,39 @@ return {
       },
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
-      setup = {
-        -- Fix clangd offset encoding  https://www.lazyvim.org/configuration/recipes
-        clangd = function(client, opts)
-          opts.capabilities.offsetEncoding = { "utf-16" }
-          opts.autoformat = false
-          -- opts.on_attach = function(client, bufnr)
-          --   require("navigator.lspclient.mapping").setup({ client = client, bufnr = bufnr }) -- setup navigator keymaps here,
-          --   require("navigator.dochighlight").documentHighlight(bufnr)
-          --   require("navigator.codeAction").code_action_prompt(bufnr)
-          -- end
-
-          vim.keymap.set("n", "<Leader>fh", "<cmd>ClangdSwitchSourceHeader<cr>")
-          require("clangd_extensions").setup(opts)
-          return true
-        end,
-        rust_analyzer = function(_, opts)
-          local rt = require("rust-tools")
-
-          opts.on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-          end
-
-          rt.setup(opts)
-          return true
-        end,
-        ltex = function(_, opts)
-          -- table.insert(opts.filetypes, pos, value)
-          -- print(vim.inspect(opts))
-          return true
-        end,
-      },
+      -- setup = {
+      -- Fix clangd offset encoding  https://www.lazyvim.org/configuration/recipes
+      -- clangd = function(client, opts)
+      --   opts.capabilities.offsetEncoding = { "utf-16" }
+      --   -- opts.on_attach = function(client, bufnr)
+      --   --   require("navigator.lspclient.mapping").setup({ client = client, bufnr = bufnr }) -- setup navigator keymaps here,
+      --   --   require("navigator.dochighlight").documentHighlight(bufnr)
+      --   --   require("navigator.codeAction").code_action_prompt(bufnr)
+      --   -- end
+      --
+      --   vim.keymap.set("n", "<Leader>fh", "<cmd>ClangdSwitchSourceHeader<cr>")
+      --   require("clangd_extensions").setup(opts)
+      --   return true
+      -- end,
+      -- rust_analyzer = function(_, opts)
+      --   local rt = require("rust-tools")
+      --
+      --   opts.on_attach = function(_, bufnr)
+      --     -- Hover actions
+      --     vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      --     -- Code action groups
+      --     vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+      --   end
+      --
+      --   rt.setup(opts)
+      --   return true
+      -- end,
+      -- ltex = function(_, opts)
+      --   -- table.insert(opts.filetypes, pos, value)
+      --   -- print(vim.inspect(opts))
+      --   return true
+      -- end,
+      -- },
     },
   },
 }
