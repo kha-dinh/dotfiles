@@ -57,7 +57,6 @@ return {
       -- },
     },
     opts = {
-      autoformat = false,
       servers = {
         -- clangd = {
         --   mason = true,

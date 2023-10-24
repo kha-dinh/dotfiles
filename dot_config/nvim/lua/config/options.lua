@@ -19,7 +19,7 @@ vim.diagnostic.config({
   },
 })
 -- opt.wrap = true
--- vim.b.autoformat = false
+vim.g.autoformat = false
 -- vim.b.noswapfile = true
 --
 vim.g["pandoc#biblio#use_bibtool"] = 1

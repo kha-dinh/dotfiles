@@ -19,6 +19,9 @@ return {
   },
   { "powerman/vim-plugin-AnsiEsc" },
   {
+    "jiaoshijie/undotree",
+  },
+  {
     "jbyuki/venn.nvim",
 
     config = function()
