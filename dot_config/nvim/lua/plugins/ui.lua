@@ -38,7 +38,6 @@ return {
     name = "barbecue",
     version = "*",
     dependencies = {
-      "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons", -- optional dependency
     },
     opts = {
@@ -80,22 +79,22 @@ return {
       })
     end,
   },
-  {
-    "anuvyklack/windows.nvim",
-    event = "WinNew",
-    dependencies = {
-      { "anuvyklack/middleclass" },
-      { "anuvyklack/animation.nvim", enabled = false },
-    },
-    keys = { { "<leader>Z", "<cmd>WindowsMaximize<cr>", desc = "Zoom" } },
-    config = function()
-      vim.o.winwidth = 5
-      vim.o.equalalways = false
-      require("windows").setup({
-        animation = { enable = false, duration = 50 },
-      })
-    end,
-  },
+  -- {
+  --   "anuvyklack/windows.nvim",
+  --   event = "WinNew",
+  --   dependencies = {
+  --     { "anuvyklack/middleclass" },
+  --     { "anuvyklack/animation.nvim", enabled = false },
+  --   },
+  --   keys = { { "<leader>Z", "<cmd>WindowsMaximize<cr>", desc = "Zoom" } },
+  --   config = function()
+  --     vim.o.winwidth = 5
+  --     vim.o.equalalways = false
+  --     require("windows").setup({
+  --       animation = { enable = false, duration = 50 },
+  --     })
+  --   end,
+  -- },
 
   -- scrollbar
   {

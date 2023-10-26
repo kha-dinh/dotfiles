@@ -19,6 +19,9 @@ return {
   },
   { "powerman/vim-plugin-AnsiEsc" },
   {
+    "jiaoshijie/undotree",
+  },
+  {
     "jbyuki/venn.nvim",
 
     config = function()
@@ -44,30 +47,5 @@ return {
       -- toggle keymappings for venn using <leader>v
       vim.api.nvim_set_keymap("n", "<leader>v", ":lua Toggle_venn()<CR>", { noremap = true })
     end,
-  },
-  -- {
-  --   "giusgad/pets.nvim",
-  --   dependencies = {
-  --     {
-  --       "giusgad/hologram.nvim",
-  --       config = function()
-  --         require("hologram").setup({
-  --           auto_display = true,
-  --         })
-  --       end,
-  --     },
-  --     "MunifTanjim/nui.nvim",
-  --   },
-  --   config = function()
-  --     require("pets").setup({
-  --       -- your options here
-  --     })
-  --   end,
-  -- },
-  {
-    "ColonQExclamationMark/taskwarrior.nvim",
-    event = "VeryLazy",
-    branch = "1-Issues-initializing",
-    opt = {},
   },
 }
