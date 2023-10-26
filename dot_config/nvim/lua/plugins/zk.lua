@@ -3,15 +3,15 @@ return {
     "mickael-menu/zk-nvim",
     event = "VeryLazy",
     dependencies = {
-      {
-        "goolord/alpha-nvim",
-        opts = function(_, dashboard)
-          local button = dashboard.button("z", " " .. " Zk Notes", "<cmd>ZkNotes {sort={'modified'}}<CR>")
-          button.opts.hl = "AlphaButtons"
-          button.opts.hl_shortcut = "AlphaShortcut"
-          table.insert(dashboard.section.buttons.val, 4, button)
-        end,
-      },
+      -- {
+      --   "goolord/alpha-nvim",
+      --   opts = function(_, dashboard)
+      --     local button = dashboard.button("z", " " .. " Zk Notes", "<cmd>ZkNotes {sort={'modified'}}<CR>")
+      --     button.opts.hl = "AlphaButtons"
+      --     button.opts.hl_shortcut = "AlphaShortcut"
+      --     table.insert(dashboard.section.buttons.val, 4, button)
+      --   end,
+      -- },
       {
         "folke/which-key.nvim",
         opts = function(opts)

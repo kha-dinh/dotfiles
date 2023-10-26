@@ -1,5 +1,4 @@
 return {
-  -- add symbols-outline
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -14,32 +13,6 @@ return {
         "kosayoda/nvim-lightbulb",
         dependencies = "antoinemadec/FixCursorHold.nvim",
       },
-      -- {
-      --   "simrat39/symbols-outline.nvim",
-      --   cmd = "SymbolsOutline",
-      --   keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-      --   opts = {
-      --     -- add your options that should be passed to the setup() function here
-      --     position = "right",
-      --   },
-      -- },
-      -- { "simrat39/rust-tools.nvim" },
-      -- { "p00f/clangd_extensions.nvim" },
-      -- {
-      -- "ray-x/navigator.lua",
-      -- dependencies = {
-      --   { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
-      --   { "nvim-treesitter/nvim-treesitter" },
-      -- },
-      -- config = function()
-      --   require("navigator").setup({
-      --     mason = true,
-      --     lsp = {
-      --       disable_lsp = { "denols", "ccls" },
-      --     },
-      --   })
-      -- end,
-      -- },
       {
         "f3fora/nvim-texlabconfig",
         build = "go build",
@@ -47,14 +20,6 @@ return {
           require("texlabconfig").setup()
         end,
       },
-      -- {
-      --   "SmiteshP/nvim-navbuddy",
-      --   dependencies = {
-      --     "SmiteshP/nvim-navic",
-      --     "MunifTanjim/nui.nvim",
-      --   },
-      --   opts = { lsp = { auto_attach = true } },
-      -- },
     },
     opts = {
       servers = {
