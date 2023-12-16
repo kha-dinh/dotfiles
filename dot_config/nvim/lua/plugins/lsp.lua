@@ -78,8 +78,10 @@ return {
                 executable = "sioyek",
                 args = {
                   "--reuse-window",
+                  "--execute-command",
+                  "toggle_synctex",
                   "--inverse-search",
-                  [[nvim-texlabconfig -file %1 -line %2]],
+                  "nvim-texlabconfig -file %%%1 -line %%%2",
                   "--forward-search-file",
                   "%f",
                   "--forward-search-line",
