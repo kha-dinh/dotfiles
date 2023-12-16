@@ -69,8 +69,8 @@ return {
         },
         texlab = {
           on_attach = function(_, _)
-            vim.keymap.set("n", "<Leader>vf", "<cmd>TexlabForward<cr>")
-            vim.keymap.set("n", "<Leader>vb", "<cmd>TexlabBuild<cr>")
+            vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
+            vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
           end,
           settings = {
             texlab = {

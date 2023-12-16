@@ -3,7 +3,7 @@ return {
     "epwalsh/obsidian.nvim",
     version = "*",
     lazy = true,
-    ft = "pandoc",
+    ft = { "pandoc", "markdown" },
     keys = {
       { "<leader>Of", "<cmd>ObsidianQuickSwitch<cr>", desc = "Open file" },
       { "<leader>Oo", "<cmd>ObsidianOpen<cr>", desc = "Open in Obsidian App" },
