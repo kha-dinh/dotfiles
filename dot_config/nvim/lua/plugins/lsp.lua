@@ -27,15 +27,15 @@ return {
         --   mason = true,
         --   on_attach = function(_, _) end,
         -- },
-        rust_analyzer = {
-          settings = {
-            rust_analyzer = {
-              editor = {
-                quickSuggestionDelay = 200,
-              },
-            },
-          },
-        },
+        -- rust_analyzer = {
+        --   settings = {
+        --     rust_analyzer = {
+        --       editor = {
+        --         quickSuggestionDelay = 200,
+        --       },
+        --     },
+        --   },
+        -- },
         -- ltex = {
         -- settings = {
         --   ltex = {lsp

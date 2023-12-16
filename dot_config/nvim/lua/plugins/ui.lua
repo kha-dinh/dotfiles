@@ -1,15 +1,5 @@
 return {
-  {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      -- Increase the animation speed
-      local animate = require("mini.animate")
-      opts.resize.timing = animate.gen_timing.linear({ duration = 50, unit = "total" })
-      opts.scroll.timing = animate.gen_timing.linear({ duration = 50, unit = "total" })
-    end,
-  },
-  {
+   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "echasnovski/mini.nvim" },
@@ -24,7 +14,6 @@ return {
       --   return active_clients
       -- end
       table.insert(opts.sections.lualine_x, { "filetype" })
-      table.insert(opts.sections.lualine_c, { require("auto-session.lib").current_session_name })
 
       -- table.insert(opts.sections.lualine_x, { lspstatus })
     end,
@@ -33,17 +22,6 @@ return {
   --   "m4xshen/smartcolumn.nvim",
   --   opts = {},
   -- },
-  {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons", -- optional dependency
-    },
-    opts = {
-      -- configurations go here
-    },
-  },
   {
     "s1n7ax/nvim-window-picker",
     config = function()

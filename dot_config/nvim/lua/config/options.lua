@@ -2,26 +2,26 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 --
-local opt = vim.opt
-vim.cmd([[
-set backupdir=~/.vim/backup//
-set undodir=~/.vim/undo//
-]])
+-- local opt = vim.opt
+-- vim.cmd([[
+-- set backupdir=~/.vim/backup//
+-- set undodir=~/.vim/undo//
+-- ]])
 
-vim.diagnostic.config({
-  virtual_text = {
-    -- source = "always",  -- Or "if_many"
-    prefix = "●", -- Could be '■', '▎', 'x'
-  },
-  severity_sort = true,
-  float = {
-    source = "always", -- Or "if_many"
-  },
-})
+-- vim.diagnostic.config({
+--   virtual_text = {
+--     -- source = "always",  -- Or "if_many"
+--     prefix = "●", -- Could be '■', '▎', 'x'
+--   },
+--   severity_sort = true,
+--   float = {
+--     source = "always", -- Or "if_many"
+--   },
+-- })
 -- opt.wrap = true
-vim.g.autoformat = false
+-- vim.g.autoformat = false
 -- vim.b.noswapfile = true
 --
-vim.g["pandoc#biblio#use_bibtool"] = 1
-vim.g["pandoc#filetypes#handled"] = { "pandoc", "markdown" }
-vim.g["pandoc#filetypes#pandoc_markdown"] = 0
+-- vim.g["pandoc#biblio#use_bibtool"] = 1
+-- vim.g["pandoc#filetypes#handled"] = { "pandoc", "markdown" }
+-- vim.g["pandoc#filetypes#pandoc_markdown"] = 0
