@@ -25,3 +25,25 @@
 -- vim.g["pandoc#biblio#use_bibtool"] = 1
 -- vim.g["pandoc#filetypes#handled"] = { "pandoc", "markdown" }
 -- vim.g["pandoc#filetypes#pandoc_markdown"] = 0
+vim.o.guifont = "JetBrainsMono Nerd Font"
+
+local map = vim.keymap.set
+
+-- https://github.com/neovide/neovide/issues/1272
+local function NeovideScale(amount)
+  local temp = vim.g.neovide_scale_factor + amount
+
+  if temp < 0.5 then
+    return
+  end
+
+  vim.g.neovide_scale_factor = temp
+end
+
+map("n", "<C-+>", function()
+  NeovideScale(0.1)
+end)
+
+map("n", "<C-->", function()
+  NeovideScale(-0.1)
+end)

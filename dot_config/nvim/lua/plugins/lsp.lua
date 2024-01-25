@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+
     dependencies = {
       {
         -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -22,7 +23,9 @@ return {
       },
     },
     opts = {
+
       servers = {
+
         -- clangd = {
         --   mason = true,
         --   on_attach = function(_, _) end,
@@ -68,10 +71,10 @@ return {
           filetypes = { "pandoc", "markdown" },
         },
         texlab = {
-          on_attach = function(_, _)
-            vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
-            vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
-          end,
+          -- on_attach = function(_, _)
+          --   vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
+          --   vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
+          -- end,
           settings = {
             texlab = {
               forwardSearch = {
@@ -89,7 +92,7 @@ return {
                   "%p",
                 },
               },
-              auxDirectory = "build", -- IMPORTANT
+              -- auxDirectory = "build", -- IMPORTANT
               build = {
                 onSave = true,
                 -- Added -bibtex, --shell-escape
@@ -100,7 +103,7 @@ return {
                   "-interaction=nonstopmode",
                   "-synctex=1",
                   "%f",
-                  "-outdir=build",
+                  -- "-outdir=build",
                 },
               },
               chktex = {

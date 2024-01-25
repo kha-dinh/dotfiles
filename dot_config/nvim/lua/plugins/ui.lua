@@ -1,5 +1,5 @@
 return {
-   {
+  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "echasnovski/mini.nvim" },
@@ -57,24 +57,65 @@ return {
       })
     end,
   },
+  {
+    "anuvyklack/windows.nvim",
+    event = "WinNew",
+    dependencies = {
+      { "anuvyklack/middleclass" },
+      { "anuvyklack/animation.nvim", enabled = false },
+    },
+    keys = { { "<leader>Z", "<cmd>WindowsMaximize<cr>", desc = "Zoom" } },
+    config = function()
+      vim.o.winwidth = 5
+      vim.o.equalalways = false
+      require("windows").setup({
+        animation = { enable = false, duration = 50 },
+      })
+    end,
+  },
+  {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  },
   -- {
-  --   "anuvyklack/windows.nvim",
-  --   event = "WinNew",
-  --   dependencies = {
-  --     { "anuvyklack/middleclass" },
-  --     { "anuvyklack/animation.nvim", enabled = false },
-  --   },
-  --   keys = { { "<leader>Z", "<cmd>WindowsMaximize<cr>", desc = "Zoom" } },
+  --   "folke/twilight.nvim",
   --   config = function()
-  --     vim.o.winwidth = 5
-  --     vim.o.equalalways = false
-  --     require("windows").setup({
-  --       animation = { enable = false, duration = 50 },
+  --     require("twilight").setup({
+  --       context = 10,
+  --       -- your configuration comes here
+  --       -- or leave it empty to use the default settings
+  --       -- refer to the configuration section below
   --     })
   --   end,
   -- },
-
+  --
   -- scrollbar
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinNew" },
+  },
+  {
+    "folke/noice.nvim",
+    opts = {
+      lsp = {
+        hover = {
+          -- Handled by ray-x/navigator
+          enabled = false,
+        },
+        signature = {
+          -- Handled by ray-x/lsp_signature.nvim
+          enabled = false,
+        },
+      },
+    },
+  },
   {
     "petertriho/nvim-scrollbar",
     event = "BufReadPost",

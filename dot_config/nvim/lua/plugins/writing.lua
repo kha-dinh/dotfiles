@@ -1,25 +1,36 @@
 return {
-  -- {
-  --   "folke/zen-mode.nvim",
-  --   config = function()
-  --     require("zen-mode").setup({
-  --       -- your configuration comes here
-  --       -- or leave it empty to use the default settings
-  --       -- refer to the configuration section below
-  --     })
-  --   end,
-  -- },
-  -- {
-  --   "folke/twilight.nvim",
-  --   config = function()
-  --     require("twilight").setup({
-  --       context = 3,
-  --       -- your configuration comes here
-  --       -- or leave it empty to use the default settings
-  --       -- refer to the configuration section below
-  --     })
-  --   end,
-  -- },
+
+  {
+    "lervag/vimtex",
+    keys = {
+      { "<leader>lc", "<cmd>VimtexCompile<cr>", desc = "VimtexCompile" },
+      { "<leader>lv", "<cmd>VimtexView<cr>", desc = "VimtexView" },
+    },
+    lazy = false, -- lazy-loading will disable inverse search
+    config = function()
+      vim.api.nvim_create_autocmd({ "FileType" }, {
+        group = vim.api.nvim_create_augroup("lazyvim_vimtex_conceal", { clear = true }),
+        pattern = { "bib", "tex" },
+        callback = function()
+          vim.wo.conceallevel = 2
+        end,
+      })
+
+      vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
+      vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
+      vim.g.vimtex_view_general_viewer = "sioyek"
+
+      local options = string.format(
+        '--reuse-window --inverse-search="nvr --servername %s +%%2 %%1" --execute-command toggle_synctex --forward-search-file @tex --forward-search-line @line @pdf',
+        vim.v.servername
+      )
+      -- local options =
+      --   '--reuse-window --inverse-search="nvr --servername %s +%%2 %%1" --forward-search-file @tex --forward-search-line @line @pdf'
+      local command = string.format("let g:vimtex_view_general_options='%s'", options)
+      vim.cmd(command)
+      vim.cmd("let g:vimtex_compiler_progname='nvr'")
+    end,
+  },
   -- {
   --   "rudism/telescope-dict.nvim",
   --   dependencies = { "nvim-telescope/telescope.nvim" },

@@ -3,16 +3,20 @@
 -- Add any additional keymaps here
 --
 
--- local function map(mode, lhs, rhs, opts)
---   local keys = require("lazy.core.handler").handlers.keys
---   ---@cast keys LazyKeysHandler
---   -- do not create the keymap if a lazy keys handler exists
---   if not keys.active[keys.parse({ lhs, mode = mode }).id] then
---     opts = opts or {}
---     opts.silent = opts.silent ~= false
---     vim.keymap.set(mode, lhs, rhs, opts)
---   end
--- end
+local function map(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
+end
+
+if vim.g.neovide then
+  vim.keymap.set({ "c", "i" }, "<C-v>", "<c-r>+", { silent = true, noremap = true })
+end
 
 -- better up/down
 -- map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -96,15 +100,16 @@
 -- map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 -- map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 --
--- map("n", "<leader>xn", function()
---   vim.diagnostic.goto_next()
--- end, { desc = "Go to next diagnostics" })
--- map("n", "<leader>xp", function()
---   vim.diagnostic.goto_prev()
--- end, { desc = "Go to previous diagnostics" })
--- map("n", "X", function()
---   vim.diagnostic.open_float({ prefix = "●" })
--- end, { desc = "Show line diagnostic" })
+-- Additional diagnostic movements
+map("n", "<leader>xn", function()
+  vim.diagnostic.goto_next()
+end, { desc = "Go to next diagnostics" })
+map("n", "<leader>xp", function()
+  vim.diagnostic.goto_prev()
+end, { desc = "Go to previous diagnostics" })
+map("n", "X", function()
+  vim.diagnostic.open_float({ prefix = "●" })
+end, { desc = "Show line diagnostic" })
 
 -- if not Util.has("trouble.nvim") then
 --   map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
