@@ -10,6 +10,12 @@ Host mac-mini
 	ForwardX11 yes
 	ForwardX11Trusted yes
 	
+Host khadd
+	HostName 115.145.173.183
+	User khadd
+	ForwardX11 yes
+	ForwardX11Trusted yes
+  
 Host upmemcloud*
    User dalo2903
    HostName %h.cloud.upmem.com
