@@ -36,22 +36,22 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     opts = { max_lines = 0, separator = "─" },
   },
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   opts = {
-  --     textobjects = {
-  --       swap = {
-  --         enable = true,
-  --         swap_next = {
-  --           ["<leader>an"] = "@parameter.inner",
-  --         },
-  --         swap_previous = {
-  --           ["<leader>ap"] = "@parameter.inner",
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      textobjects = {
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>an"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader>ap"] = "@parameter.inner",
+          },
+        },
+      },
+    },
+  },
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
