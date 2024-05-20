@@ -2,7 +2,13 @@ return {
   {
     "tpope/vim-eunuch", -- UNIX file utilities like Remove, Delete
   },
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
   { "drmikehenry/vim-headerguard" },
+
   {
     "chrisgrieser/nvim-spider",
     lazy = true,
