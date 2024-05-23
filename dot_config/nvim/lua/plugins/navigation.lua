@@ -32,10 +32,10 @@ return {
       },
     },
   },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    opts = { max_lines = 0, separator = "─" },
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-context",
+  --   opts = { max_lines = 0, separator = "─" },
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
