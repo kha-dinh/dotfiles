@@ -4,7 +4,7 @@ return {
     "lervag/vimtex",
     keys = {
       { "<leader>lc", "<cmd>VimtexCompile<cr>", desc = "VimtexCompile" },
-      { "<leader>lv", "<cmd>VimtexView<cr>", desc = "VimtexView" },
+      { "<leader>lc", "<cmd>VimtexCompile<cr>", desc = "VimtexCompile" },
     },
     lazy = false, -- lazy-loading will disable inverse search
     config = function()

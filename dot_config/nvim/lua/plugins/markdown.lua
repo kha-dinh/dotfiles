@@ -6,22 +6,22 @@ return {
   {
     "preservim/vim-pencil",
   },
-  {
-    "vim-pandoc/vim-pandoc",
-    dependencies = {
-      {
-        "vim-pandoc/vim-pandoc-syntax",
-      },
-    },
-    config = function()
-      -- vim.vim["#pandoc#biblio#sources"] = "cG"
-      -- Must be absolute path
-      -- TODO: automatically find bibfiles in note dir
-      -- TODO: this still doesn't work.
-      -- vim.g["pandoc#biblio#bibs"] = { "/home/khadd/mynotes/references.bib" }
-      --
-    end,
-  },
+  -- {
+  --   "vim-pandoc/vim-pandoc",
+  --   dependencies = {
+  --     {
+  --       "vim-pandoc/vim-pandoc-syntax",
+  --     },
+  --   },
+  --   config = function()
+  --     -- vim.vim["#pandoc#biblio#sources"] = "cG"
+  --     -- Must be absolute path
+  --     -- TODO: automatically find bibfiles in note dir
+  --     -- TODO: this still doesn't work.
+  --     -- vim.g["pandoc#biblio#bibs"] = { "/home/khadd/mynotes/references.bib" }
+  --     --
+  --   end,
+  -- },
   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   {
     -- dir = "~/projects/cmp-pandoc.nvim",

@@ -25,10 +25,10 @@ return {
 
       servers = {
 
-        -- clangd = {
-        --   mason = true,
-        --   on_attach = function(_, _) end,
-        -- },
+        clangd = {
+          mason = true,
+          on_attach = function(_, _) end,
+        },
         -- rust_analyzer = {
         --   settings = {
         --     rust_analyzer = {
@@ -63,12 +63,16 @@ return {
         --   },
         -- },
         -- },
+        --
+        -- markdownlint = {
+        --   filetypes = { "pandoc", "markdown" },
+        -- },
         grammarly = {
-          filetypes = { "tex", "pandoc", "markdown" },
+          filetypes = { "latex", "pandoc", "markdown" },
         },
-        vale_ls = {
-          filetypes = { "pandoc", "markdown" },
-        },
+        -- vale_ls = {
+        --   filetypes = { "pandoc", "markdown" },
+        -- },
         texlab = {
           -- on_attach = function(_, _)
           --   vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
