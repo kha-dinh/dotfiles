@@ -1,0 +1,266 @@
+# "window.opacity" = 0.8
+
+[colors.primary]
+background = '#1a1b26'
+foreground = '#a9b1d6'
+
+# Normal colors
+[colors.normal]
+black = '#32344a'
+red = '#f7768e'
+green = '#9ece6a'
+yellow = '#e0af68'
+blue = '#7aa2f7'
+magenta = '#ad8ee6'
+cyan = '#449dab'
+white = '#787c99'
+
+# Bright colors
+[colors.bright]
+black = '#444b6a'
+red = '#ff7a93'
+green = '#b9f27c'
+yellow = '#ff9e64'
+blue = '#7da6ff'
+magenta = '#bb9af7'
+cyan = '#0db9d7'
+white = '#acb0d0'
+# [[colors.indexed_colors]]
+# color = "#F5A97F"
+# index = 16
+#
+# [[colors.indexed_colors]]
+# color = "#F4DBD6"
+# index = 17
+#
+# [colors.bright]
+# black = "#5B6078"
+# blue = "#8AADF4"
+# cyan = "#8BD5CA"
+# green = "#A6DA95"
+# magenta = "#F5BDE6"
+# red = "#ED8796"
+# white = "#A5ADCB"
+# yellow = "#EED49F"
+#
+# [colors.cursor]
+# cursor = "#F4DBD6"
+# text = "#24273A"
+#
+# [colors.dim]
+# black = "#494D64"
+# blue = "#8AADF4"
+# cyan = "#8BD5CA"
+# green = "#A6DA95"
+# magenta = "#F5BDE6"
+# red = "#ED8796"
+# white = "#B8C0E0"
+# yellow = "#EED49F"
+#
+# [colors.hints.end]
+# background = "#A5ADCB"
+# foreground = "#24273A"
+#
+# [colors.hints.start]
+# background = "#EED49F"
+# foreground = "#24273A"
+#
+# [colors.normal]
+# black = "#494D64"
+# blue = "#8AADF4"
+# cyan = "#8BD5CA"
+# green = "#A6DA95"
+# magenta = "#F5BDE6"
+# red = "#ED8796"
+# white = "#B8C0E0"
+# yellow = "#EED49F"
+#
+# [colors.primary]
+# background = "#24273A"
+# bright_foreground = "#CAD3F5"
+# dim_foreground = "#CAD3F5"
+# foreground = "#CAD3F5"
+#
+# [colors.search.focused_match]
+# background = "#A6DA95"
+# foreground = "#24273A"
+
+# [colors.search.footer_bar]
+# background = "#A5ADCB"
+# foreground = "#24273A"
+
+# [colors.search.matches]
+# background = "#A5ADCB"
+# foreground = "#24273A"
+#
+[colors.selection]
+background = "#F4DBD6"
+text = "#24273A"
+#
+# [colors.vi_mode_cursor]
+# cursor = "#B7BDF8"
+# text = "#24273A"
+
+[cursor.style]
+blinking = "on"
+shape = "Beam"
+
+[font]
+size = 12
+
+[font.normal]
+# Default = ["JetBrains Mono"]
+family = "monospace"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+# [schemes.gruvbox.bright]
+# black = "0x928374"
+# blue = "0x7daea3"
+# cyan = "0x89b482"
+# green = "0xa9b665"
+# magenta = "0xd3869b"
+# red = "0xea6962"
+# white = "0xdfbf8e"
+# yellow = "0xe3a84e"
+#
+# [schemes.gruvbox.normal]
+# black = "0x665c54"
+# blue = "0x7daea3"
+# cyan = "0x89b482"
+# green = "0xa9b665"
+# magenta = "0xd3869b"
+# red = "0xea6962"
+# white = "0xdfbf8e"
+# yellow = "0xe78a4e"
+#
+# [schemes.gruvbox.primary]
+# background = "0x282828"
+# foreground = "0xdfbf8e"
+#
+# [[schemes.macchiato.indexed_colors]]
+# color = "#F5A97F"
+# index = 16
+#
+# [[schemes.macchiato.indexed_colors]]
+# color = "#F4DBD6"
+# index = 17
+#
+# [schemes.macchiato.bright]
+# black = "#5B6078"
+# blue = "#8AADF4"
+# cyan = "#8BD5CA"
+# green = "#A6DA95"
+# magenta = "#F5BDE6"
+# red = "#ED8796"
+# white = "#A5ADCB"
+# yellow = "#EED49F"
+#
+# [schemes.macchiato.cursor]
+# cursor = "#F4DBD6"
+# text = "#24273A"
+#
+# [schemes.macchiato.dim]
+# black = "#494D64"
+# blue = "#8AADF4"
+# cyan = "#8BD5CA"
+# green = "#A6DA95"
+# magenta = "#F5BDE6"
+# red = "#ED8796"
+# white = "#B8C0E0"
+# yellow = "#EED49F"
+#
+# [schemes.macchiato.hints.end]
+# background = "#A5ADCB"
+# foreground = "#24273A"
+#
+# [schemes.macchiato.hints.start]
+# background = "#EED49F"
+# foreground = "#24273A"
+#
+# [schemes.macchiato.normal]
+# black = "#494D64"
+# blue = "#8AADF4"
+# cyan = "#8BD5CA"
+# green = "#A6DA95"
+# magenta = "#F5BDE6"
+# red = "#ED8796"
+# white = "#B8C0E0"
+# yellow = "#EED49F"
+#
+# [schemes.macchiato.primary]
+# background = "#24273A"
+# bright_foreground = "#CAD3F5"
+# dim_foreground = "#CAD3F5"
+# foreground = "#CAD3F5"
+#
+# [schemes.macchiato.search.focused_match]
+# background = "#A6DA95"
+# foreground = "#24273A"
+#
+# [schemes.macchiato.search.footer_bar]
+# background = "#A5ADCB"
+# foreground = "#24273A"
+#
+# [schemes.macchiato.search.matches]
+# background = "#A5ADCB"
+# foreground = "#24273A"
+#
+# [schemes.macchiato.selection]
+# background = "#F4DBD6"
+# text = "#24273A"
+#
+# [schemes.macchiato.vi_mode_cursor]
+# cursor = "#B7BDF8"
+# text = "#24273A"
+#
+# [schemes.tokyo-night.bright]
+# black = "0x444b6a"
+# blue = "0x7da6ff"
+# cyan = "0x0db9d7"
+# green = "0xb9f27c"
+# magenta = "0xbb9af7"
+# red = "0xff7a93"
+# white = "0xacb0d0"
+# yellow = "0xff9e64"
+#
+# [schemes.tokyo-night.normal]
+# black = "0x32344a"
+# blue = "0x7aa2f7"
+# cyan = "0x449dab"
+# green = "0x9ece6a"
+# magenta = "0xad8ee6"
+# red = "0xf7768e"
+# white = "0x787c99"
+# yellow = "0xe0af68"
+#
+# [schemes.tokyo-night.primary]
+# background = "0x1a1b26"
+# foreground = "0xa9b1d6"
+#
+# [schemes.tokyo-night-storm.bright]
+# black = "0x444b6a"
+# blue = "0x7da6ff"
+# cyan = "0x0db9d7"
+# green = "0xb9f27c"
+# magenta = "0xbb9af7"
+# red = "0xff7a93"
+# white = "0xacb0d0"
+# yellow = "0xff9e64"
+#
+# [schemes.tokyo-night-storm.normal]
+# black = "0x32344a"
+# blue = "0x7aa2f7"
+# cyan = "0x449dab"
+# green = "0x9ece6a"
+# magenta = "0xad8ee6"
+# red = "0xf7768e"
+# white = "0x9699a8"
+# yellow = "0xe0af68"
+#
+# [schemes.tokyo-night-storm.primary]
+# background = "0x24283b"
+# foreground = "0xa9b1d6"

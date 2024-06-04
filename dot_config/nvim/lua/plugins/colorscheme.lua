@@ -55,10 +55,15 @@ return {
   -- },
   { "nyoom-engineering/oxocarbon.nvim" },
   {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = { style = "night" },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "catppuccin",
-      colorscheme = "rose-pine",
+      -- colorscheme = "rose-pine",
       -- colorscheme = "oxocarbon",
       -- colorscheme = "tokyonight-night",
     },
