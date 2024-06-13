@@ -25,10 +25,10 @@ return {
 
       servers = {
 
-        clangd = {
-          mason = true,
-          on_attach = function(_, _) end,
-        },
+        -- clangd = {
+        --   mason = true,
+        --   on_attach = function(_, _) end,
+        -- },
         -- rust_analyzer = {
         --   settings = {
         --     rust_analyzer = {
