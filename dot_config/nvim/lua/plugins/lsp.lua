@@ -68,7 +68,10 @@ return {
         --   filetypes = { "pandoc", "markdown" },
         -- },
         grammarly = {
-          filetypes = { "latex", "pandoc", "markdown" },
+          filetypes = { "tex", "latex", "pandoc", "markdown" },
+        },
+        vale = {
+          filetypes = { "tex", "latex", "pandoc", "markdown" },
         },
         -- vale_ls = {
         --   filetypes = { "pandoc", "markdown" },

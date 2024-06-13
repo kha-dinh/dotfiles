@@ -1,6 +1,6 @@
 return {
   {
-    "mickael-menu/zk-nvim",
+    "zk-org/zk-nvim",
     event = "VeryLazy",
     dependencies = {
       -- {
@@ -27,7 +27,7 @@ return {
         "nvim-neo-tree/neo-tree.nvim",
         dependencies = {
           "prncss-xyz/neo-tree-zk.nvim",
-          "mickael-menu/zk-nvim",
+          "zk-org/zk-nvim",
         },
         -- opts = {
         --   sources = {

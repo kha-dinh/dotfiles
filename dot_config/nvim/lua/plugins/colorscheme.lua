@@ -60,8 +60,12 @@ return {
     opts = { style = "night" },
   },
   {
+    "rebelot/kanagawa.nvim",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
+      colorscheme = "kanagawa",
       -- colorscheme = "catppuccin",
       -- colorscheme = "rose-pine",
       -- colorscheme = "oxocarbon",
