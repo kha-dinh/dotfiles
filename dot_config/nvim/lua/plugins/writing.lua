@@ -3,32 +3,35 @@ return {
   {
     "lervag/vimtex",
     keys = {
-      { "<leader>lc", "<cmd>VimtexCompile<cr>", desc = "VimtexCompile" },
-      { "<leader>lc", "<cmd>VimtexCompile<cr>", desc = "VimtexCompile" },
+      { "<localLeader>l", "", desc = "+vimtext" },
     },
-    lazy = false, -- lazy-loading will disable inverse search
+    -- keys = {
+    --   { "<leader>lv", "<cmd>VimtexView<cr>", desc = "VimtexView" },
+    --   { "<leader>lc", "<cmd>VimtexCompile<cr>", desc = "VimtexCompile" },
+    -- },
+    -- lazy = false, -- lazy-loading will disable inverse search
     config = function()
-      vim.api.nvim_create_autocmd({ "FileType" }, {
-        group = vim.api.nvim_create_augroup("lazyvim_vimtex_conceal", { clear = true }),
-        pattern = { "bib", "tex" },
-        callback = function()
-          vim.wo.conceallevel = 2
-        end,
-      })
+      -- vim.api.nvim_create_autocmd({ "FileType" }, {
+      --   group = vim.api.nvim_create_augroup("lazyvim_vimtex_conceal", { clear = true }),
+      --   pattern = { "bib", "tex" },
+      --   callback = function()
+      --     vim.wo.conceallevel = 2
+      --   end,
+      -- })
 
       vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
       vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
-      vim.g.vimtex_view_general_viewer = "sioyek"
 
+      vim.g.vimtex_view_general_viewer = "sioyek"
       local options = string.format(
         '--reuse-window --inverse-search="nvr --servername %s +%%2 %%1" --execute-command toggle_synctex --forward-search-file @tex --forward-search-line @line @pdf',
         vim.v.servername
       )
-      -- local options =
-      --   '--reuse-window --inverse-search="nvr --servername %s +%%2 %%1" --forward-search-file @tex --forward-search-line @line @pdf'
       local command = string.format("let g:vimtex_view_general_options='%s'", options)
       vim.cmd(command)
       vim.cmd("let g:vimtex_compiler_progname='nvr'")
+      -- local options =
+      --   '--reuse-window --inverse-search="nvr --servername %s +%%2 %%1" --forward-search-file @tex --forward-search-line @line @pdf'
     end,
   },
   -- {
