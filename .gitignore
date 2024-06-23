@@ -5,3 +5,7 @@ dot_config/fish/fish_variables
 dot_config/fish/functions
 dot_config/fish/completions
 dot_config/fish/conf.d
+raycast/.DS_Store
+scripts/.DS_Store
+.DS_Store
+raycast/iterm/
