@@ -25,7 +25,7 @@
 -- vim.g["pandoc#biblio#use_bibtool"] = 1
 -- vim.g["pandoc#filetypes#handled"] = { "pandoc", "markdown" }
 -- vim.g["pandoc#filetypes#pandoc_markdown"] = 0
--- vim.o.guifont = "JetBrainsMono Nerd Font"
+vim.o.guifont = "JetBrainsMono Nerd Font"
 
 local map = vim.keymap.set
 

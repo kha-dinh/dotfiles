@@ -5,6 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable",
     lazypath })
 end
+-- vim.o.guifont = "JetBrains Mono:h14"
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
@@ -49,4 +50,17 @@ require("lazy").setup({
   },
 })
 
--- require("lspconfig").clangd.setup({})
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
+
+if not configs.bibli_ls then
+  configs.bibli_ls = {
+    default_config = {
+      cmd = { "bibli_ls" },
+      filetypes = { "markdown" },
+      root_dir = lspconfig.util.root_pattern(".bibli.toml"),
+    },
+  }
+end
+
+lspconfig.bibli_ls.setup({})

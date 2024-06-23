@@ -23,26 +23,26 @@ return {
   --   end,
   -- },
   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
-  {
-    -- dir = "~/projects/cmp-pandoc.nvim",
-    -- dev = true,
-    "kha-dinh/cmp-pandoc.nvim",
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
-    config = function()
-      local cmp = require("cmp")
-      local conf = cmp.get_config()
-      table.insert(conf.sources, { name = "cmp_pandoc" })
-      require("cmp").setup(conf)
-      require("cmp_pandoc").setup()
-    end,
-    -- opts = function(_, opts)
-    --   local cmp = require("cmp")
-    --   opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "cmp_pandoc" } }))
-    --   return opts
-    -- end,
-  },
+  -- {
+  --   -- dir = "~/projects/cmp-pandoc.nvim",
+  --   -- dev = true,
+  --   "kha-dinh/cmp-pandoc.nvim",
+  --   dependencies = {
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function()
+  --     local cmp = require("cmp")
+  --     local conf = cmp.get_config()
+  --     table.insert(conf.sources, { name = "cmp_pandoc" })
+  --     require("cmp").setup(conf)
+  --     require("cmp_pandoc").setup()
+  --   end,
+  --   -- opts = function(_, opts)
+  --   --   local cmp = require("cmp")
+  --   --   opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "cmp_pandoc" } }))
+  --   --   return opts
+  --   -- end,
+  -- },
 
   {
     "jakewvincent/mkdnflow.nvim",
@@ -54,7 +54,6 @@ return {
           priority = "root",
           root_tell = "index.md",
         },
-        bib = { default_path = "~/mynotes/references.bib" },
         links = {
           conceal = true,
         },

@@ -56,10 +56,15 @@ return {
         mode = "v",
         desc = "Create New Zk from selection",
       },
-      { "<leader>zz", "<cmd>ZkNotes {sort={'modified'}}<cr>", mode = "n", desc = "List recent zk notes" },
+      {
+        "<leader>zz",
+        "<cmd>ZkNotes {sort={'modified'}}<cr>",
+        mode = "n",
+        desc = "List recent zk notes",
+      },
       {
         "<leader>zr",
-        "<cmd>ZkNotes {sort={'random'}, tag={'NOT archive'}}<cr>",
+        "<cmd>ZkNotes {sort={'random'}, tags={'NOT archive'}}<cr>",
         mode = "n",
         desc = "List recent zk notes (random order)",
       },

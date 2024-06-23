@@ -21,6 +21,31 @@ return {
         end,
       },
     },
+    -- local lsp_configurations = require("lspconfig.configs")
+    -- local util = require("lspconfig.util")
+    -- lsp_configurations.bibli_ls = {
+    --   default_config = {
+    --     name = "bibli_ls",
+    --     root_dir = function(fname)
+    --       local root_files = { ".marksman.toml" }
+    --       return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
+    --     end,
+    --     single_file_support = true,
+    --   },
+    -- }
+    --   default_config = {
+    --     filetypes = { "markdown" },
+    --   },
+    --   -- root_dir = lspconfig.util.root_pattern("go.mod"),
+    --   -- settings = {},
+    -- },
+    -- local on_attach = function(client, bufnr)
+    --   -- keymaps
+    -- end
+    --
+    -- require("lspconfig").bibli_is.setup({
+    --   on_attach = on_attach,
+    -- })
     opts = {
 
       servers = {
@@ -67,12 +92,13 @@ return {
         -- markdownlint = {
         --   filetypes = { "pandoc", "markdown" },
         -- },
+        -- bibli_ls = {},
         grammarly = {
           filetypes = { "tex", "latex", "pandoc", "markdown" },
         },
-        vale = {
-          filetypes = { "tex", "latex", "pandoc", "markdown" },
-        },
+        -- vale = {
+        --   filetypes = { "tex", "latex", "pandoc", "markdown" },
+        -- },
         -- vale_ls = {
         --   filetypes = { "pandoc", "markdown" },
         -- },

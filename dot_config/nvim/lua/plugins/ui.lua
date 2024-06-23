@@ -123,6 +123,10 @@ return {
   },
   {
     "folke/zen-mode.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<Leader>uz", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
+    },
     config = function()
       require("zen-mode").setup({
         -- your configuration comes here
@@ -144,11 +148,11 @@ return {
   -- },
   --
   -- scrollbar
-  {
-    "nvim-zh/colorful-winsep.nvim",
-    config = true,
-    event = { "WinNew" },
-  },
+  -- {
+  --   "nvim-zh/colorful-winsep.nvim",
+  --   config = true,
+  --   event = { "WinNew" },
+  -- },
   {
     "folke/noice.nvim",
     opts = {
