@@ -1,0 +1,13 @@
+#!/bin/bash
+# Write given argument into current iterm session. (useful if running commands from another application).
+osascript - "$@" <<EOF
+on run argv
+tell application "iTerm2"
+  tell current session of current window
+ 	repeat with arg in argv
+               write text arg
+        end repeat
+  end tell
+end tell
+end run
+EOF

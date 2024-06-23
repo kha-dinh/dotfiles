@@ -18,6 +18,7 @@
     ~/.ssh/config: ssh/config
     ~/.zprezto: dot_prezto
     ~/.task: dot_task
+    ~/.scripts: scripts
     ~/.zlogin: dot_prezto/runcoms/zlogin
     ~/.zlogout: dot_prezto/runcoms/zlogout
     ~/.zpreztorc: dot_prezto/runcoms/zpreztorc
