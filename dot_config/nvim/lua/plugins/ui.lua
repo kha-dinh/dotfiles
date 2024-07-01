@@ -156,15 +156,8 @@ return {
   {
     "folke/noice.nvim",
     opts = {
-      lsp = {
-        hover = {
-          -- Handled by ray-x/navigator
-          enabled = false,
-        },
-        signature = {
-          -- Handled by ray-x/lsp_signature.nvim
-          enabled = false,
-        },
+      presets = {
+        lsp_doc_border = true,
       },
     },
   },

@@ -5,7 +5,10 @@ return {
   {
     "m4xshen/hardtime.nvim",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {},
+    opts = {
+      -- Compatibility with function autocomplete
+      ["<Left>"] = {},
+    },
   },
   { "drmikehenry/vim-headerguard" },
 

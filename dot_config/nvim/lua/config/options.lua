@@ -27,6 +27,8 @@
 -- vim.g["pandoc#filetypes#pandoc_markdown"] = 0
 vim.o.guifont = "JetBrainsMono Nerd Font"
 
+vim.o.spell = false
+
 local map = vim.keymap.set
 
 -- https://github.com/neovide/neovide/issues/1272

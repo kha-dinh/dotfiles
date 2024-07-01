@@ -64,7 +64,7 @@ return {
       },
       {
         "<leader>zr",
-        "<cmd>ZkNotes {sort={'random'}, tags={'NOT archive'}}<cr>",
+        "<cmd>ZkNotes {sort={'random'}, tags={'NOT archive', 'NOT daily'}}<cr>",
         mode = "n",
         desc = "List recent zk notes (random order)",
       },
