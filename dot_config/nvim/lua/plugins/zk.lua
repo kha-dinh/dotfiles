@@ -25,27 +25,33 @@ return {
       },
       {
         "nvim-neo-tree/neo-tree.nvim",
+        event = "VeryLazy",
         dependencies = {
-          "prncss-xyz/neo-tree-zk.nvim",
+          {
+            "idanarye/neo-tree-zk.nvim",
+            branch = "fix-modified_buffers_changes-to-opened_buffers_changed",
+          },
+          -- "prncss-xyz/neo-tree-zk.nvim",
           "zk-org/zk-nvim",
         },
-        -- opts = {
-        --   sources = {
-        --     --   -- default sources
-        --     "filesystem",
-        --     "buffers",
-        --     "git_status",
-        --     "zk",
-        --   },
-        --   zk = {
-        --     follow_current_file = true,
-        --     window = {
-        --       mappings = {
-        --         ["n"] = "change_query",
-        --       },
-        --     },
-        --   },
-        -- },
+        opts = function(_, opts)
+          -- opts.zk = {
+          --   follow_current_file = true,
+          --   window = {
+          --     mappings = {
+          --       ["n"] = "change_query",
+          --     },
+          --   },
+          -- }
+          vim.list_extend(opts.sources, { "zk" })
+          -- sources = {
+          --   --   -- default sources
+          --   "filesystem",
+          --   "buffers",
+          --   "git_status",
+          --   "zk",
+          -- }
+        end,
       },
     },
     keys = {
@@ -68,7 +74,7 @@ return {
         mode = "n",
         desc = "List recent zk notes (random order)",
       },
-      { "<leader>zt", "<cmd>ZkTags<cr>", mode = "n", desc = "List Zk Tags" },
+      { "<leader>zt", "<cmd>ZkTags {sort={'note-count'}}<cr>", mode = "n", desc = "List Zk Tags" },
       -- {
       --   "<leader>zfn",
       --   ':ZkNew {dir="fleeting", title=vim.fn.input("Title: ")} <cr>',

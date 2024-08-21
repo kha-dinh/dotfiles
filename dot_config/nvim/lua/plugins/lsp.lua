@@ -64,11 +64,11 @@ return {
         --   },
         -- },
         ltex = {
-          -- settings = {
-          --   ltex = {
-          --     checkFrequency = "save",
-          --   },
-          -- },
+          settings = {
+            ltex = {
+              checkFrequency = "save",
+            },
+          },
         },
         --   ltex = {lsp
         --     enabled = { "latex", "tex", "bib", "markdown" },
@@ -135,49 +135,49 @@ return {
         -- vale_ls = {
         --   filetypes = { "pandoc", "markdown" },
         -- },
-        -- texlab = {
-        --   -- on_attach = function(_, _)
-        --   --   vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
-        --   --   vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
-        --   -- end,
-        --   settings = {
-        --     texlab = {
-        --       forwardSearch = {
-        --         executable = "sioyek",
-        --         args = {
-        --           "--reuse-window",
-        --           "--execute-command",
-        --           "toggle_synctex",
-        --           "--inverse-search",
-        --           "nvim-texlabconfig -file %%%1 -line %%%2",
-        --           "--forward-search-file",
-        --           "%f",
-        --           "--forward-search-line",
-        --           "%l",
-        --           "%p",
-        --         },
-        --       },
-        --       -- auxDirectory = "build", -- IMPORTANT
-        --       build = {
-        --         onSave = true,
-        --         -- Added -bibtex, --shell-escape
-        --         args = {
-        --           "-pdf",
-        --           "-bibtex",
-        --           "--shell-escape",
-        --           "-interaction=nonstopmode",
-        --           "-synctex=1",
-        --           "%f",
-        --           -- "-outdir=build",
-        --         },
-        --       },
-        --       chktex = {
-        --         onOpenAndSave = true,
-        --         onEdit = false,
-        --       },
-        --     },
-        --   },
-        -- },
+        texlab = {
+          -- on_attach = function(_, _)
+          --   vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
+          --   vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
+          -- end,
+          settings = {
+            texlab = {
+              forwardSearch = {
+                executable = "sioyek",
+                args = {
+                  "--reuse-window",
+                  "--execute-command",
+                  "toggle_synctex",
+                  "--inverse-search",
+                  "nvim-texlabconfig -file %%%1 -line %%%2",
+                  "--forward-search-file",
+                  "%f",
+                  "--forward-search-line",
+                  "%l",
+                  "%p",
+                },
+              },
+              -- auxDirectory = "build", -- IMPORTANT
+              build = {
+                onSave = true,
+                -- Added -bibtex, --shell-escape
+                args = {
+                  "-pdf",
+                  "-bibtex",
+                  "--shell-escape",
+                  "-interaction=nonstopmode",
+                  "-synctex=1",
+                  "%f",
+                  -- "-outdir=build",
+                },
+              },
+              chktex = {
+                onOpenAndSave = true,
+                onEdit = false,
+              },
+            },
+          },
+        },
       },
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>

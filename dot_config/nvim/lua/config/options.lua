@@ -49,3 +49,9 @@ end)
 map("n", "<C-->", function()
   NeovideScale(-0.1)
 end)
+vim.opt.relativenumber = true
+
+vim.o.termguicolors = true
+
+-- autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
+-- autocmd InsertEnter,WinLeave * setlocal foldmethod=manual

@@ -2,6 +2,14 @@ return {
   {
     "dhruvasagar/vim-table-mode",
   },
+  {
+    "tadmccorkle/markdown.nvim",
+    config = function()
+      require("markdown").setup({
+        -- configuration here or empty for defaults
+      })
+    end,
+  },
 
   {
     "preservim/vim-pencil",
