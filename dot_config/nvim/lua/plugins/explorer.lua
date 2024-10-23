@@ -1,4 +1,3 @@
-vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 return {
   {
     "otavioschwanck/arrow.nvim",
@@ -10,6 +9,7 @@ return {
   },
   {
     "stevearc/oil.nvim",
+    event = "VeryLazy",
     opts = {},
     -- keys = {
     --   "-",
