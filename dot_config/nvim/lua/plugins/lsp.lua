@@ -35,7 +35,7 @@ return {
     -- }
     --   default_config = {
     --     filetypes = { "markdown" },
-    --   },
+    --   }
     --   -- root_dir = lspconfig.util.root_pattern("go.mod"),
     --   -- settings = {},
     -- },
@@ -63,13 +63,6 @@ return {
         --     },
         --   },
         -- },
-        ltex = {
-          settings = {
-            ltex = {
-              checkFrequency = "save",
-            },
-          },
-        },
         --   ltex = {lsp
         --     enabled = { "latex", "tex", "bib", "markdown" },
         --     language = "en",
@@ -134,6 +127,15 @@ return {
         -- },
         -- vale_ls = {
         --   filetypes = { "pandoc", "markdown" },
+        -- },
+        --
+        -- ltex = {
+        --   settings = {
+        --     ltex = {
+        --       checkFrequency = "save",
+        --       sentenceCacheSize = 10000,
+        --     },
+        --   },
         -- },
         texlab = {
           -- on_attach = function(_, _)
@@ -221,22 +223,41 @@ return {
     "barreiroleo/ltex_extra.nvim",
     ft = { "markdown", "tex" },
     dependencies = { "neovim/nvim-lspconfig" },
-    -- yes, you can use the opts field, just I'm showing the setup explicitly
-    config = function()
-      require("ltex_extra").setup({
-        {},
-        server_opts = {
-          capabilities = {},
-          on_attach = function(client, bufnr)
-            -- your on_attach process
-          end,
-          settings = {
-            ltex = {
-              -- checkFrequency = "save",
-            },
+    opts = {
+      {},
+      server_opts = {
+        capabilities = {},
+        on_attach = function(client, bufnr)
+          -- your on_attach process
+        end,
+        settings = {
+          ltex = {
+            -- checkFrequency = "save",
+            sentenceCacheSize = 10000,
+            -- checkFrequency = "save",
           },
         },
-      })
-    end,
+      },
+    },
+    -- yes, you can use the opts field, just I'm showing the setup explicitly
+
+    -- config = function()
+    --   require("ltex_extra").setup({
+    --     {},
+    --     server_opts = {
+    --       capabilities = {},
+    --       on_attach = function(client, bufnr)
+    --         -- your on_attach process
+    --       end,
+    --       settings = {
+    --         ltex = {
+    --           checkFrequency = "save",
+    --           sentenceCacheSize = 10000,
+    --           -- checkFrequency = "save",
+    --         },
+    --       },
+    --     },
+    --   })
+    -- end,
   },
 }
