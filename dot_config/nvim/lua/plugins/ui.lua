@@ -294,4 +294,24 @@ return {
       })
     end,
   },
+  {
+    "Bekaboo/dropbar.nvim",
+    -- optional, but required for fuzzy finder support
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
+    keys = {
+      {
+        "<C-j>",
+        function()
+          require("dropbar.api").pick()
+        end,
+        desc = "Dropbar",
+      },
+    },
+    -- config = function()
+    -- vim.ui.select = require("dropbar.utils.menu").select
+    -- end,
+  },
 }
