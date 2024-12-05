@@ -1,5 +1,21 @@
 return {
   {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      bigfile = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
+  {
+
     "folke/edgy.nvim",
     event = "VeryLazy",
     opts = function()
@@ -266,14 +282,15 @@ return {
       require("virt-column").setup(opts)
     end,
   },
-  -- {
-  --   "folke/noice.nvim",
-  --   opts = {
-  --     presets = {
-  --       lsp_doc_border = true,
-  --     },
-  --   },
-  -- },
+  {
+    "folke/noice.nvim",
+    version = "4.7.2",
+    opts = {
+      presets = {
+        lsp_doc_border = true,
+      },
+    },
+  },
   {
     "petertriho/nvim-scrollbar",
     event = "BufReadPost",

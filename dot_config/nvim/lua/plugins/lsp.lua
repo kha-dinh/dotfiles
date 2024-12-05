@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    version = "0.1.9",
     dependencies = {
       {
         -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -220,25 +221,25 @@ return {
   },
   {
     -- Dictionaries
-    "barreiroleo/ltex_extra.nvim",
-    ft = { "markdown", "tex" },
-    dependencies = { "neovim/nvim-lspconfig" },
-    opts = {
-      {},
-      server_opts = {
-        capabilities = {},
-        on_attach = function(client, bufnr)
-          -- your on_attach process
-        end,
-        settings = {
-          ltex = {
-            -- checkFrequency = "save",
-            sentenceCacheSize = 10000,
-            -- checkFrequency = "save",
-          },
-        },
-      },
-    },
+    -- "barreiroleo/ltex_extra.nvim",
+    -- ft = { "markdown", "tex" },
+    -- dependencies = { "neovim/nvim-lspconfig" },
+    -- opts = {
+    --   {},
+    --   server_opts = {
+    --     capabilities = {},
+    --     on_attach = function(client, bufnr)
+    --       -- your on_attach process
+    --     end,
+    --     settings = {
+    --       ltex = {
+    --         -- checkFrequency = "save",
+    --         sentenceCacheSize = 10000,
+    --         -- checkFrequency = "save",
+    --       },
+    --     },
+    --   },
+    -- },
     -- yes, you can use the opts field, just I'm showing the setup explicitly
 
     -- config = function()
