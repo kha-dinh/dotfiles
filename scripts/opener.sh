@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+set -e
 FILE_PATH=$1
 
 PV_WIDTH=100

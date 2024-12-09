@@ -5,27 +5,55 @@ set -o nounset
 ZOTERO_DIR="$HOME/Zotero"
 ZOTERO_DB="${ZOTERO_DIR}/zotero.sqlite"
 
-PDF_READER="xdg-open"
-# PDF_READER="evince"
+OPENER="xdg-open"
 
-# SELECTOR="rofi -normal-window -dmenu -i -sort -display-column-separator '|'"
-SELECTOR="fzf --with-nth 1 --delimiter '@'"
-# SELECTOR="fzf"
+# All-in-one previewer copied from https://github.com/MarrekNozka/fzf--previewer
+PREVIEWER="$HOME/.dotfiles/scripts/opener.sh"
+SEPARATOR="\t"
+
+# SELECTOR=(rofi
+# 	-normal-window
+# 	-dmenu -i
+# 	-sort
+# 	-display-column-separator
+# 	"$SEPARATOR"
+# )
+#
+SELECT="zotero://select/items/@"
+#
+SELECTOR=(
+	fzf
+	--header-lines 1
+	--layout "reverse"
+	--delimiter "$SEPARATOR"
+	--info "default"
+	--with-nth "1,2,4"
+	--preview "$PREVIEWER {5}"
+	--preview-label "[ Preview ]"
+	--bind "enter:become(echo {3})"
+	--bind "ctrl-s:become($OPENER zotero://select/items/@{2})"
+	--ansi
+)
 
 COPIED_DB=""
-if ! sqlite3 $ZOTERO_DB "select * from items;" 2>/dev/null; then
+if ! sqlite3 "$ZOTERO_DB" "select * from items;" 2>/dev/null; then
 	# the database is locked (5) by Zotero probably.
 	COPIED_DB="$ZOTERO_DB.tmp.sqlite"
-	cp $ZOTERO_DB $COPIED_DB
+	cp "$ZOTERO_DB" "$COPIED_DB"
 	ZOTERO_DB="$COPIED_DB"
 fi
 
-QUERY=$(sqlite3 -separator '@' $ZOTERO_DB "
-WITH ranked_items AS (
-    SELECT 
-        value,
+# AI-generated spaghetti
+QUERY="\
+ WITH ranked_attachments AS (
+    SELECT
+        value as value,
         attachmentItems.key,
         itemAttachments.contentType,
+        STRING_AGG(
+            NULLIF(CONCAT(creators.firstName, ' ', creators.lastName), ' '),
+            '; '
+        ) OVER (PARTITION BY items.itemID) as creators,
         CONCAT(
             '${ZOTERO_DIR}/storage/',
             attachmentItems.key,
@@ -36,12 +64,33 @@ WITH ranked_items AS (
                 '\/'
             )
         ) as transformed_path,
-        CASE 
-            WHEN itemAttachments.contentType = 'application/pdf' THEN 1
-            ELSE 2
-        END as content_type_rank
+        -- Get citation key from itemData
+        (
+        SELECT SUBSTRING(idv.value, 15, 66)
+              --SUBSTRING(citation_data.value, POSITION('Citation Key: ' IN citation_data.value) + 13) as citation_key,
+            FROM itemData id
+            JOIN itemDataValues idv ON id.valueID = idv.valueID
+            WHERE id.itemID = items.itemID 
+            AND id.fieldID = (
+                SELECT fieldID 
+                FROM fields 
+                WHERE fieldName = 'extra'
+            )
+            AND idv.value LIKE 'Citation Key:%'
+        ) as citation_key,
+        ROW_NUMBER() OVER (
+            PARTITION BY items.itemID 
+            ORDER BY 
+                CASE 
+                    WHEN itemAttachments.contentType = 'application/pdf' THEN 1 
+                    ELSE 2 
+                END,
+                attachmentItems.dateAdded
+        ) as attachment_rank
     FROM items
     LEFT JOIN itemData ON itemData.itemID = items.itemID
+    LEFT JOIN itemCreators ON itemCreators.itemID = items.itemID
+    LEFT JOIN creators ON creators.creatorID = itemCreators.creatorID
     LEFT JOIN itemDataValues ON itemData.valueID = itemDataValues.valueID
     LEFT JOIN itemAttachments ON itemAttachments.parentItemID = items.itemID
     LEFT JOIN libraries ON libraries.libraryID = items.libraryID
@@ -52,70 +101,39 @@ WITH ranked_items AS (
 )
 SELECT 
     value,
+    citation_key,
     key,
+    creators,
     transformed_path
-FROM ranked_items
-ORDER BY content_type_rank, value;
--- SELECT value, attachmentItems.key, 
--- CONCAT(
---         '${ZOTERO_DIR}/storage/',
---         attachmentItems.key,
---         '/',
---         REPLACE(
---             SUBSTRING(itemAttachments.path, 9), -- Remove 'storage:' prefix (8 chars + 1)
---             '/',
---             '\/'
---         )
---     ) as transformed_path
--- FROM items
--- LEFT JOIN itemData ON itemData.itemID = items.itemID
--- LEFT JOIN itemDataValues ON itemData.valueID = itemDataValues.valueID
--- LEFT JOIN itemAttachments ON itemAttachments.parentItemID = items.itemID
--- LEFT JOIN libraries ON libraries.libraryID = items.libraryID
--- LEFT JOIN items attachmentItems ON attachmentItems.itemID = itemAttachments.itemID
--- WHERE itemData.fieldID = 1
---     AND libraries.type = 'user'
---     AND itemAttachments.path LIKE 'storage:%'
---     AND itemAttachments.contentType = 'application/pdf';
--- SELECT value
--- FROM items
--- LEFT JOIN itemData, itemDataValues, itemAttachments, items attachmentItems
--- WHERE itemData.itemID = items.itemID
---     AND itemData.fieldID = 1
---     AND itemData.valueID = itemDataValues.valueID
---     AND itemAttachments.path LIKE 'storage:%'
---     AND itemAttachments.parentItemID = items.itemID
---     AND attachmentItems.itemID = itemAttachments.itemID
---     AND itemAttachments.contentType = 'application/pdf';
-")
-# QUERY="value@key\n$QUERY"
-SELECTED_KEY=$(
-	echo -e "$QUERY" |
-		# column --table -c 120 -T 1 --separator '@' |
-		fzf --header-lines 1 --border --with-nth=1,2 --delimiter '@' --preview='/home/khadd/.dotfiles/scripts/opener.sh {3}' --bind 'enter:become(echo {2})'
+FROM ranked_attachments
+WHERE attachment_rank = 1
+ORDER BY value;
+"
+
+RESULT="$(sqlite3 --separator "$SEPARATOR" --readonly "$ZOTERO_DB" "$QUERY")"
+# echo $RESULT
+
+# Format the results
+FORMATED="Press enter to open PDF, CTRL-S to show in zotero\n$RESULT"
+FORMATED=$(
+	echo -e "$FORMATED" |
+		awk 'BEGIN{FS="\t"} \
+      NR==1{print $0; next} \
+      # Wrap with ANSI bold yellow \
+      {print "\033[1;33m" $1 "\033[0m" FS $2 FS $3 FS $4 FS $5}'
 )
 
-# printf "$SELECTED_NAME\n"
-# SELECTED_PATH=$(sqlite3 $ZOTERO_DB "
-# SELECT attachmentItems.key, itemAttachments.path
-# FROM items
-# LEFT JOIN itemData, itemDataValues, itemAttachments, items attachmentItems
-# WHERE itemData.itemID = items.itemID
-#     AND value = '${SELECTED_NAME}'
-#     AND itemData.fieldID = 1
-#     AND itemData.valueID = itemDataValues.valueID
-#     AND itemAttachments.path LIKE 'storage:%'
-#     AND itemAttachments.parentItemID = items.itemID
-#     AND attachmentItems.itemID = itemAttachments.itemID
-#     -- AND itemAttachments.contentType = 'application/pdf';
-# " | tail --lines=1)
-# SELECTED_PATH="${ZOTERO_DIR}/storage/${SELECTED_PATH/|storage:/\/}"
+# Get the selection and open the file
+SELECTED=$(
+	echo -e "$FORMATED" | "${SELECTOR[@]}"
+)
 
-SELECTED_PATH="zotero://open-pdf/library/items/$SELECTED_KEY"
-echo $SELECTED_PATH
+# Use zotero URI scheme to use built-in PDF/html viewer
+SELECTED_PATH="zotero://open-pdf/library/items/$SELECTED"
+# echo -e "$SELECTED_PATH"
 
 if [[ "$COPIED_DB" != "" ]]; then
 	rm $COPIED_DB
 fi
 
-$PDF_READER "$SELECTED_PATH"
+$OPENER "$SELECTED_PATH"
