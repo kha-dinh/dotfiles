@@ -138,10 +138,10 @@ return {
         --   },
         -- },
         texlab = {
-          -- on_attach = function(_, _)
-          --   vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
-          --   vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
-          -- end,
+          on_attach = function(_, _)
+            vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
+            vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
+          end,
           settings = {
             texlab = {
               forwardSearch = {
@@ -232,7 +232,7 @@ return {
         end,
         settings = {
           ltex = {
-            -- checkFrequency = "save",
+            checkFrequency = "save",
             sentenceCacheSize = 10000,
             -- checkFrequency = "save",
           },

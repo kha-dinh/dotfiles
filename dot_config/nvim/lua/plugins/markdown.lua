@@ -3,6 +3,42 @@ return {
     "dhruvasagar/vim-table-mode",
   },
   {
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    config = function()
+      require("peek").setup({
+        auto_load = true, -- whether to automatically load preview when
+        -- entering another markdown buffer
+        close_on_bdelete = false, -- close preview window on buffer delete
+
+        syntax = true, -- enable syntax highlighting, affects performance
+
+        theme = "light", -- 'dark' or 'light'
+
+        update_on_change = true,
+
+        app = "webview", -- 'webview', 'browser', string or a table of strings
+        -- explained below
+
+        filetype = { "markdown" }, -- list of filetypes to recognize as markdown
+
+        -- relevant if update_on_change is true
+        throttle_at = 200000, -- start throttling when file exceeds this
+        -- amount of bytes in size
+        throttle_time = "auto", -- minimum amount of time in milliseconds
+        -- that has to pass before starting new render
+      })
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    end,
+
+    keys = {
+      -- suggested keymap
+      { "<leader>po", "<cmd>PeekOpen<cr>", desc = "Preview markdown" },
+    },
+  },
+  {
     "tadmccorkle/markdown.nvim",
     ft = "markdown", -- or 'event = "VeryLazy"'
     opts = {
@@ -162,13 +198,17 @@ return {
   --     })
   --   end,
   -- },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   event = "BufRead",
-  --   build = function()
-  --     vim.fn["mkdp#util#install"]()
-  --   end,
-  -- },
+  {
+    "iamcco/markdown-preview.nvim",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+      vim.g.mkdp_auto_close = 0
+    end,
+    -- event = "BufRead",
+    -- build = function()
+    --   vim.fn["mkdp#util#install"]()
+    -- end,
+  },
   -- {
   --   "preservim/vim-markdown",
   --   dependencies = { "godlygeek/tabular" },
