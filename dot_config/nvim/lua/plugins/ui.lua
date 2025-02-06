@@ -320,7 +320,7 @@ return {
     },
     keys = {
       {
-        "<C-j>",
+        "<leader>j",
         function()
           require("dropbar.api").pick()
         end,

@@ -139,10 +139,10 @@ return {
         --   },
         -- },
         texlab = {
-          -- on_attach = function(_, _)
-          --   vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
-          --   vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
-          -- end,
+          on_attach = function(_, _)
+            vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
+            vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
+          end,
           settings = {
             texlab = {
               forwardSearch = {
@@ -220,26 +220,26 @@ return {
     },
   },
   {
-    -- Dictionaries
-    -- "barreiroleo/ltex_extra.nvim",
-    -- ft = { "markdown", "tex" },
-    -- dependencies = { "neovim/nvim-lspconfig" },
-    -- opts = {
-    --   {},
-    --   server_opts = {
-    --     capabilities = {},
-    --     on_attach = function(client, bufnr)
-    --       -- your on_attach process
-    --     end,
-    --     settings = {
-    --       ltex = {
-    --         -- checkFrequency = "save",
-    --         sentenceCacheSize = 10000,
-    --         -- checkFrequency = "save",
-    --       },
-    --     },
-    --   },
-    -- },
+    -- ltex_extra to support dictionaries
+    "barreiroleo/ltex_extra.nvim",
+    ft = { "markdown", "tex" },
+    dependencies = { "neovim/nvim-lspconfig" },
+    opts = {
+      {},
+      server_opts = {
+        capabilities = {},
+        on_attach = function(client, bufnr)
+          -- your on_attach process
+        end,
+        settings = {
+          ltex = {
+            checkFrequency = "save",
+            sentenceCacheSize = 10000,
+            -- checkFrequency = "save",
+          },
+        },
+      },
+    },
     -- yes, you can use the opts field, just I'm showing the setup explicitly
 
     -- config = function()

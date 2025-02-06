@@ -4,20 +4,20 @@ package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/shar
 return {
 
   {
-    "3rd/image.nvim",
-    opts = {
-      -- backend = "ueberzug",
-      backend = "kitty",
-    },
-    integrations = {
-      markdown = {
-        enabled = true,
-        clear_in_insert_mode = true,
-        download_remote_images = true,
-        only_render_image_at_cursor = false,
-        filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
-      },
-    },
+    -- "3rd/image.nvim",
+    -- opts = {
+    --   -- backend = "ueberzug",
+    --   backend = "kitty",
+    -- },
+    -- integrations = {
+    --   markdown = {
+    --     enabled = true,
+    --     clear_in_insert_mode = true,
+    --     download_remote_images = true,
+    --     only_render_image_at_cursor = false,
+    --     filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+    --   },
+    -- },
   },
   -- {
   --   "vhyrro/luarocks.nvim",
