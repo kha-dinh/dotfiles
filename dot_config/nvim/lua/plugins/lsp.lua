@@ -228,7 +228,7 @@ return {
     },
   },
   {
-    -- Dictionaries
+    -- ltex_extra to support dictionaries
     "barreiroleo/ltex_extra.nvim",
     ft = { "markdown", "tex" },
     dependencies = { "neovim/nvim-lspconfig" },
