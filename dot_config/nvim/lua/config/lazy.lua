@@ -51,7 +51,6 @@ require("lazy").setup({
     },
   },
 })
-
 local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
 
