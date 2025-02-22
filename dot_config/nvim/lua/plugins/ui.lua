@@ -256,25 +256,28 @@ return {
   --     return opts
   --   end,
   -- },
-  -- -- {
-  -- --   "nvim-lualine/lualine.nvim",
-  -- --   event = "VeryLazy",
-  -- --   dependencies = { "echasnovski/mini.nvim" },
-  -- --   opts = function(_, opts)
-  -- --     -- local function lspstatus(_, msg, info)
-  -- --     --   -- local active_clients = vim.lsp.get_client_by_id(info.client_id).name
-  -- --     --   local active_clients = info
-  -- --     --   -- for c in vim.lsp.get_active_clients() do
-  -- --     --   --   print(c.config.name)
-  -- --     --   --   active_clients = c.config.name .. "test"
-  -- --     --   -- end
-  -- --     --   return active_clients
-  -- --     -- end
-  -- --     table.insert(opts.sections.lualine_x, { "filetype" })
-  -- --
-  -- --     -- table.insert(opts.sections.lualine_x, { lspstatus })
-  -- --   end,
-  -- -- },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      -- local function lspstatus(_, msg, info)
+      --   -- local active_clients = vim.lsp.get_client_by_id(info.client_id).name
+      --   local active_clients = info
+      --   -- for c in vim.lsp.get_active_clients() do
+      --   --   print(c.config.name)
+      --   --   active_clients = c.config.name .. "test"
+      --   -- end
+      --   return active_clients
+      -- end
+      local function getWords()
+        return "W: " .. tostring(vim.fn.wordcount().words)
+      end
+      table.insert(opts.sections.lualine_x, { "filetype" })
+      table.insert(opts.sections.lualine_x, { getWords })
+
+      -- table.insert(opts.sections.lualine_x, { lspstatus })
+    end,
+  },
   -- -- {
   -- --   "m4xshen/smartcolumn.nvim",
   -- --   opts = {},
