@@ -23,36 +23,36 @@ return {
           wk.register(keymaps)
         end,
       },
-      {
-        "nvim-neo-tree/neo-tree.nvim",
-        event = "VeryLazy",
-        dependencies = {
-          {
-            "idanarye/neo-tree-zk.nvim",
-            branch = "fix-modified_buffers_changes-to-opened_buffers_changed",
-          },
-          -- "prncss-xyz/neo-tree-zk.nvim",
-          "zk-org/zk-nvim",
-        },
-        opts = function(_, opts)
-          -- opts.zk = {
-          --   follow_current_file = true,
-          --   window = {
-          --     mappings = {
-          --       ["n"] = "change_query",
-          --     },
-          --   },
-          -- }
-          vim.list_extend(opts.sources, { "zk" })
-          -- sources = {
-          --   --   -- default sources
-          --   "filesystem",
-          --   "buffers",
-          --   "git_status",
-          --   "zk",
-          -- }
-        end,
-      },
+      --   {
+      --     "nvim-neo-tree/neo-tree.nvim",
+      --     event = "VeryLazy",
+      --     dependencies = {
+      --       {
+      --         "idanarye/neo-tree-zk.nvim",
+      --         branch = "fix-modified_buffers_changes-to-opened_buffers_changed",
+      --       },
+      --       -- "prncss-xyz/neo-tree-zk.nvim",
+      --       "zk-org/zk-nvim",
+      --     },
+      --     opts = function(_, opts)
+      --       -- opts.zk = {
+      --       --   follow_current_file = true,
+      --       --   window = {
+      --       --     mappings = {
+      --       --       ["n"] = "change_query",
+      --       --     },
+      --       --   },
+      --       -- }
+      --       vim.list_extend(opts.sources, { "zk" })
+      --       -- sources = {
+      --       --   --   -- default sources
+      --       --   "filesystem",
+      --       --   "buffers",
+      --       --   "git_status",
+      --       --   "zk",
+      --       -- }
+      --     end,
+      --   },
     },
     keys = {
       { "<leader>zn", "<cmd>ZkNew {title=vim.fn.input('Title: ')}<cr>", mode = "n", desc = "Create New Zk Note" },
@@ -104,7 +104,8 @@ return {
     config = function()
       local zk = require("zk")
       zk.setup({
-        picker = "telescope",
+        picker = "snacks_picker",
+        -- picker = "telescope",
         -- See Setup section below
       })
       local commands = require("zk.commands")
