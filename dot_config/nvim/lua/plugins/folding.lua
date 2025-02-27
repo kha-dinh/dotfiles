@@ -1,9 +1,9 @@
 return {
-  {
-    "chrisgrieser/nvim-origami",
-    event = "BufReadPost", -- later will not save folds
-    opts = true,
-  },
+  -- {
+  --   "chrisgrieser/nvim-origami",
+  --   event = "BufReadPost", -- later will not save folds
+  --   opts = true,
+  -- },
   -- {
   --   "kevinhwang91/nvim-ufo",
   --   dependencies = "kevinhwang91/promise-async",

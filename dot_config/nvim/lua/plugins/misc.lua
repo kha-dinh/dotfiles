@@ -1,5 +1,8 @@
 return {
   {
+    "craigmac/vim-mermaid",
+  },
+  {
     "tpope/vim-eunuch", -- UNIX file utilities like Remove, Delete
   },
   {
