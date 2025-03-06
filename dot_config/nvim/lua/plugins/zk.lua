@@ -62,6 +62,7 @@ return {
         mode = "v",
         desc = "Create New Zk from selection",
       },
+
       {
         "<leader>zz",
         "<cmd>ZkNotes {sort={'modified'}}<cr>",
@@ -75,13 +76,6 @@ return {
         desc = "List recent zk notes (random order)",
       },
       { "<leader>zt", "<cmd>ZkTags {sort={'note-count'}}<cr>", mode = "n", desc = "List Zk Tags" },
-      -- {
-      --   "<leader>zfn",
-      --   ':ZkNew {dir="fleeting", title=vim.fn.input("Title: ")} <cr>',
-      --   mode = "n",
-      --   desc = "New fleeting notes",
-      -- },
-      -- { "<leader>zfl", ':ZkNotes {hrefs={"fleeting"}} <cr>', mode = "n", desc = "List fleeting notes" },
       {
         "<leader>zdn",
         ':ZkNew {dir="daily"} <cr>',
@@ -90,13 +84,6 @@ return {
       },
       { "<leader>zdl", ':ZkNotes {hrefs={"daily"}} <cr>', mode = "n", desc = "List daily notes" },
       { "<leader>zi", ":ZkIndex <cr>", mode = "n", desc = "Reindex Zk notes" },
-      -- {
-      --   "<leader>zln",
-      --   ':ZkNew {dir="literature", title=vim.fn.input("Title: ")} <cr>',
-      --   mode = "n",
-      --   desc = "New literature notes",
-      -- },
-      -- { "<leader>zll", ':ZkNotes {hrefs={"literature"}} <cr>', mode = "n", desc = "List literature notes" },
       { "<leader>zs", ':ZkNotes {sort = {"word-count"}} <cr>', mode = "n", desc = "Find short notes " },
       { "<leader>zb", ":ZkBacklinks <cr>", mode = "n", desc = "Current note's backlinks" },
       { "<leader>ze", ":Neotree toggle zk <cr>", mode = "n", desc = "Open Zk Neotree" },

@@ -30,3 +30,22 @@ vim.api.nvim_create_autocmd("FileType", {
     --    ]])
   end,
 })
+
+-- Create an autocmd that triggers when opening markdown files
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.md",
+  callback = function()
+    local file_path = vim.fn.expand("%:p")
+    local home_dir = vim.env.ZK_NOTEBOOK_DIR
+    vim.print(file_path)
+
+    if string.find(file_path, "^" .. home_dir) then
+      local filename = vim.fn.expand("%:t:r")
+      local url = "http://localhost:5000/" .. filename
+
+      -- Choose the appropriate command based on your OS
+      -- For Linux:
+      vim.fn.jobstart({ "falkon", "-c", url })
+    end
+  end,
+})

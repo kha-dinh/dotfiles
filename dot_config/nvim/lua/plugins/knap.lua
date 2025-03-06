@@ -1,11 +1,20 @@
 return {
   {
+    -- "instant-markdown/vim-instant-markdown",
+    -- config = function()
+    --   vim.g.instant_markdown_python = 1
+    -- end,
+  },
+  {
     "frabjous/knap",
     config = function()
       local gknapsettings = {
         mdtohtml = "pandoc --filter pandoc-kroki --lua-filter $ZK_NOTEBOOK_DIR/support/backlinks.lua --defaults=$ZK_NOTEBOOK_DIR/support/pandoc.yaml $ZK_NOTEBOOK_DIR/support/metadata.yaml %srcfile% -o $ZK_NOTEBOOK_DIR/export/%outputfile%",
+        mdtopdf = "pandoc --defaults=$ZK_NOTEBOOK_DIR/support/pandoc-pdf.yaml $ZK_NOTEBOOK_DIR/support/metadata.yaml %srcfile% -o $ZK_NOTEBOOK_DIR/export/%outputfile%",
+        mdtopdfviewerlaunch = "sioyek $ZK_NOTEBOOK_DIR/export/%outputfile%",
         mdtohtmlviewerlaunch = "falkon $ZK_NOTEBOOK_DIR/export/%outputfile%",
         delay = 100,
+        mdoutputext = "pdf",
       }
       vim.g.knap_settings = gknapsettings
     end,
