@@ -174,11 +174,12 @@ colors: *macchiato
 # Font configuration
 font:
   # Normal (roman) font face
+  size: 12
   normal:
     # Font family
     #
     Default:
-      - Hack
+      - JetBrains Mono
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
