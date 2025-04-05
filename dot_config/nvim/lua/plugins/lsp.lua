@@ -138,6 +138,15 @@ return {
         --     },
         --   },
         -- },
+        harper_ls = {
+          settings = {
+            ["harper-ls"] = {
+              markdown = {
+                IgnoreLinkTitle = true,
+              },
+            },
+          },
+        },
         texlab = {
           on_attach = function(_, _)
             vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
