@@ -19,12 +19,13 @@
     "tray"
   ],
   "hyprland/workspaces": {
-    "format": "{id}: {icon}",
+    "format": "{icon} {name}",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
     "format-icons": {
       "active": "",
-      "default": ""
+      "default": "",
+      "urgent": "",
     }
   },
   "wlr/taskbar": {
@@ -46,16 +47,6 @@
       "Firefox Web Browser": "Firefox",
       "Kitty": "Terminal"
     }
-  },
-  "wlr/workspaces": {
-    "format": "{icon}",
-    "active-only": false,
-    "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
-    },
-    "on-click": "activate",
   },
   "hyprland/window": {
     "rewrite": {

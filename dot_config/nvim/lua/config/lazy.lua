@@ -196,7 +196,7 @@ vim.cmd [[ autocmd BufRead,BufNewFile *.org set filetype=org ]]
 end
 
 lspconfig.bibli_ls.setup({})
--- lspconfig.ltex_plus.setup({})
+lspconfig.ltex_plus.setup({})
 --
 
 -- Use null-ls to support image hover
