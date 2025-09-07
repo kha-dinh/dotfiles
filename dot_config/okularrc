@@ -1,11 +1,16 @@
 [Desktop Entry]
 FullScreen=false
 
+[General]
+LockSidebar=true
+ShowSidebar=true
+
 [MainWindow]
-2 screens: Height=808
-2 screens: Width=1882
-2 screens: XPosition=3842
-2 screens: YPosition=1709
+2 screens: Height=805
+2 screens: Width=1049
+2 screens: Window-Maximized=true
+2 screens: XPosition=4928
+2 screens: YPosition=1392
 :0.0 Height 1920x1080=504
 :0.0 Width 1920x1080=840
 :0.0 XPosition 1920x1080=4
@@ -39,6 +44,7 @@ DP-0 XPosition 2160x3840=1193
 DP-0 XPosition 3840x2160=1650
 DP-0 YPosition 2160x3840=2621
 DP-0 YPosition 3840x2160=48
+DP-1=DP-1\x00AND0\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
 DP-1 Height 1920x1080=328
 DP-1 Height 2560x1080=1072
 DP-1 Height 2560x1440=504
@@ -88,8 +94,6 @@ DP-4 Width 2160x3840=944
 DP-4 Window-Maximized 2160x3840=true
 DP-4 XPosition 2160x3840=1193
 DP-4 YPosition 2160x3840=989
-State=AAAA/wAAAAD9AAAAAAAAB1oAAAMSAAAABAAAAAQAAAAIAAAACPwAAAADAAAAAQAAAAEAAAAsAHEAdQBpAGMAawBBAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHICAAAAAP////8AAAAAAAAAAAAAAAIAAAABAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAAAIAAAABAAAAIgBhAG4AbgBvAHQAYQB0AGkAbwBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAA==
-ToolBarsMovable=Disabled
 eDP-1 DP-1 Height 1920x1080=504
 eDP-1 DP-1 Width 1920x1080=840
 eDP-1 DP-1 XPosition 1920x1080=4
@@ -107,23 +111,23 @@ eDP-1 YPosition 1920x1080=561
 presentationInfo=false
 
 [Recent Files]
-File1[$e]=$HOME/localhost.pdf
-File10[$e]=$HOME/mynotes/projects/v2qcb4lm.md
-File2[$e]=$HOME/Downloads/localhost.pdf
-File3[$e]=$HOME/Automatic mutability inference.pdf
-File4[$e]=$HOME/index.html.pdf
-File5[$e]=$HOME/Papers/UnsafeRust/main.pdf
-File6[$e]=$HOME/Papers/UnsafeRust/main.tex
-File7[$e]=$HOME/Downloads/clbox.pdf
-File8[$e]=$HOME/mynotes/h6c34egw.md
-File9[$e]=$HOME/mynotes/i2blyo37.md
-Name1[$e]=localhost.pdf
-Name10[$e]=v2qcb4lm.md
-Name2[$e]=localhost.pdf
-Name3[$e]=Automatic mutability inference.pdf
-Name4[$e]=index.html.pdf
-Name5[$e]=main.pdf
-Name6[$e]=main.tex
-Name7[$e]=clbox.pdf
-Name8[$e]=h6c34egw.md
-Name9[$e]=i2blyo37.md
+File1[$e]=$HOME/mynotes/2lyiy9g5.md
+File10[$e]=$HOME/1.projects/1.c2r/c2r-data/README.md
+File2[$e]=$HOME/mynotes/images/vdoc.pub_even-a-geek-can-speak-low-tech-presentation-skills-for-high-tech-people.mobi
+File3[$e]=$HOME/mynotes/projects/us-visa-sp-2025/vdoc.pub_even-a-geek-can-speak-low-tech-presentation-skills-for-high-tech-people.mobi
+File4[$e]=$HOME/Technical_Editing_Checklist.md
+File5[$e]=$HOME/1.projects/confio/notes/README.md
+File6[$e]=$HOME/1.projects/confio/notes/notes/virtio-negotiation.md
+File7[$e]=$HOME/1.projects/confio/notes/tasks/3.virtqueues.md
+File8[$e]=$HOME/mynotes/projects/conf-io/confio-notes/meetings/071525.md
+File9[$e]=$HOME/mynotes/projects/conf-io/confio-notes/meetings/072225.md
+Name1[$e]=2lyiy9g5.md
+Name10[$e]=README.md
+Name2[$e]=vdoc.pub_even-a-geek-can-speak-low-tech-presentation-skills-for-high-tech-people.mobi
+Name3[$e]=vdoc.pub_even-a-geek-can-speak-low-tech-presentation-skills-for-high-tech-people.mobi
+Name4[$e]=Technical_Editing_Checklist.md
+Name5[$e]=README.md
+Name6[$e]=virtio-negotiation.md
+Name7[$e]=3.virtqueues.md
+Name8[$e]=071525.md
+Name9[$e]=072225.md

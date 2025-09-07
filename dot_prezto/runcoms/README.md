@@ -1,34 +1,32 @@
-Configuration Files
-===================
+# Configuration Files
 
 Zsh has several system-wide and user-local configuration files.
 
 Prezto has one user-local configuration file.
 
 System-wide configuration files are installation-dependent but are installed
-in */etc* by default.
+in _/etc_ by default.
 
 User-local configuration files have the same name as their global counterparts
 but are prefixed with a dot (hidden). Zsh looks for these files in the path
 stored in the `$ZDOTDIR` environment variable. However, if said variable is
 not defined, Zsh will use the user's home directory.
 
-File Descriptions
------------------
+## File Descriptions
 
 The configuration files are read in the following order:
 
-  01. /etc/zshenv
-  02. ~/.zshenv
-  03. /etc/zprofile
-  04. ~/.zprofile
-  05. /etc/zshrc
-  06. ~/.zshrc
-  07. ~/.zpreztorc
-  08. /etc/zlogin
-  09. ~/.zlogin
-  10. ~/.zlogout
-  11. /etc/zlogout
+1.  /etc/zshenv
+2.  ~/.zshenv
+3.  /etc/zprofile
+4.  ~/.zprofile
+5.  /etc/zshrc
+6.  ~/.zshrc
+7.  ~/.zpreztorc
+8.  /etc/zlogin
+9.  ~/.zlogin
+10. ~/.zlogout
+11. /etc/zlogout
 
 ### zshenv
 
@@ -66,12 +64,11 @@ bindings. It should not change the shell environment.
 This file is sourced by login shells during logout. It should be used for
 displaying messages and the deletion of files.
 
-Authors
--------
+## Authors
 
-*The authors of these files should be contacted via the [issue tracker][4].*
+_The authors of these files should be contacted via the [issue tracker][4]._
 
-  - [Sorin Ionescu](https://github.com/sorin-ionescu)
+- [Sorin Ionescu](https://github.com/sorin-ionescu)
 
 [1]: http://www.kornshell.com
 [2]: http://en.wikipedia.org/wiki/Fortune_(Unix)
