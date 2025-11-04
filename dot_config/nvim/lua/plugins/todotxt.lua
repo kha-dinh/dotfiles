@@ -1,1 +1,62 @@
-return {}
+return {
+  -- "freitass/todo.txt-vim",
+  {
+    -- "synaptiko/xit.nvim",
+    -- config = function()
+    --   require("xit").setup()
+    -- end,
+  },
+  -- { "sadotsoy/vim-xit" },
+  -- {
+  --   "synaptiko/xit.nvim",
+  --   ft = "xit",
+  --   lazy = true,
+  --   run = function(plugin)
+  --     plugin.config()
+  --     vim.cmd([[:TSInstall! xit]])
+  --   end,
+  --   config = function()
+  --     local options = {
+  --       disable_default_highlights = false,
+  --       disable_default_mappings = true,
+  --       default_jump_group = "all", -- possible values: all, open_and_ongoing
+  --       wrap_jumps = true,
+  --     }
+  --     require("xit").setup(options)
+  --
+  --     -- Example colors: adapt them to your colorscheme
+  --     --
+  --     -- vim.api.nvim_set_hl(0, "@XitHeadline", { underline = true, bold = true })
+  --     vim.api.nvim_set_hl(0, "@XitOpenTaskMainLine", { link = "RenderMarkdownH1Fg" })
+  --     vim.api.nvim_set_hl(0, "@XitOpenCheckbox", { link = "RenderMarkdownH1Fg" })
+  --
+  --     vim.api.nvim_set_hl(0, "@XitOngoingTaskMainLine", { link = "RenderMarkdownH2Fg" })
+  --     vim.api.nvim_set_hl(0, "@XitOngoingCheckbox", { link = "RenderMarkdownH2Fg" })
+  --     -- -- Checked box
+  --     -- vim.api.nvim_set_hl(0, "@XitCheckedTaskMainLine", { link = "DiagnosticDeprecated" })
+  --     -- vim.api.nvim_set_hl(0, "@XitCheckedCheckbox", { link = "Comment" })
+  --
+  --     -- vim.api.nvim_set_hl(0, "@XitOpenCheckbox", { link = "TodoBgTEST" })
+  --
+  --     -- vim.api.nvim_set_hl(0, "@XitHeadline", { fg = "#FFD700", bold = true })
+  --     -- vim.api.nvim_set_hl(0, "@XitOpenTaskMainLine", { fg = "#FFFFFF" })
+  --     -- vim.api.nvim_set_hl(0, "@XitOpenTaskOtherLine", { fg = "#AAAAAA" })
+  --     -- vim.api.nvim_set_hl(0, "@XitOpenTaskPriority", { fg = "#FF4500", bold = true })
+  --     --
+  --     -- vim.api.nvim_set_hl(0, "@XitOngoingCheckbox", { fg = "#FFFF00" })
+  --     -- vim.api.nvim_set_hl(0, "@XitOngoingTaskMainLine", { fg = "#FFFFFF" })
+  --     -- vim.api.nvim_set_hl(0, "@XitOngoingTaskOtherLine", { fg = "#AAAAAA" })
+  --     -- vim.api.nvim_set_hl(0, "@XitOngoingTaskPriority", { fg = "#FFA500", bold = true })
+  --     --
+  --     -- vim.api.nvim_set_hl(0, "@XitCheckedCheckbox", { fg = "#00CED1" })
+  --     -- vim.api.nvim_set_hl(0, "@XitCheckedTaskMainLine", { fg = "#999999", strikethrough = true })
+  --     -- vim.api.nvim_set_hl(0, "@XitCheckedTaskOtherLine", { fg = "#666666", strikethrough = true })
+  --     -- vim.api.nvim_set_hl(0, "@XitCheckedTaskPriority", { fg = "#888888" })
+  --     --
+  --     -- vim.api.nvim_set_hl(0, "@XitObsoleteCheckbox", { fg = "#FF0000" })
+  --     -- vim.api.nvim_set_hl(0, "@XitObsoleteTaskMainLine", { fg = "#FF5555", italic = true })
+  --     -- vim.api.nvim_set_hl(0, "@XitObsoleteTaskOtherLine", { fg = "#AA4444", italic = true })
+  --     -- vim.api.nvim_set_hl(0, "@XitObsoleteTaskPriority", { fg = "#FF2222", bold = true })
+  --   end,
+  -- },
+}

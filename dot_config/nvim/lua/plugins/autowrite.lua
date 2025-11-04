@@ -1,3 +1,3 @@
 return {
-  "beauwilliams/AutoWrite.vim",
+  -- "beauwilliams/AutoWrite.vim",
 }
