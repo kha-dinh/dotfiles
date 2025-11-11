@@ -1,5 +1,17 @@
 return {
   {
+    "mason-org/mason.nvim",
+    version = "^1.0.0",
+    opts = {
+      registries = {
+        "github:nvim-java/mason-registry",
+        "github:mason-org/mason-registry",
+        "github:visimp/mason-registry",
+      },
+    },
+  },
+  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+  {
     "neovim/nvim-lspconfig",
     version = "0.1.9",
     dependencies = {
@@ -138,15 +150,15 @@ return {
         --     },
         --   },
         -- },
-        harper_ls = {
-          settings = {
-            ["harper-ls"] = {
-              markdown = {
-                IgnoreLinkTitle = true,
-              },
-            },
-          },
-        },
+        -- harper_ls = {
+        --   settings = {
+        --     ["harper-ls"] = {
+        --       markdown = {
+        --         IgnoreLinkTitle = true,
+        --       },
+        --     },
+        --   },
+        -- },
         texlab = {
           on_attach = function(_, _)
             vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")

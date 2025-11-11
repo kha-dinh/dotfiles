@@ -196,4 +196,18 @@ vim.cmd [[ autocmd BufRead,BufNewFile *.org set filetype=org ]]
 end
 
 lspconfig.bibli_ls.setup({})
--- lspconfig.ltex_plus.setup({})
+lspconfig.ltex_plus.setup({})
+--
+
+-- Use null-ls to support image hover
+local null_ls = require("null-ls")
+local image_preview = {
+  method = null_ls.methods.HOVER,
+  filetypes = { "markdown", "text" },
+  generator = {
+    fn = function()
+      require("snacks").image.hover()
+    end,
+  },
+}
+null_ls.register({ image_preview })

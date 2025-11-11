@@ -11,6 +11,10 @@ end
 local detail = false
 return {
   {
+    "benomahony/oil-git.nvim",
+    dependencies = { "stevearc/oil.nvim" },
+  },
+  {
     "stevearc/oil.nvim",
     -- event = "VeryLazy",
     opts = {

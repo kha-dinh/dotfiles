@@ -7,11 +7,15 @@ return {
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       })
+
+      opts.sources = vim.tbl_extend("force", opts.sources, {
+        name = "emoji",
+      })
     end,
 
-    --   dependencies = {
-    --     "hrsh7th/cmp-emoji",
-    --   },
+    dependencies = {
+      "hrsh7th/cmp-emoji",
+    },
     --   ---@param opts cmp.ConfigSchema
     --   opts = function(_, opts)
     --     local has_words_before = function()
