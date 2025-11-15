@@ -1,4 +1,57 @@
 return {
+  {
+    "neovim/nvim-lspconfig",
+    optional = true,
+    opts = {
+      servers = {
+        ltex_plus = {
+          settings = {
+            ltex = {
+              checkFrequency = "save",
+              --              completionEnabled = true,
+              sentenceCacheSize = 10000,
+            },
+          },
+        },
+        texlab = {
+          enabled = false,
+        },
+        -- texlab = {
+        --   keys = {
+        --     { "<Leader>K", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
+        --
+        --     { "<Leader>tf", "<cmd>LspTexlabForward<cr>" },
+        --     { "<Leader>tb", "<cmd>LspTexlabBuild<cr>" },
+        --     --           vim.keymap.set("n", "<Leader>tf", "<cmd>TexlabForward<cr>")
+        --     --           vim.keymap.set("n", "<Leader>tb", "<cmd>TexlabBuild<cr>")
+        --   },
+        --   settings = {
+        --     texlab = {
+        --       diagnostics = {
+        --         ignoredPatterns = { "Unused label", "Undefined reference" },
+        --       },
+        --       chktex = {
+        --         onOpenAndSave = true,
+        --       },
+        --
+        --       build = {
+        --         executable = "latexmk",
+        --         args = { "-interaction=nonstopmode", "-synctex=1", "%f" },
+        --         onSave = true,
+        --         -- forwardSearchAfter = true,
+        --       },
+        --       forwardSearch = {
+        --         executable = "zathura",
+        --         args = { "--synctex-forward", "%l:1:%f", "%p" },
+        --         onSave = true,
+        --       },
+        --     },
+        --   },
+        -- },
+      },
+    },
+  },
+
   -- {
   --   "mason-org/mason.nvim",
   --   -- version = "^1.0.0",
@@ -26,13 +79,13 @@ return {
   --     --   "kosayoda/nvim-lightbulb",
   --     --   dependencies = "antoinemadec/FixCursorHold.nvim",
   --     -- },
-  --     -- {
-  --     --   "f3fora/nvim-texlabconfig",
-  --     --   build = "go build",
-  --     --   config = function()
-  --     --     require("texlabconfig").setup()
-  --     --   end,
-  --     -- },
+  -- {
+  --   "f3fora/nvim-texlabconfig",
+  --   build = "go build",
+  --   config = function()
+  --     require("texlabconfig").setup()
+  --   end,
+  -- },
   --   },
   --   -- local lsp_configurations = require("lspconfig.configs")
   --   -- local util = require("lspconfig.util")
@@ -76,7 +129,7 @@ return {
   --       --     },
   --       --   },
   --       -- },
-  --       --   ltex = {lsp
+  --       --   ltex = {
   --       --     enabled = { "latex", "tex", "bib", "markdown" },
   --       --     language = "en",
   --       --     diagnosticSeverity = "information",
@@ -244,23 +297,22 @@ return {
     -- ltex_extra to support dictionaries
     "barreiroleo/ltex_extra.nvim",
     ft = { "markdown", "tex" },
-    dependencies = { "neovim/nvim-lspconfig" },
-    opts = {
-      {},
-      server_opts = {
-        capabilities = {},
-        on_attach = function(client, bufnr)
-          -- your on_attach process
-        end,
-        settings = {
-          ltex = {
-            checkFrequency = "save",
-            sentenceCacheSize = 10000,
-            -- checkFrequency = "save",
-          },
-        },
-      },
-    },
+    -- dependencies = { "neovim/nvim-lspconfig" },
+    -- opts = {
+    -- {},
+    -- server_opts = {
+    --   capabilities = {},
+    --   on_attach = function(client, bufnr)
+    --     -- your on_attach process
+    --   end,
+    --   settings = {
+    --     ltex = {
+    --       checkFrequency = "save",
+    --       sentenceCacheSize = 10000,
+    --     },
+    --   },
+    -- },
+    -- },
   },
   --   -- yes, you can use the opts field, just I'm showing the setup explicitly
   --
