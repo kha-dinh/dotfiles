@@ -106,7 +106,7 @@ return {
   -- },
 
   {
-    "preservim/vim-pencil",
+    -- "preservim/vim-pencil",
   },
   -- {
   --   "vim-pandoc/vim-pandoc",
