@@ -2,10 +2,10 @@ return {
 
   {
 
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {
-      preset = "lazy",
-    },
+    -- "MeanderingProgrammer/render-markdown.nvim",
+    -- opts = {
+    --   preset = "lazy",
+    -- },
     -- opts = {
     --   -- Maximum file size (in MB) that this plugin will attempt to render
     --   -- Any file larger than this will effectively be ignored

@@ -11,6 +11,10 @@ end
 local detail = false
 return {
   {
+    "benomahony/oil-git.nvim",
+    dependencies = { "stevearc/oil.nvim" },
+  },
+  {
     "stevearc/oil.nvim",
     -- event = "VeryLazy",
     opts = {
@@ -43,7 +47,7 @@ return {
       },
     },
     -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   },
 }

@@ -24,10 +24,10 @@ require("lazy").setup({
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
-    lazy = false,
+    -- lazy = false,
     -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
     -- have outdated releases, which may break your Neovim install.
-    version = false, -- always use the latest git commit
+    -- version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
@@ -97,103 +97,136 @@ end
 -- HACK: Copied from https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/ltex_plus.lua
 -- while waiting for full support
 
-if not configs.ltex_plus then
-  local language_id_mapping = {
-    bib = "bibtex",
-    pandoc = "markdown",
-    plaintex = "tex",
-    rnoweb = "rsweave",
-    rst = "restructuredtext",
-    tex = "latex",
-    text = "plaintext",
-  }
-
-  local function get_language_id(_, filetype)
-    return language_id_mapping[filetype] or filetype
-  end
-
-  configs.ltex_plus = {
-    default_config = {
-      cmd = { "ltex-ls-plus" },
-      filetypes = {
-        "bib",
-        "context",
-        "gitcommit",
-        "html",
-        "markdown",
-        "org",
-        "pandoc",
-        "plaintex",
-        "quarto",
-        "mail",
-        "mdx",
-        "rmd",
-        "rnoweb",
-        "rst",
-        "tex",
-        "text",
-        "typst",
-        "xhtml",
-      },
-      root_dir = function(fname)
-        return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-      end,
-      single_file_support = true,
-      get_language_id = get_language_id,
-      settings = {
-        ltex = {
-          checkFrequency = "save",
-          sentenceCacheSize = 10000,
-          enabled = {
-            "bib",
-            "context",
-            "gitcommit",
-            "html",
-            "markdown",
-            "org",
-            "pandoc",
-            "plaintex",
-            "quarto",
-            "mail",
-            "mdx",
-            "rmd",
-            "rnoweb",
-            "rst",
-            "tex",
-            "text",
-            "typst",
-            "xhtml",
-          },
-        },
-      },
-    },
-    docs = {
-      description = [=[
-https://github.com/ltex-plus/ltex-ls-plus
-
-LTeX Language Server: LSP language server for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others
-
-To install, download the latest [release](https://github.com/ltex-plus/ltex-ls-plus) and ensure `ltex-ls-plus` is on your path.
-
-This server accepts configuration via the `settings` key.
-
-```lua
-  settings = {
-    ltex = {
-      language = "en-GB",
-    },
-  },
-```
-
-To support org files or R sweave, users can define a custom filetype autocommand (or use a plugin which defines these filetypes):
-
-```lua
-vim.cmd [[ autocmd BufRead,BufNewFile *.org set filetype=org ]]
-```
-]=],
-    },
-  }
-end
+-- lspconfig.texlab.setup({
+--   settings = {
+--     texlab = {
+--       build = {
+--         args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+--         onSave = true,
+--         -- forwardSearchAfter = true,
+--       },
+--       chktex = {
+--         onOpenAndSave = true,
+--       },
+--       forwardSearch = {
+--         executable = "zathura",
+--         args = { "--synctex-forward", "%l:1:%f", "%p" },
+--         onSave = true,
+--       },
+--     },
+--   },
+-- })
+-- if not configs.ltex_plus then
+--   local language_id_mapping = {
+--     bib = "bibtex",
+--     pandoc = "markdown",
+--     plaintex = "tex",
+--     rnoweb = "rsweave",
+--     rst = "restructuredtext",
+--     tex = "latex",
+--     text = "plaintext",
+--   }
+--
+--   local function get_language_id(_, filetype)
+--     return language_id_mapping[filetype] or filetype
+--   end
+--
+--   configs.ltex_plus = {
+--     default_config = {
+--       cmd = { "ltex-ls-plus" },
+--       filetypes = {
+--         "bib",
+--         "context",
+--         "gitcommit",
+--         "html",
+--         "markdown",
+--         "org",
+--         "pandoc",
+--         "plaintex",
+--         "quarto",
+--         "mail",
+--         "mdx",
+--         "rmd",
+--         "rnoweb",
+--         "rst",
+--         "tex",
+--         "text",
+--         "typst",
+--         "xhtml",
+--       },
+--       root_dir = function(fname)
+--         return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+--       end,
+--       single_file_support = true,
+--       get_language_id = get_language_id,
+--       settings = {
+--         ltex = {
+--           checkFrequency = "save",
+--           sentenceCacheSize = 100000,
+--           enabled = {
+--             "bib",
+--             "context",
+--             "gitcommit",
+--             "html",
+--             "markdown",
+--             "org",
+--             "pandoc",
+--             "plaintex",
+--             "quarto",
+--             "mail",
+--             "mdx",
+--             "rmd",
+--             "rnoweb",
+--             "rst",
+--             "tex",
+--             "text",
+--             "typst",
+--             "xhtml",
+--           },
+--         },
+--       },
+--     },
+--     docs = {
+--       description = [=[
+-- https://github.com/ltex-plus/ltex-ls-plus
+--
+-- LTeX Language Server: LSP language server for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others
+--
+-- To install, download the latest [release](https://github.com/ltex-plus/ltex-ls-plus) and ensure `ltex-ls-plus` is on your path.
+--
+-- This server accepts configuration via the `settings` key.
+--
+-- ```lua
+--   settings = {
+--     ltex = {
+--       language = "en-GB",
+--     },
+--   },
+-- ```
+--
+-- To support org files or R sweave, users can define a custom filetype autocommand (or use a plugin which defines these filetypes):
+--
+-- ```lua
+-- vim.cmd [[ autocmd BufRead,BufNewFile *.org set filetype=org ]]
+-- ```
+-- ]=],
+--     },
+--   }
+-- end
 
 lspconfig.bibli_ls.setup({})
 -- lspconfig.ltex_plus.setup({})
+--
+
+-- Use null-ls to support image hover
+local null_ls = require("null-ls")
+local image_preview = {
+  method = null_ls.methods.HOVER,
+  filetypes = { "markdown", "text" },
+  generator = {
+    fn = function()
+      require("snacks").image.hover()
+    end,
+  },
+}
+null_ls.register({ image_preview })

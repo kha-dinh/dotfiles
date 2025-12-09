@@ -81,7 +81,6 @@ local function toggle_md_preview()
   end
 end
 
--- Create user commands
 vim.api.nvim_create_user_command("ZkPreviewEnable", enable_md_preview, {})
 vim.api.nvim_create_user_command("ZkPreviewDisable", disable_md_preview, {})
 vim.api.nvim_create_user_command("ZkPreviewToggle", toggle_md_preview, {})

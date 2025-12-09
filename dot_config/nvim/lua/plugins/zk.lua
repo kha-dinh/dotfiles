@@ -17,9 +17,9 @@ return {
         opts = function(opts)
           local wk = require("which-key")
           local keymaps = {}
-          keymaps["<leader>z"] = { name = "+zk" }
-          keymaps["<leader>zd"] = { name = "+daily" }
-          keymaps["<leader>zf"] = { name = "+fleeting" }
+          keymaps["<leader>z"] = { group = "zk" }
+          keymaps["<leader>zd"] = { group = "daily" }
+          keymaps["<leader>zf"] = { group = "fleeting" }
           wk.register(keymaps)
         end,
       },
