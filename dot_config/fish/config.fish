@@ -25,6 +25,7 @@ if status is-interactive
     fish_add_path ~/.scripts
     fish_add_path /opt/homebrew/bin
     fish_add_path /Library/TeX/texbin
+    fish_add_path /usr/local/texlive/2025/bin/x86_64-linux
 end
 
 # Created by `pipx` on 2024-06-21 12:10:51
